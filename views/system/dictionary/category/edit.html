@@ -1,0 +1,70 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left" style="font-size: 160%;color:#808080;"></span></span></span></a>
+            <button type="submit" class="btn button-orange" ng-click="submit(form)">&nbsp;<span>提交 </span></button>
+            <button type="button" class="btn button-orange" ng-click="reset(form)">&nbsp;<span>重置 </span></button>
+        </div>
+    </div>
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    {{$state.current.data.pageTitle}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.key.$touched || form.$submitted ) && form.key.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 label-offset-padding">码表类型<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="key" class="form-control" placeholder="码表类型"
+                                                   required autocomplete="off" maxlength="36" ng-model="model.key" ng-maxlength="36" ng-minlength="3"
+                                                   ng-pattern="/^[a-zA-z][a-zA-Z0-9_]{2,36}$/" ng-readonly="id" ng-disabled="id" />
+                                            <div class="help-block" ng-show="form.$submitted || form.key.$touched"
+                                                 ng-messages="form.key.$error">
+                                                <p ng-message="required">码表类型不能为空</p>
+                                                <p ng-message="minlength">码表类型不能少于3个字符</p>
+                                                <p ng-message="maxlength">码表类型不能超过36个字符</p>
+                                                <p ng-message="pattern">码表类型格式不正确，码表类型由 3-36位的字母下划线和数字组成，且只能已字母开头。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.description.$dirty || form.$submitted ) && form.description.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 label-offset-padding">描述 :</label>
+                                        <div class="col-md-8">
+                                            <textarea name="description" class="form-control" rows="3"
+                                                      ng-model="model.description" maxlength="255" ng-maxlength="255"></textarea>
+                                            <div class="help-block"
+                                                 ng-show="form.$submitted || form.description.$touched"
+                                                 ng-messages="form.description.$error">
+                                                <p ng-message="maxlength">码表类型描述不能超过255个字符</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

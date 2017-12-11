@@ -1,0 +1,102 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left" style="font-size: 160%;color:#808080;"></span></span></span></a>
+            <button type="submit" class="btn button-orange" ng-click="submit(form)">&nbsp;<span>发送</span></button>
+        </div>
+    </div>
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    {{$state.current.data.pageTitle}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+
+
+                            <div class="row">
+                                <div class="col-md-6"
+                                    ng-class="{ 'has-error' :(form.sender.$touched || form.$submitted ) && form.sender.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding ">发送人
+                                            <!--<span class="text-danger">*</span>-->
+                                            :</label>
+                                        <div class="col-md-8">
+                                            <!--<input type="text" name="name" class="form-control" placeholder="请选择"-->
+                                            <!--required maxlength="255" ng-maxlength="255" ng-model="model.name" ng-readonly="id" ng-disabled="id"/>-->
+                                            <!--<select select2 name="parentOrganizationName" data-placeholder="请输入"-->
+                                                    <!--class="form-control" ng-model="model.parentOrganizationId">-->
+                                                <!--<option ng-repeat="organization in organizationList"-->
+                                                        <!--ng-value="organization.id"-->
+                                                        <!--ng-bind="organization.organizationName">-->
+                                                <!--</option>-->
+                                            <!--</select>-->
+                                            <input type="text" name="sender" class="form-control" placeholder="请输入"
+                                                   required maxlength="255" ng-maxlength="255" ng-model="model.parentOrganizationIdo"/>
+                                            <div class="help-block" ng-show="form.$submitted || form.sender.$touched"
+                                            ng-messages="form.sender.$error">
+                                            <p ng-message="required">发送人不能为空</p>
+                                            <p ng-message="maxlength">发送人不能超过255字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12"
+                                    ng-class="{ 'has-error' :(form.title.$touched || form.$submitted ) && form.title.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 label-offset-padding">站内信标题
+                                            <!--<span class="text-danger">*</span>-->
+                                            :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="title" class="form-control" placeholder="请输入"
+                                                   required maxlength="255" ng-maxlength="255" ng-model="model.title"/>
+                                            <div class="help-block" ng-show="form.$submitted || form.title.$touched"
+                                            ng-messages="form.title.$error">
+                                            <p ng-message="required">站内信标题不能为空</p>
+                                            <p ng-message="maxlength">站内信标题不能超过255字符</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-12"
+                                    ng-class="{ 'has-error' :(form.text.$dirty || form.$submitted ) && form.text.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 label-offset-padding">站内信内容 :</label>
+                                        <div class="col-md-8">
+                                            <textarea name="text" class="form-control" rows="3" placeholder="请输入"
+                                                      maxlength="255" ng-maxlength="255" ng-model="model.text"></textarea>
+                                            <div class="help-block"
+                                            ng-show="form.$submitted || form.text.$touched"
+                                            ng-messages="form.text.$error">
+                                            <p ng-message="maxlength">站内信不能超过255个字符</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

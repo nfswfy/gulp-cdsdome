@@ -1,0 +1,70 @@
+<div style="padding-bottom: 20px;">
+    <div ng-show="!half" class="tab-panel form panel-height" style="margin-top: 16px">
+        <div class="row tab-panel-content" style="margin-left: 8px;margin-right: 8px" ng-repeat="row in rows">
+            <div class="col-md-1">
+                <img src="{{row[barconfig.imageUrl]}}">
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="pull-left"  ng-click="clickOne(row,barconfig)" style="font-size: 14px;margin-top: 10px">
+                        {{row[barconfig.title]}}
+                    </div>
+                    <div class="pull-right" style="margin-top: 5px;margin-right: -40px">
+                        <div data-ng-include="barconfig.btnTemplateUrl"></div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 8px;font-size: 10px;color: #9d9d9d">
+                    {{row[barconfig.detail]}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="half" class="tab-panel form panel-height" style="margin-top: 16px">
+        <div class="row" style="margin-left: 8px;margin-right: 8px">
+            <div class="col-md-6 tab-panel-content" style="" ng-repeat="row in rows">
+                <div class="col-md-2">
+                    <img src="{{row[barconfig.imageUrl]}}">
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div  ng-click="clickOne(row,barconfig)" style="font-size: 14px;margin-top: 10px">
+                            {{row[barconfig.title]}}
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 8px;font-size: 10px;color: #9d9d9d">
+                        {{row[barconfig.detail]}}
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div data-ng-include="barconfig.btnTemplateUrl"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="!notpageable" style="margin-top: 20px">
+        <div style="padding-bottom: 36px;float:right">
+                <span style="float:right">前往 &nbsp;<input type="number" ng-model="pageable.number1"
+                                                          style="width:40px;height:29px;text-align: center;border:1px solid #D3DCE6;"/>&nbsp; 页</span>
+            <uib-pagination style="float:right;margin-right:10px"
+                            total-items="pageable.totalElements"
+                            ng-model="pageable.number"
+                            items-per-page="pageable.size"
+                            max-size="5"
+                            class=" table-pagination">
+            </uib-pagination>
+            <span style="float:right">共 {{pageable.totalElements}} 条 &nbsp;
+                <select class="select-list-arrow" data-ng-model="pageable.size" convert-to-number
+                        style="margin-right:10px;border: 1px solid #D3DCE6;border-radius: 2px!important;">
+                    <option value="3" selected="selected">3条/页</option>
+                    <option value="6">6条/页</option>
+                    <option value="10">10条/页</option>
+                </select>
+            </span>
+            <button ng-show="false" style="float:right" class="btn blue" id="goPage" ng-click="getPage()">
+                <span>跳页</span></button>
+        </div>
+    </div>
+</div>

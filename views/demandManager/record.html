@@ -1,0 +1,114 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left"
+                                                                        style="font-size: 160%;color:#808080;"></span>
+                </a>
+                <button type="button" class="btn button-orange button-offset-margin" ng-click="create()">
+                    <span>新建 </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    沟通记录
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <ng-table
+                columns="columns"
+                sort="sort"
+                order="order"
+                pageable="pageable"
+                rows="rows"
+                notpageable="notpageable">
+        </ng-table>
+    </div>
+</div>
+
+<script type="text/ng-template" id="create.html">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="btn_ok()" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <h5 class="modal-title">沟通记录</h5>
+    </div>
+    <form name="form" class="form-horizontal" id="operations" novalidate>
+        <div class="form-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <div class="form-group"
+                             ng-class="{ 'has-error' :(form.$submitted )}">
+                            <label class="control-label col-md-4 label-offset-padding">沟通方式 :</label>
+                            <div class="col-md-8">
+                                <select class="form-control form-control-inline"
+                                        ng-model="condition.defeatReason" name="defeatReason" select2
+                                        data-placeholder="请选择">
+                                    <option value="1">电话</option>
+                                    <option value="2">站内信</option>
+                                    <option value="3">邮件</option>
+                                    <option value="4">短信</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"
+                         ng-class="{ 'has-error' :(form.executionStartTime.$touched || form.$submitted ) &amp;&amp; form.executionStartTime.$invalid}">
+                        <div class="form-group">
+                            <label class="control-label col-md-3 label-offset-padding">沟通日期 :</label>
+                            <div class="col-md-7">
+                                <div date-time-append="" class="input-group  pull-left">
+                                    <input name="executionStartTime"
+                                           class="form-control ng-pristine ng-untouched ng-valid ng-scope ng-valid-required"
+                                           required="" autocomplete="off"
+                                           ng-model="model.executionStartTime" date-time="" max-view="year"
+                                           min-view="minutes" format="YYYY-MM-DD HH:mm" auto-close="true">
+                                    <span class="input-group-btn">
+                                                    <button class="btn default"
+                                                            style="border-radius: 0 5px 5px 0 !important;padding-top:9px;"
+                                                            type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group"
+                         ng-class="{ 'has-error' :(form.defeatDescription.$touched || form.$submitted ) && form.defeatDescription.$invalid}">
+                        <label class="control-label col-md-2 label-offset-padding">沟通内容 :</label>
+                        <div class="col-md-9">
+                                <textarea name="defeatDescription" class="form-control" placeholder="沟通内容"
+                                          required autocomplete="off" maxlength="300" ng-maxlength="300"
+                                          ng-model="model.defeatDescription"/>
+                            <div class="help-block" ng-show="form.$submitted || form.defeatDescription.$touched"
+                                 ng-messages="form.defeatDescription.$error">
+                                <p ng-message="required">沟通内容不能为空</p>
+                                <p ng-message="maxlength">沟通内容不能大于300个字符</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="modal-footer">
+        <button type="submit" class="btn button-orange" ng-click="btn_ok(form)">
+            <i class="fa fa-check"></i>&nbsp;<span>确定 </span>
+        </button>
+        <button type="button" class="btn button-orange" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>取消 </span>
+        </button>
+    </div>
+</script>
+<!-- END Portlet PORTLET-->

@@ -1,0 +1,61 @@
+<script type="text/ng-template" id="operation.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'view')"> 查看 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'edit')"> 编辑 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'delete')"> 删除 &nbsp;</a>
+        </div>
+    </div>
+
+</script>
+<script type="text/ng-template" id="menuTitle.html">
+    <a href="javascript:void(0)" data-ng-click="onActionClick(row,'viewChildrenMenu')" ng-bind="row.title"></a>
+</script>
+<script type="text/ng-template" id="menuParent.html">
+    <span ng-show="!row.parentTitle">根菜单</span>
+    <span ng-show="row.parentTitle">{{row.parentTitle}}</span>
+</script>
+<script type="text/ng-template" id="menuClass.html">
+    <span>
+        <i class="{{row.className}}"></i>
+        &nbsp;
+        <span ng-bind="row.className"></span>
+    </span>
+</script>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="dropdown  btn-group pull-left ">
+                    <button type="button" class="btn blue" ng-show="backButtonShow" ng-click="back(backParentMenuId)">
+                        <i class="fa fa-mail-reply"></i>&nbsp;<span>返回上一级 </span>
+                    </button>
+                    <button type="button" class="btn button-orange button-offset-margin" ng-click="create()">
+                        <span>新增 </span>
+                    </button>
+                </div>
+                <div class="pull-right">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-inline " autocomplete="off" ng-model="condition.query"
+                                   placeholder="请输入菜单标题"/>
+                        </div>
+                        <button type="button" class="btn button-orange button-offset-margin" ng-click="search()">
+                            &nbsp;<span>查询 </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <ng-table
+                columns="columns"
+                sort="sort"
+                order="order"
+                pageable="pageable"
+                rows="rows"
+                notpageable="notpageable">
+        </ng-table>
+    </div>
+</div>
+
+<!-- END Portlet PORTLET-->

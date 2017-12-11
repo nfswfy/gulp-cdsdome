@@ -1,0 +1,69 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left" style="font-size: 160%;color:#808080;"></span></span></span></a>
+            <button type="submit" class="btn button-orange" ng-click="submit(form)">&nbsp;<span>提交 </span></button>
+            <button type="button" class="btn button-orange" ng-click="reset(form)">&nbsp;<span>重置 </span></button>
+        </div>
+    </div>
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    {{$state.current.data.pageTitle}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 label-offset-padding ">角色名称<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="name" class="form-control" placeholder="角色名称"
+                                                   required maxlength="255" ng-maxlength="255" ng-model="model.name" ng-readonly="id" ng-disabled="id"/>
+                                            <div class="help-block" ng-show="form.$submitted || form.name.$touched"
+                                                 ng-messages="form.name.$error">
+                                                <p ng-message="required">角色名称不能为空</p>
+                                                <p ng-message="maxlength">角色名称不能超过255字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.description.$touched || form.$submitted ) && form.description.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 label-offset-padding">角色描述<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="description" class="form-control" placeholder="角色描述"
+                                                   required maxlength="255" ng-maxlength="255" ng-model="model.description"/>
+                                            <div class="help-block" ng-show="form.$submitted || form.description.$touched"
+                                                 ng-messages="form.description.$error">
+                                                <p ng-message="required">角色描述不能为空</p>
+                                                <p ng-message="maxlength">角色描述不能超过255字符</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

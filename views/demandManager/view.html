@@ -1,0 +1,553 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left"
+                                                                    style="font-size: 160%;color:#808080;"></span>
+            </a>
+            <button type="button" class="btn button-orange button-offset-margin" ng-click="intimidate()">
+                <span>打单 </span>
+            </button>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-md-12" style="margin-left:25px">
+            <ul id="view" class="nav nav-pills">
+                <li class="active"><a href="#demand" data-toggle="tab">原始需求</a></li>
+                <li><a href="#deamndSupplement" data-toggle="tab">需求完善</a></li>
+                <li><a href="#communicationRecord" data-toggle="tab">沟通记录</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="tabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="demand">
+            <div class="panel-heading">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <div class="one-border">
+                            基本信息
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <!-- BEGIN FORM-->
+                            <form name="form" class="form-horizontal" novalidate>
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">需求号 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.orderNumber"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">客户类型 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.customerType"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">联系人 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.name"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">电话 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.phone"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">行业 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.industry"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">领域 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.field"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">需求类型 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.orderType"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">合作方式 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.cooperation"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">预计项目金额 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.estimatedRangeOfItems"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">预计开始时间 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.expectedStartTime"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">需求简述 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.orderBrief"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">需求详情 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.orderDetail"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">附件（doc文件） :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.orderDetail"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-heading">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <div class="one-border">
+                            需求补充
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <!-- BEGIN FORM-->
+                            <form name="form" class="form-horizontal" novalidate>
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="deamndSupplement">
+            <div class="panel-heading">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <div class="one-border">
+                            基本信息
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <!-- BEGIN FORM-->
+                            <form name="form" class="form-horizontal" novalidate>
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">需求号 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.orderNumber"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">来源 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.orderSource"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">客户类型 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.customerType"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">联系人 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.name"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">电话 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.phone"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">行业 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.industry"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">领域 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.field"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">需求类型 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.orderType"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">合作方式 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.cooperation"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">预计项目金额 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.estimatedRangeOfItems"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">预计开始时间 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.expectedStartTime"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">需求简述 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.orderBrief"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">需求详情 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.orderDetail"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">需求补充 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.orderDetail"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">需求标签 :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.orderDetail"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3 label-title">附件（doc文件） :</label>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="col-md-12 col-md-offset-3" ng-bind="model.orderDetail"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="communicationRecord">
+            <div class="panel-heading">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <div class="one-border">
+                            沟通记录
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <ng-table
+                        columns="columns"
+                        sort="sort"
+                        order="order"
+                        pageable="pageable"
+                        rows="rows"
+                        notpageable="notpageable">
+                </ng-table>
+            </div>
+        </div>
+    </div>
+
+</div>

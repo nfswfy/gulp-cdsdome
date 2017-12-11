@@ -1,0 +1,649 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left" style="font-size: 160%;color:#808080;"></span></span></span></a>
+            <button type="button" class="btn button-orange" ng-click="submit(form)">&nbsp;<span>保存 </span></button>
+            <button type="button" class="btn button-orange" ng-click="reset(form)">&nbsp;<span>重置 </span></button>
+        </div>
+    </div>
+    <div class="panel-body margin-edit">
+        <ul id="company" class="nav nav-pills nav-border-list" style="margin-right: 0">
+            <li class="active"><a href="#information" data-toggle="tab">基本信息</a></li>
+            <li><a href="#certification" data-toggle="tab">资质认证</a></li>
+        </ul>
+        <div id="TabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="information">
+                <form name="form" class="form-horizontal" novalidate>
+                    <div class="portlet light bordered" style="margin-top: 20px;">
+                        <div class="portlet-body form" style="display: block;">
+                            <!-- BEGIN FORM-->
+                                <div class="form-body">
+                                    <div class="half-page eidt-pull-left">
+                                        <div class="row">
+                                            <div class="col-md-12"
+                                                 ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 label-offset-padding">企业名称<span
+                                                            class="text-danger">*</span> :</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" name="name" class="form-control" placeholder="企业名称"
+                                                                autocomplete="off" maxlength="36" ng-model="model.name" ng-maxlength="36" ng-minlength="3"/>
+                                                        <div class="help-block" ng-show="form.$submitted || form.name.$touched"
+                                                             ng-messages="form.name.$error">
+                                                            <p ng-message="">企业名称不能为空</p>
+                                                            <p ng-message="maxlength">企业名称不能超过36个字符</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12"
+                                                 ng-class="{ 'has-error' :(form.nationCode.$dirty || form.$submitted ) && form.nationCode.$invalid}">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 label-offset-padding">国家 :</label>
+                                                    <div class="col-md-3">
+                                                        <div class="input-group col-md-12" style="width: 120%">
+                                                            <select name="nationCode" class="form-control form-control-inline" style="width: 150px;" ng-model="model.nationCode" name="nationCode" select2 data-placeholder="请选择">
+                                                                <option ng-repeat="code in nationCode"
+                                                                        value="{{code.key}}"
+                                                                        ng-bind="code.text"></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <label class="control-label col-md-1 label-offset-padding" style="padding: 0;text-align: center;margin-left: 5.8%">省份 :</label>
+                                                    <div class="input-group col-md-3">
+                                                        <select class="form-control form-control-inline" style="width: 150px;" ng-model="model.provinceCode" name="provinceCode" select2 data-placeholder="请选择">
+                                                            <option ng-repeat="code in provinceCode"
+                                                                    value="{{code.key}}"
+                                                                    ng-bind="code.text"></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12"
+                                                 ng-class="{ 'has-error' :(form.cityCode.$dirty || form.$submitted ) && form.cityCode.$invalid}">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 label-offset-padding">城市 :</label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control form-control-inline" style="width: 150px;" ng-model="model.cityCode" name="cityCode" select2 data-placeholder="请选择">
+                                                            <option ng-repeat="code in cityCode"
+                                                                    value="{{code.key}}"
+                                                                    ng-bind="code.text"></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12"
+                                                 ng-class="{ 'has-error' :(form.registeredAddress.$touched || form.$submitted ) && form.registeredAddress.$invalid}">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 label-offset-padding">公司注册地址 :</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" name="registeredAddress" class="form-control" placeholder="公司注册地址"
+                                                                autocomplete="off" maxlength="36" ng-model="model.registeredAddress" ng-maxlength="36" ng-minlength="3"/>
+                                                        <div class="help-block" ng-show="form.$submitted || form.registeredAddress.$touched"
+                                                             ng-messages="form.registeredAddress.$error">
+                                                            <p ng-message="maxlength">公司注册地址不能超过36个字符</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12"
+                                                 ng-class="{ 'has-error' :(form.homepageUrl.$touched || form.$submitted ) && form.homepageUrl.$invalid}">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 label-offset-padding">公司主页 :</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" name="homepageUrl" class="form-control" placeholder="公司主页"
+                                                                autocomplete="off" maxlength="36" ng-model="model.homepageUrl" ng-maxlength="36" ng-minlength="3"/>
+                                                        <div class="help-block" ng-show="form.$submitted || form.homepageUrl.$touched"
+                                                             ng-messages="form.homepageUrl.$error">
+                                                            <p ng-message="maxlength">公司主页不能超过36个字符</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="half-page eidt-pull-right">
+                                        <div class="row">
+                                            <div class="col-md-12"
+                                                 ng-class="{ 'has-error' :(form.logo.$touched || form.$submitted ) && form.logo.$invalid}">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 label-offset-padding">企业LOGO :</label>
+                                                    <div class="col-md-8">
+                                                        <div class="logo-box">
+                                                            <span>点击上传</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12"
+                                                 ng-class="{ 'has-error' :(form.enterpriseProfiles.$dirty || form.$submitted ) && form.enterpriseProfiles.$invalid}">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 label-offset-padding">公司简介 :</label>
+                                                    <div class="col-md-8">
+                                                    <textarea name="enterpriseProfiles" class="form-control" rows="3"
+                                                              ng-model="model.enterpriseProfiles" maxlength="255" ng-maxlength="255"></textarea>
+                                                        <div class="help-block"
+                                                             ng-show="form.$submitted || form.enterpriseProfiles.$touched"
+                                                             ng-messages="form.enterpriseProfiles.$error">
+                                                            <p ng-message="maxlength">公司简介不能超过255个字符</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12"
+                                                 ng-class="{ 'has-error' :(form.tel.$touched || form.$submitted ) && form.tel.$invalid}">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 label-offset-padding">企业电话 :</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" name="tel" class="form-control" placeholder="企业电话"
+                                                                autocomplete="off" maxlength="36" ng-model="model.tel" ng-maxlength="36" ng-minlength="3"/>
+                                                        <div class="help-block" ng-show="form.$submitted || form.tel.$touched"
+                                                             ng-messages="form.tel.$error">
+                                                            <p ng-message="maxlength">企业电话不能超过36个字符</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <!-- END FORM-->
+                        </div>
+                        <div style="clear:both">
+                        </div>
+                    </div>
+                    <div class="panel-heading" style="margin-left: -20px;margin-top: 10px;">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <div class="one-border">
+                                    企业联系人
+                                </div>
+                            </div>
+                            <button type="submit" class="btn plus-btn pull-right" style="margin-right:-15px;" ng-click="submit(form)"><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <!-- BEGIN FORM-->
+                            <div class="form-body">
+                                <div class="half-page eidt-pull-left">
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">姓名<span
+                                                        class="text-danger">*</span> :</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="name" class="form-control" placeholder="姓名"
+                                                            maxlength="50" ng-maxlength="50" ng-model="model.contactList[0].name"/>
+                                                    <div class="help-block" ng-show="form.$submitted || form.name.$touched"
+                                                         ng-messages="form.name.$error">
+                                                        <p ng-message="maxlength">姓名长度不能超过50字符 </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.mobile.$touched || form.$submitted ) && form.mobile.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">手机号<span
+                                                        class="text-danger">*</span> :</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="mobile" class="form-control" placeholder="手机号"
+                                                            maxlength="50" ng-maxlength="50" ng-model="model.contactList[0].mobile"/>
+                                                    <div class="help-block" ng-show="form.$submitted || form.mobile.$touched"
+                                                         ng-messages="form.mobile.$error">
+                                                        <p ng-message="maxlength">手机号长度不能超过50字符 </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.duties.$touched || form.$submitted ) && form.duties.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">职务<span
+                                                        class="text-danger">*</span> :</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="duties" class="form-control" placeholder="职务"
+                                                           maxlength="50" ng-maxlength="50" ng-model="model.contactList[0].duties"/>
+                                                    <div class="help-block" ng-show="form.$submitted || form.duties.$touched"
+                                                         ng-messages="form.duties.$error">
+                                                        <p ng-message="maxlength">职务长度不能超过50字符 </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END FORM-->
+                        </div>
+                        <div style="clear:both">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="certification">
+                <form name="form" class="form-horizontal" novalidate>
+                    <div class="portlet light  bordered"  style="margin-top: 20px;">
+                        <div class="portlet-body form" style="display: block;">
+                            <!-- BEGIN FORM-->
+                            <div class="form-body">
+                                <div class="half-page eidt-pull-left">
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.enterpriseNatureCode.$touched || form.$submitted ) && form.enterpriseNatureCode.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">企业性质<span
+                                                        class="text-danger">*</span> :</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" name="enterpriseNatureCode" class="form-control" placeholder="企业性质"
+                                                           autocomplete="off" maxlength="36" ng-model="model.enterpriseNatureCode" ng-maxlength="36" ng-minlength="3"/>
+                                                    <div class="help-block" ng-show="form.$submitted || form.enterpriseNatureCode.$touched"
+                                                         ng-messages="form.enterpriseNatureCode.$error">
+                                                        <p ng-message="">企业性质不能为空</p>
+                                                        <p ng-message="maxlength">企业性质不能超过36个字符</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.description.$dirty || form.$submitted ) && form.description.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">公司规模 :</label>
+                                                <div class="col-md-8">
+                                                    <select class="form-control form-control-inline" style="width: 150px;" ng-model="model.approveStep" name="companySizeCode" select2 data-placeholder="请选择">
+                                                        <option value="<100" selected="selected">1人-100人</option>
+                                                        <option value="<300">100人-300人</option>
+                                                        <option value="<600">300人-600人</option>
+                                                        <option value="<900">600人-900人</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.description.$dirty || form.$submitted ) && form.description.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">企业注册资本 :</label>
+                                                <div class="col-md-8">
+                                                    <select class="form-control form-control-inline" style="width: 150px;" ng-model="model.registeredCapital" name="registeredCapital" select2 data-placeholder="请选择">
+                                                        <option value="<100" selected="selected">100亿</option>
+                                                        <option value="<300">200亿</option>
+                                                        <option value="<600">300亿</option>
+                                                        <option value="<900">400亿</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.organizationCodeCertificate.$touched || form.$submitted ) && form.organizationCodeCertificate.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">组织机构代码证 :</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" name="organizationCodeCertificate" class="form-control" placeholder="组织机构代码证"
+                                                           autocomplete="off" maxlength="36" ng-model="model.organizationCodeCertificate" ng-maxlength="36" ng-minlength="3"/>
+                                                    <div class="help-block" ng-show="form.$submitted || form.organizationCodeCertificate.$touched"
+                                                         ng-messages="form.organizationCodeCertificate.$error">
+                                                        <!--<p ng-message="">组织机构代码证不能为空</p>-->
+                                                        <!--<p ng-message="maxlength">组织机构代码证不能超过36个字符</p>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.startEffectiveTime.$touched || form.$submitted ) &amp;&amp; form.startEffectiveTime.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">代码证有效日期 :</label>
+                                                <div class="col-md-8">
+                                                    <div date-time-append="" class="input-group col-md-5 pull-left">
+                                                        <!--<input name="startEffectiveTime"-->
+                                                        <!--class="form-control ng-pristine ng-untouched ng-valid ng-scope ng-valid-"-->
+                                                        <!--="" autocomplete="off"-->
+                                                        <!--ng-model="model.startEffectiveTime" date-time="" max-view="year"-->
+                                                        <!--min-view="minutes" format="YYYY-MM-DD HH:mm" auto-close="true">-->
+                                                        <span class="input-group-btn">
+                                                            <button class="btn default" style="border-radius: 0 5px 5px 0 !important;padding-top:9px;" type="button">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-md-2" style="padding-left:6%;padding-top: 7px;"><span>至</span></div>
+                                                    <div date-time-append="" class="input-group col-md-5 pull-right">
+                                                        <!--<input name="endEffectiveTime"-->
+                                                        <!--class="form-control ng-pristine ng-untouched ng-scope ng-invalid ng-invalid-validator ng-valid-"-->
+                                                        <!--="" autocomplete="off" ng-model="model.endEffectiveTime"-->
+                                                        <!--date-time="" max-view="year" min-view="minutes"-->
+                                                        <!--format="YYYY-MM-DD HH:mm" auto-close="true" ng-disabled="!model.startEffectiveTime"-->
+                                                        <!--ui-validate="'model.endEffectiveTime > model.startEffectiveTime'"-->
+                                                        <!--ui-validate-async="'model.endEffectiveTime'">-->
+                                                        <span class="input-group-btn">
+                                                            <button class="btn default" style="border-radius: 0 5px 5px 0 !important;padding-top:9px;" type="button">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </button>
+                                                        </span>
+                                                    </div>
+                                                    <div class="help-block ng-active ng-hide" style="padding-top: 34px"
+                                                         ng-show="form.$submitted || form.endEffectiveTime.$touched"
+                                                         ng-messages="form.endEffectiveTime.$error">
+                                                        <!-- ngMessage:  -->
+                                                        <!-- ngMessage: validator -->
+                                                        <p ng-message="validator" class="ng-scope">代码证有效日期结束时间大于活动开始时间</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.businessScope.$dirty || form.$submitted ) && form.businessScope.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">企业业务范围 :</label>
+                                                <div class="col-md-8">
+                                                    <textarea name="businessScope" class="form-control" rows="3"
+                                                              ng-model="model.businessScope" maxlength="255" ng-maxlength="255"></textarea>
+                                                    <div class="help-block"
+                                                         ng-show="form.$submitted || form.businessScope.$touched"
+                                                         ng-messages="form.businessScope.$error">
+                                                        <p ng-message="maxlength">企业业务范围不能超过255个字符</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.registeredAddress.$touched || form.$submitted ) && form.registeredAddress.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">公司注册地址 :</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" name="registeredAddress" class="form-control" placeholder="公司注册地址"
+                                                           autocomplete="off" maxlength="36" ng-model="model.registeredAddress" ng-maxlength="36" ng-minlength="3"/>
+                                                    <div class="help-block" ng-show="form.$submitted || form.registeredAddress.$touched"
+                                                         ng-messages="form.registeredAddress.$error">
+                                                        <p ng-message="">公司注册地址不能为空</p>
+                                                        <p ng-message="maxlength">公司注册地址不能超过36个字符</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.industryField.$touched || form.$submitted ) && form.industryField.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">业务领域 :</label><!--没有ng-model-->
+                                                <div class="col-md-8">
+                                                    <ul id="editTab" class="nav nav-pills">
+                                                        <li class="active"><a class="edit-tab-a" href="#energy" data-toggle="tab">能源</a></li>
+                                                        <li><a class="edit-tab-a" href="#industry" data-toggle="tab">工业</a></li>
+                                                        <li><a class="edit-tab-a" href="#materials" data-toggle="tab">材料</a></li>
+                                                        <li><a class="edit-tab-a" href="#inter" data-toggle="tab">信息技术</a></li>
+                                                        <li><a class="edit-tab-a" href="#medical" data-toggle="tab">医疗保健</a></li>
+                                                        <li><a class="edit-tab-a" href="#consumer" data-toggle="tab">消费品</a></li>
+                                                    </ul>
+                                                    <div id="myTabContent" class="tab-content editTab-content">
+                                                        <div class="tab-pane fade in active" id="energy">
+                                                            <div class="edit-checkbox-content"><input  type="checkbox" ng-value="1"/><span>新能源装备</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value="2"/><span>海工装备</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value="3"/><span>新能源装备</span></div>
+                                                            <div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>海工装备</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>新能源装备</span></div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="industry">
+                                                            <div class="edit-checkbox-content"><input  type="checkbox" ng-value="4"/><span>工业</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value="5"/><span>工业</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value="6"/><span>工业</span></div>
+                                                            <div class="edit-checkbox-content"><input  type="checkbox" ng-value="7"/><span>工业</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value="8"/><span>工业</span></div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="materials">
+                                                            <div class="edit-checkbox-content"><input  type="checkbox" ng-value=""/><span>材料</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>材料</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>材料</span></div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="inter">
+                                                            <div class="edit-checkbox-content"><input  type="checkbox" ng-value=""/><span>信息技术</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>信息技术</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>信息技术</span></div>
+                                                            <div class="edit-checkbox-content"><input  type="checkbox" ng-value=""/><span>信息技术</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>信息技术</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>信息技术</span></div>
+                                                        </div>
+                                                        <div class="tab-pane fade" id="medical">
+                                                            <div class="edit-checkbox-content"><input  type="checkbox" ng-value=""/><span>医疗保健</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>医疗保健</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>医疗保健</span></div>
+                                                            <div class="edit-checkbox-content"><input  type="checkbox" ng-value=""/><span>医疗保健</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>医疗保健</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>医疗保健</span></div>
+
+                                                        </div>
+                                                        <div class="tab-pane fade" id="consumer">
+                                                            <div class="edit-checkbox-content"><input  type="checkbox" ng-value=""/><span>消费品</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>海工装备</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>新能源装备</span></div>
+                                                            <div class="edit-checkbox-content"><input  type="checkbox" ng-value=""/><span>新能源装备</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>海工装备</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>新能源装备</span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12" style="height:60px;border:1px solid #ECECEC">
+                                                        <span>{{}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="half-page eidt-pull-right">
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.businessLicence.$touched || form.$submitted ) && form.businessLicence.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">企业营业执照 :</label><!--没有ng-model-->
+                                                <div class="col-md-8">
+                                                    <div class="license-box">
+                                                        <span>营业执照</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.organizationCodeCertificate.$touched || form.$submitted ) && form.organizationCodeCertificate.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">企业组织机构代码证 :</label><!--没有ng-model-->
+                                                <div class="col-md-8">
+                                                    <div class="license-box">
+                                                        <span>企业组织结构代码证</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">银行开户许可证 :</label><!--没有ng-model-->
+                                                <div class="col-md-8">
+                                                    <div class="license-box">
+                                                        <span>银行开户许可证</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.legalPersonFrontalPhoto.$touched || form.$submitted ) && form.legalPersonFrontalPhoto.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">法人证件信息 :</label><!--没有ng-model-->
+                                                <div class="col-md-8">
+                                                    <div class="license-box pull-left">
+                                                        <span>正面</span>
+                                                    </div>
+                                                    <div class="license-box pull-left" style="margin-left: 10px">
+                                                        <span>背面</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.legalPersonName.$touched || form.$submitted ) && form.legalPersonName.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">企业法人 :</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" name="legalPersonName" class="form-control" placeholder="企业法人"
+                                                           autocomplete="off" maxlength="36" ng-model="model.legalPersonName" ng-maxlength="36" ng-minlength="3"/>
+                                                    <div class="help-block" ng-show="form.$submitted || form.legalPersonName.$touched"
+                                                         ng-messages="form.legalPersonName.$error">
+                                                        <p ng-message="">企业法人不能为空</p>
+                                                        <p ng-message="maxlength">企业法人不能超过36个字符</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.legalPersonCertificatesTypeCode.$touched || form.$submitted ) && form.legalPersonCertificatesTypeCode.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">证件信息 :</label>
+                                                <div class="col-md-8">
+                                                    <div class="col-md-4 license-title" style="padding-left:0">
+                                                        <select class="form-control form-control-inline" style="width: 150px;" ng-model="model.legalPersonCertificatesTypeCode" name="legalPersonCertificatesTypeCode" select2 data-placeholder="请选择">
+                                                            <option value="ID" selected="selected">身份证</option>
+                                                            <option value="StudentID">学生证</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-8 license-content" style="padding-right:0">
+                                                        <input type="text" name="legalPersonCertificatesNumber" class="form-control license-margin-offset" placeholder="法人证件号"
+                                                               autocomplete="off" maxlength="36" ng-model="model.legalPersonCertificatesNumber" ng-maxlength="36" ng-minlength="3"/>
+                                                    </div>
+                                                    <div class="help-block" ng-show="form.$submitted || form.legalPersonCertificatesNumber.$touched"
+                                                         ng-messages="form.legalPersonCertificatesNumber.$error">
+                                                        <!--<p ng-message="">证件号不能为空</p>-->
+                                                        <!--<p ng-message="maxlength">证件号不能超过36个字符</p>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">证件照片 :</label><!--没有ng-model-->
+                                                <div class="col-md-8">
+                                                    <div class="logo-box pull-left">
+                                                        <span>正面</span>
+                                                    </div>
+                                                    <div class="logo-box pull-left" style="margin-left: 10px">
+                                                        <span>背面</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">法人证件信息 :</label><!--没有ng-model-->
+                                                <div class="col-md-8">
+                                                    <div class="license-box pull-left">
+                                                        <span>正面</span>
+                                                    </div>
+                                                    <div class="license-box pull-left" style="margin-left: 10px">
+                                                        <span>背面</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12"
+                                         ng-class="{ 'has-error' :(form.designType.$touched || form.$submitted ) && form.designType.$invalid}">
+                                        <div class="form-group">
+                                            <label class="control-label label-offset-padding tab-design col-md-3">设计类别 :</label><!--没有ng-model-->
+                                            <div class="col-md-8 tab-design-content">
+                                                <ul id="designTab" class="nav nav-pills">
+                                                    <li class="active"><a class="edit-tab-a" href="#energy1" data-toggle="tab">能源</a></li>
+                                                    <li><a class="edit-tab-a" href="#industry1" data-toggle="tab">工业</a></li>
+                                                    <li><a class="edit-tab-a" href="#materials1" data-toggle="tab">材料</a></li>
+                                                </ul>
+                                                <div id="content" class="tab-content editTab-content">
+                                                    <div class="tab-pane fade in active" id="energy1">
+                                                        <div class="edit-checkbox-content"><input  type="checkbox" ng-value="1"/><span>新能源装备</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value="2"/><span>海工装备</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value="3"/><span>新能源装备</span></div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>海工装备</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>新能源装备</span></div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="industry1">
+                                                        <div class="edit-checkbox-content"><input  type="checkbox" ng-value="4"/><span>工业</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value="5"/><span>工业</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value="6"/><span>工业</span></div>
+                                                        <div class="edit-checkbox-content"><input  type="checkbox" ng-value="7"/><span>工业</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value="8"/><span>工业</span></div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="materials1">
+                                                        <div class="edit-checkbox-content"><input  type="checkbox" ng-value=""/><span>材料</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>材料</span></div><div class="edit-checkbox-content"><input type="checkbox" ng-value=""/><span>材料</span></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12" style="height:60px;border:1px solid #ECECEC;width:94%;float:left;">
+                                                    <span>{{}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"
+                                         ng-class="{ 'has-error' :(form.designerSizeCode.$touched || form.$submitted ) && form.designerSizeCode.$invalid}">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding" style="margin-left: 8px;">设计师规模 :</label>
+                                            <div class="col-md-8">
+                                                <select class="form-control form-control-inline" style="width: 150px;" ng-model="model.designerSizeCode" name="designerSizeCode" select2 data-placeholder="请选择">
+                                                    <option value="<100" selected="selected">1人-100人</option>
+                                                    <option value="<300">100人-300人</option>
+                                                    <option value="<600">300人-600人</option>
+                                                    <option value="<900">600人-900人</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"
+                                         ng-class="{ 'has-error' :(form.researchDirection.$touched || form.$submitted ) && form.researchDirection.$invalid}">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">企业研究方向 :</label>
+                                            <div class="col-md-8">
+                                                <input type="text" name="researchDirection" class="form-control" placeholder="企业研究方向"
+                                                       autocomplete="off" maxlength="36" ng-model="model.researchDirection" ng-maxlength="36" ng-minlength="3"/>
+                                                <div class="help-block" ng-show="form.$submitted || form.researchDirection.$touched"
+                                                     ng-messages="form.researchDirection.$error">
+                                                    <p ng-message="">企业研究方向不能为空</p>
+                                                    <p ng-message="maxlength">企业研究方向不能超过36个字符</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div style="clear:both">
+                            </div>
+
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

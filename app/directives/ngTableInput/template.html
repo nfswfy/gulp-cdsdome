@@ -1,0 +1,70 @@
+<div style="padding-bottom: 20px;">
+    <div class="table-scrollable">
+        <table class="table table-bordered table-hover ng-table">
+            <thead>
+            <tr>
+                <th data-ng-repeat="column in columns" data-ng-click="onHeaderClicked(column)" width="{{column.width}}"
+                    rowspan="{{column.parent?1:2}}"
+                    data-ng-if="undefined === column.parent || (undefined !== column.parent && undefined !== column.parent.col)"
+                    colspan="{{column.parent.col?column.parent.col:1}}">
+                    {{column.parent?column.parent.label:column.label}}
+                </th>
+            </tr>
+            <tr>
+                <th data-ng-repeat="column in columns" data-ng-if="undefined !== column.parent" width="{{column.width}}"
+                    data-ng-click="onHeaderClicked(column)" >
+                    {{column.label}}
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-if="isEmpty(rows)">
+                <td colspan="{{columns.length}}">
+                    <div class={{column.align}}>
+                        <div style="text-align: center;">
+                            <span>无数据</span>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr data-ng-if="!isEmpty(rows)" data-ng-repeat="row in rows" data-ng-class="{info:row.selected}"
+                data-ng-click="rowSelect($event,row)" ng-init="outerIndex = $index">
+                <td data-ng-repeat="column in columns"  ng-class="{'text-center':typeOf(column) === 'checkbox'}">
+                    <div class={{column.align}}>
+                        <span data-ng-if="typeOf(column) === 'seq'" ng-bind="pageable.number * pageable.size + outerIndex + 1"></span>
+                        <input data-ng-if="typeOf(column) === 'checkbox'"  type="checkbox" ng-checked="row.selected"/>
+                        <div data-ng-if="typeOf(column) === 'template'" data-ng-include="column.templateUrl"></div>
+                        <div data-ng-if="column.filter && typeOf(column) !== 'complex'"
+                             data-ng-bind-html="row[column.name] | ngTableFilter: column.filter "></div>
+                        <div data-ng-if="typeOf(column) === 'complex'" data-ng-bind-html="row | ngTableFilter: column.filter "></div>
+                        <span data-ng-if="isOutput(column)"> {{row[column.name]}}</span>
+                        <div data-ng-if="typeOf(column) === 'input'"><input type="text" class="form-control"
+                                                                            required maxlength="50" ng-maxlength="50" ng-model="row[column.name]"/></div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div ng-if="!notpageable" style="">
+        <div  style="padding-bottom: 36px;float:right">
+            <span style="float:right">前往 &nbsp;<input type="number" ng-model="pageable.number1" style="width:40px;height:29px;text-align: center;border:1px solid #D3DCE6;"/>&nbsp; 页</span>
+            <uib-pagination style="float:right;margin-right:10px"
+                    total-items="pageable.totalElements"
+                    ng-model="pageable.number"
+                    items-per-page="pageable.size"
+                    max-size="5"
+                    class=" table-pagination">
+            </uib-pagination>
+            <span style="float:right">共 {{pageable.totalElements}} 条 &nbsp;
+                <select class="select-list-arrow" data-ng-model="pageable.size" convert-to-number style="margin-right:10px;border: 1px solid #D3DCE6;border-radius: 2px!important;">
+                    <option value="10" selected="selected">10条/页</option>
+                    <option value="25">25条/页</option>
+                    <option value="50">50条/页</option>
+                    <option value="100">100条/页</option>
+                </select>
+            </span>
+            <button ng-show="false" style="float:right" class="btn blue" id="goPage" ng-click="getPage()"><span>跳页</span></button>
+        </div>
+    </div>
+</div>

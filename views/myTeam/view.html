@@ -1,0 +1,199 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left"
+                                                                    style="font-size: 160%;color:#808080;"></span></span></span>
+            </a>
+        </div>
+    </div>
+
+    <!--团队基本信息-->
+    <!--<div class="panel-heading">-->
+    <!--<div class="portlet-title">-->
+    <!--<div class="caption">-->
+    <!--<div class="one-border">-->
+    <!--团队基本信息-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="../../assets/admin/pages/img/teamlogo.png" style="width: 150px;height: 150px">
+                                </div>
+
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="col-md-4 form-control-label" style="font-size: larger">{{teamName}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="col-md-4">团队地址 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.parentTitle}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="col-md-4">团队联系人 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.href}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="col-md-4">团队联系电话 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.href}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="col-md-4">电子邮箱 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.sortNum}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--团队详细信息-->
+    <!--<div class="panel-heading">-->
+    <!--<div class="portlet-title">-->
+    <!--<div class="caption">-->
+    <!--<div class="one-border">-->
+    <!--团队详细信息-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">团队规模 :</label>
+                                        <label class="col-md-8 form-control-label">{{model.title}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">国／省/城市 :</label>
+                                        <label class="col-md-8 form-control-label">{{model.parentTitle}}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">团队主页 :</label>
+                                        <label class="col-md-8 form-control-label">{{model.href}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">团队地址 :</label>
+                                        <label class="col-md-8 form-control-label">{{model.href}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">行业领域 :</label>
+                                        <label class="col-md-10 form-control-label">{{model.sortNum}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">团队简介 :</label>
+                                        <label class="col-md-10 form-control-label">{{model.sortNum}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">备注 :</label>
+                                        <label class="col-md-10 form-control-label">{{model.sortNum}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--团队成员-->
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    团队成员
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light">
+                <div class="portlet-body form" style="display: block;">
+                    <div ng-show="currentTab=='create'" class="row">
+                        <ng-table
+                                columns="columnsPersonCreate"
+                                sort="sort"
+                                order="order"
+                                pageable="pageable"
+                                rows="rows"
+                                notpageable="notpageable">
+                        </ng-table>
+                    </div>
+
+                    <div ng-show="currentTab=='join'" class="row">
+                        <ng-table
+                                columns="columnsPersonJoin"
+                                sort="sort"
+                                order="order"
+                                pageable="pageable"
+                                rows="rows"
+                                notpageable="notpageable">
+                        </ng-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

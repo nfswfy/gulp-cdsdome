@@ -1,0 +1,25 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 8,
+      "title":"通知",
+      "text": "数据结构考试时间",
+      "sendTime": "2017-10-10",
+      "readTime":"5555",
+      "sender":"gxy",
+      "receiver":"dh"
+    }
+  ],
+  "pageable": {
+    "totalElements": 1,
+    "numberOfElements": 10,
+    "totalPages": 2,
+    "first": true,
+    "last": false,
+    "size": 10,
+    "number": 0,
+    "fromNumber": 1,
+    "toNumber": 10
+  }
+}

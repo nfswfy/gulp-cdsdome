@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="MetronicApp">
+<!-- BEGIN HEAD -->
+<head>
+    <title>橙色云平台</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+
+    <!-- BEGIN 全局样式 -->
+    <link href="./assets/global/fonts/font-96ccfc1.css" rel="stylesheet"/>
+    <link href="./bower_components/font-awesome/css/font-awesome.min-fea395d.css" rel="stylesheet" type="text/css"/>
+    <link href="./bower_components/simple-line-icons/css/simple-line-icons-4eca4a7.css" rel="stylesheet" type="text/css"/>
+    <link href="./bower_components/bootstrap/dist/css/bootstrap.min-7184d3e.css" rel="stylesheet" type="text/css"/>
+    <link href="./bower_components/jquery.uniform/themes/default/css/uniform.default.min-281688c.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="./bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min-264d6f7.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="./bower_components/jstree/dist/themes/default/style.min-5064bed.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="./bower_components/angular-toastr/dist/angular-toastr.min-07f0ab8.css" rel="stylesheet" type="text/css"/>
+    <link href="./bower_components/leading-datepicker/src/ld-datepicker-744dea9.css" rel="stylesheet"
+          type="text/css"/>
+    <link href="./bower_components/select2/dist/css/select2.min-1f0229f.css" rel="stylesheet" type="text/css"/>
+    <link href="./bower_components/select2-bootstrap-theme/dist/select2-bootstrap.min-17313ae.css" rel="stylesheet"
+          type="text/css"/>
+    <!-- END 全局样式 -->
+
+    <!-- BEGIN DYMANICLY LOADED CSS FILES(all plugin and page related styles must be loaded between GLOBAL and THEME css files ) -->
+    <link id="ng_load_plugins_before"/>
+    <!-- END DYMANICLY LOADED CSS FILES -->
+
+    <!-- BEGIN 主题样式 -->
+    <link href="./assets/global/css/components-2dda64b.css" id="style_components" rel="stylesheet" type="text/css"/>
+    <link href="./assets/global/css/plugins-f6f24bd.css" rel="stylesheet" type="text/css"/>
+    <link href="./assets/admin/layout/css/layout-9a769e4.css" rel="stylesheet" type="text/css"/>
+    <link href="./assets/admin/layout/css/themes/light-4693c19.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="./assets/admin/layout/css/custom-421b4c9.css" rel="stylesheet" type="text/css"/>
+    <!-- END 主题样式 -->
+
+    <link rel="shortcut icon" href="logo-1e51e2e.ico"/>
+</head>
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+<body ng-controller="AppController"
+      class="page-header-fixed page-sidebar-closed-hide-logo page-quick-sidebar-over-content page-on-load "
+      ng-class="{'page-container-bg-solid': settings.layout.pageBodySolid, 'page-sidebar-closed': settings.layout.pageSidebarClosed}">
+<!-- BEGIN PAGE SPINNER -->
+<div ng-spinner-bar class="page-spinner-bar">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+</div>
+<!-- END PAGE SPINNER -->
+
+<!-- BEGIN HEADER -->
+<div data-ng-include="'views/include/header.html'" data-ng-controller="HeaderController"
+     class="page-header navbar">
+    <img src="assets/admin/layout/img/logo-f5fa929.png"/>
+</div>
+<!-- END HEADER -->
+
+<div class="clearfix">
+</div>
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-bar-title" ng-if="$state.current.data.pageBar">
+        当前位置 : <li ng-repeat="pageBar in $state.current.data.pageBar"  class="pageBar-title">
+                    <span ng-if="!pageBar.href" ng-bind="pageBar.title"></span>
+                  </li>
+    </div>
+    <div data-ng-include="'views/include/sidebar.html'" data-ng-controller="SidebarController"
+         class="page-sidebar-wrapper">
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!-- BEGIN STYLE CUSTOMIZER(optional) -->
+            <div data-ng-include="'views/include/theme-panel.html'" data-ng-controller="ThemePanelController" class="theme-panel hidden hidden-xs hidden-sm">
+            </div>
+            <!-- END STYLE CUSTOMIZER -->
+            <!--<div ng-if="$state.current.data.pageBar" class="page-bar">-->
+                <!--<ul class="page-breadcrumb">-->
+                    <!--<li ng-repeat="pageBar in $state.current.data.pageBar">-->
+                        <!--<i ng-class="pageBar.class"></i>-->
+                        <!--<a ng-if="pageBar.href" ng-href="{{pageBar.href}}" ng-bind="pageBar.title"></a>-->
+                        <!--<span ng-if="!pageBar.href" ng-bind="pageBar.title"></span>-->
+                        <!--<i ng-if="!$last" class="fa fa-angle-right"></i>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+            <!-- BEGIN ACTUAL CONTENT -->
+            <div ui-view class="fade-in-up">
+
+            </div>
+            <!-- END ACTUAL CONTENT -->
+        </div>
+    </div>
+    <!-- END CONTENT -->
+
+</div>
+
+<!-- END CONTAINER -->
+
+<!-- BEGIN FOOTER -->
+<div data-ng-include="'views/include/footer.html'" data-ng-controller="FooterController" class="page-footer">
+</div>
+<!-- END FOOTER -->
+
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+
+<!-- BEGIN CORE JQUERY PLUGINS -->
+
+<script src="./bower_components/jquery/dist/jquery.min-618538b.js" type="text/javascript"></script>
+<script src="./bower_components/jquery-migrate/jquery-migrate.min-706ed78.js" type="text/javascript"></script>
+<script src="./bower_components/underscore/underscore-min-a80d6d7.js" type="text/javascript"></script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min-fb0e635.js" type="text/javascript"></script>
+<script src="./bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min-af885ea.js"
+        type="text/javascript"></script>
+<script src="./bower_components/jquery.slimscroll/jquery.slimscroll.min-1367263.js" type="text/javascript"></script>
+<script src="./bower_components/blockUI/jquery.blockUI-1473907.js" type="text/javascript"></script>
+<script src="./bower_components/jquery.cookie/jquery.cookie-a79ce0f.js" type="text/javascript"></script>
+<script src="./bower_components/jquery.uniform/dist/jquery.uniform.min-94c0b15.js" type="text/javascript"></script>
+<script src="./bower_components/bootstrap-switch/dist/js/bootstrap-switch.min-43c0407.js" type="text/javascript"></script>
+<!-- END CORE JQUERY PLUGINS -->
+
+<!-- BEGIN CORE ANGULARJS PLUGINS -->
+<!--<script src="./bower_components/angular/angular.min-29ec4fe.js" type="text/javascript"></script>-->
+<script src="./bower_components/angular/angular-278ec35.js" type="text/javascript"></script>
+<script src="./bower_components/angular-cookies/angular-cookies.min-f7e8186.js"></script>
+<script src="./bower_components/angular-sanitize/angular-sanitize.min-06a6541.js" type="text/javascript"></script>
+<script src="./bower_components/angular-route/angular-route.min-b4968e2.js" type="text/javascript"></script>
+<script src="./bower_components/angular-touch/angular-touch.min-af20474.js" type="text/javascript"></script>
+<script src="./bower_components/angular-resource/angular-resource.min-94101e5.js" type="text/javascript"></script>
+<script src="./bower_components/angular-mocks/angular-mocks-63f814c.js" type="text/javascript"></script>
+<script src="./bower_components/angular-messages/angular-messages.min-844aecf.js" type="text/javascript"></script>
+<script src="./bower_components/angular-animate/angular-animate.min-8493aae.js"></script>
+<script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.min-4cdce9d.js"></script>
+<script src="./bower_components/angular-ui-router/release/angular-ui-router.min-bc4ebd8.js" type="text/javascript"></script>
+<script src="./bower_components/angular-ui-validate/dist/validate.min-f83765b.js" type="text/javascript"></script>
+<script src="./bower_components/oclazyload/dist/ocLazyLoad.min-bb61470.js" type="text/javascript"></script>
+
+<script src="./bower_components/angular-toastr/dist/angular-toastr.tpls.min-d993de9.js"></script>
+<script src="./bower_components/moment/min/moment.min-3a22f07.js" type="text/javascript"></script>
+<script src="./bower_components/moment/min/locales.min-100f412.js" type="text/javascript"></script>
+<script src="./bower_components/moment-timezone/builds/moment-timezone-with-data.min-eac31e1.js"
+        type="text/javascript"></script>
+<script src="./bower_components/leading-datepicker/src/ld-datepicker-08799fe.js" type="text/javascript"></script>
+<script src="./bower_components/select2/dist/js/select2.min-9238187.js"></script>
+<script src="./bower_components/select2/dist/js/i18n/zh-CN-c65a022.js"></script>
+<script src="./bower_components/flow.js/dist/flow.min-9fb4715.js"></script>
+<script src="./bower_components/ng-flow/dist/ng-flow.min-70551e7.js"></script>
+<script src="./bower_components/angular-number-input/angular-number-input-7d0505c.js"></script>
+<script src="./bower_components/jstree/dist/jstree.min-7eebfb2.js"></script>
+<script src="./bower_components/ng-js-tree/dist/ngJsTree.min-b5aa4e1.js"></script>
+<script src="./bower_components/echarts/dist/echarts.min-0197a0c.js"></script>
+<!--<script src="./bower_components/ueditor/dist/utf8-php/ueditor.config.js"></script>-->
+<!--<script src="./bower_components/ueditor/dist/utf8-php/ueditor.all.min.js"></script>-->
+<!--<script src="./bower_components/angular-ueditor/dist/angular-ueditor-4caab8e.js"></script>-->
+
+<!-- BEGIN APP LEVEL ANGULARJS SCRIPTS -->
+<script src="app/app-bcb2009.js" type="text/javascript"></script>
+<script src="app/leadingConfig-bbb1a47.js" type="text/javascript"></script>
+<script src="app/directives/common/directives-4b9cdd9.js" type="text/javascript"></script>
+<script src="app/directives/select2/select2-940e8ae.js" type="text/javascript"></script>
+<script src="app/filters/common/filters-810dc2c.js"></script>
+<script src="app/interceptor-bea7187.js"></script>
+<!-- END APP LEVEL ANGULARJS SCRIPTS -->
+<script src="app/UrlConfigService-7623371.js"></script>
+<script src="app/services/common/BaseListService-2d31b7d.js"></script>
+<script src="app/services/common/AppCommonService-8f8efd5.js"></script>
+<script src="app/services/common/FileStorageService-0fc90d7.js"></script>
+<script src="app/services/common/NgTable-23b49a9.js"></script>
+
+
+<script src="app/DictService-e2f3398.js"></script>
+<script src="app/EnumService-b1e3cfe.js"></script>
+<script src="app/utils-27bef71.js"></script>
+<!-- BEGIN APP LEVEL JQUERY SCRIPTS -->
+<script src="./assets/global/scripts/metronic-44ef933.js" type="text/javascript"></script>
+<script src="./assets/admin/layout/scripts/layout-74e4d0c.js" type="text/javascript"></script>
+<script src="./assets/admin/layout/scripts/quick-sidebar-f04b1d4.js" type="text/javascript"></script>
+<script src="./assets/admin/layout/scripts/demo-185f77e.js" type="text/javascript"></script>
+<!-- END APP LEVEL JQUERY SCRIPTS -->
+
+
+
+<script type="text/javascript">
+    /* Init Metronic's core jquery plugins and layout scripts */
+    $(document).ready(function () {
+        Metronic.init(); // Run metronic theme
+        Metronic.setAssetsPath('./assets/'); // Set the assets folder path
+    });
+</script>
+
+<!-- END JAVASCRIPTS -->
+<div id="cover" class="cover"></div>
+</body>
+<!-- END BODY -->
+</html>
+<script type="text/ng-template" id="confirm.html">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"  ng-click="btn_cancel()"><span
+                 aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">操作提示</h3>
+    </div>
+    <div class="modal-body">
+        <h4 ng-bind="confirmContent"></h4>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn button-orange" data-dismiss="modal" ng-click="btn_ok()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>确定 </span>
+        </button>
+        <button type="button" class="btn" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-close" aria-hidden="true"></i>&nbsp;<span>取消 </span>
+        </button>
+    </div>
+</script>
+<style>
+    .cover {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        filter: alpha(opacity=60);
+        background-color: #777;
+        z-index: 1002;
+        left: 0px;
+        display: none;
+        opacity: 0.5;
+        -moz-opacity: 0.5;
+    }
+</style>

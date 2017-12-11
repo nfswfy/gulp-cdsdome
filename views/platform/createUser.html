@@ -1,0 +1,151 @@
+<div class="panel panel-default light">
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div>
+                    <i class="fa fa-calendar" style="margin-right:3px;"></i>
+                    {{$state.current.data.pageTitle}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <a href="#" class="btn blue" ng-click="back()">
+                <span>返回 </span>
+            </a>
+            <!--<button type="submit" class="btn green" ng-click="submit(form)">-->
+                <!--<i class="fa fa-check"></i>&nbsp;<span>提交 </span>-->
+            <!--</button>-->
+            <button type="submit" class="btn blue" ng-click="submit(form)"><span>提交 </span>
+            </button>
+            <button type="button" class="btn blue" ng-click="reset(form)">
+               <span>重置 </span>
+            </button>
+        </div>
+
+        <div>
+            <div class="portlet light bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.userName.$touched || form.$submitted ) && form.userName.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">姓名<span
+                                                class="text-danger">*</span></label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="userName" class="form-control" placeholder="姓名"  autocomplete="off"
+                                                   required maxlength="20" ng-maxlength="20" ng-model="model.userName"/>
+                                            <div class="help-block" ng-show="form.$submitted || form.userName.$touched"
+                                                 ng-messages="form.userName.$error">
+                                                <p ng-message="required">姓名不能为空</p>
+                                                <p ng-message="maxlength">姓名长度不能超过20字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" ng-if="!model.id"
+                                     ng-class="{ 'has-error' :(form.password.$touched || form.$submitted ) && form.password.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">密码<span
+                                                class="text-danger">*</span></label>
+                                        <div class="col-md-9">
+                                            <input type="password" name="password" class="form-control" placeholder="密码" autocomplete="new-password"
+                                                   required maxlength="20" ng-maxlength="20" ng-model="model.password"/>
+                                            <div class="help-block" ng-show="form.$submitted || form.password.$touched"
+                                                 ng-messages="form.password.$error">
+                                                <p ng-message="required">密码不能为空</p>
+                                                <p ng-message="maxlength">密码长度不能超过20字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.description.$touched || form.$submitted ) && form.description.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">说明<span
+                                                class="text-danger">*</span></label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="description" class="form-control" placeholder="说明"
+                                                   required maxlength="100" ng-maxlength="100"
+                                                   ng-model="model.userDescription"/>
+                                            <div class="help-block"
+                                                 ng-show="form.$submitted || form.description.$touched"
+                                                 ng-messages="form.description.$error">
+                                                <p ng-message="required">说明不能为空</p>
+                                                <p ng-message="maxlength">说明长度不能超过100字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.organizationName.$touched || form.$submitted ) && form.organizationName.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">组织
+                                            <span class="text-danger">*</span></label>
+                                        <div class="col-md-9">
+                                            <select select2 name="organizationName" data-placeholder="组织"  required class="form-control"  ng-model="model.organizationId">
+                                                <option ng-repeat="organization in organizationList"
+                                                        ng-value="organization.id"
+                                                        ng-bind="organization.organizationName">
+                                                </option>
+                                            </select>
+                                            <div class="help-block"
+                                                 ng-show="form.$submitted || form.organizationName.$touched"
+                                                 ng-messages="form.organizationName.$error">
+                                                <p ng-message="required">组织不能为空</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.roleIds.$touched || form.$submitted ) && form.roleIds.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            角色
+                                            <span class="text-danger">
+                                    *
+                                </span>
+                                        </label>
+                                        <div class="col-md-9">
+                                            <select id="roles" name="roleIds"
+                                                    class="form-control ng-untouched select2-hidden-accessible ng-dirty ng-valid ng-valid-required ng-valid-parse"
+                                                    required data-placeholder="请选择用户角色，可多选" multiple=""
+                                                    ng-model="model.roleDescription"
+                                                    select2="" tabindex="-1" aria-hidden="true">
+                                                <!-- ngRepeat: role in rolesData -->
+                                                <option ng-repeat="role in rolesData" ng-value="role.name"
+                                                        ng-bind="role.description"
+                                                        value="role.name" class="ng-binding ng-scope">
+                                                </option>
+                                            </select>
+                                            <span class="select2 select2-container select2-container--bootstrap"
+                                                  dir="ltr">
+                                    <span class="dropdown-wrapper" aria-hidden="true">
+                                    </span>
+                                </span>
+                                            <div class="help-block ng-hide ng-inactive"
+                                                 ng-show="form.$submitted || form.roleIds.$touched"
+                                                 ng-messages="form.roleIds.$error">
+                                                <p ng-message="required">角色不能为空</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

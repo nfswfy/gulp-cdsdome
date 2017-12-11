@@ -1,0 +1,73 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left" style="font-size: 160%;color:#808080;"></span></span></span></a>
+            <div class="pull-right" style="margin-left:5px;">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <select class="form-control" name="published" data-placeholder="全部行业领域" style="width: 200px;border-radius: 5px !important;"
+                                ng-model="condition.published" select2>
+                            <option ng-repeat="published in publishedList"
+                                    ng-value="published.key"
+                                    ng-bind="published.text">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="published" data-placeholder="全部专业领域" style="width: 200px;border-radius: 5px !important;"
+                                ng-model="condition.published" select2>
+                            <option ng-repeat="published in publishedList"
+                                    ng-value="published.key"
+                                    ng-bind="published.text">
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-inline " autocomplete="off" ng-model="condition.query"
+                               placeholder="请输入菜单标题"/>
+                    </div>
+                    <button type="button" style="margin-right:15px;" class="btn button-orange button-offset-margin" ng-click="search()">
+                        &nbsp;<span>查询 </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div style="display: block">
+            <hr>
+            <ng-list
+                    half="halfSearch"
+                    barconfig="barConfigCreate"
+                    pageable="pageableSearch"
+                    urlparameters="urlparameters"
+                    rows="rowsCreateSearch"
+                    notpageable=false>
+            </ng-list>
+        </div>
+    </div>
+
+    <div style="color:#fa6326;float:left;display: block;margin-left: 15px;margin-top: -15px">为你推荐的企业：</div>
+    <div class="panel-body">
+        <div style="display: block;margin-top: 10px">
+
+            <ng-list
+                    half="half"
+                    barconfig="barConfigCreate"
+                    pageable="pageable"
+                    urlparameters="urlparameters"
+                    rows="rowsCreate"
+                    notpageable=false>
+            </ng-list>
+        </div>
+    </div>
+</div>
+
+<!--创建团队表内按钮-->
+<script type="text/ng-template" id="invitePeopleOperation.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="btn btn-no-padding" data-ng-click="onActionClick(row.id,'apply')">申请加入 </a>
+        </div>
+    </div>
+</script>

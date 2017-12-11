@@ -1,0 +1,344 @@
+<div class="panel">
+    <div class="panel-heading" style="margin-top:-5px">
+        <div class="portlet-title">
+            <!--<div class="caption">-->
+            <!--<div class="one-border">-->
+            <!--{{$state.current.data.pageTitle}}-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+
+    <div class="panel-body">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="dropdown  btn-group pull-left ">
+                    <button type="button" class="btn button-orange button-offset-margin" ng-click="create()">
+                        <span>新增 </span>
+                    </button>
+                </div>
+                <div class="pull-right">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-inline " autocomplete="off"
+                                   ng-model="condition.contractName"
+                                   placeholder="请输入合同名称"/>
+                        </div>
+                        <button type="button" class="btn button-orange button-offset-margin" ng-click="search()">
+                            &nbsp;<span>查询 </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="margin-top: 10px">
+                <!--<ul id="company" class="nav nav-pills">-->
+                <!--<li class="active"><a href="#executing" data-toggle="tab">执行中</a></li>-->
+                <!--<li><a href="#toBeSubmitted" data-toggle="tab">待提交</a></li>-->
+                <!--<li><a href="#toBeExecuted" data-toggle="tab">待执行</a></li>-->
+                <!--<li><a href="#terminated" data-toggle="tab">已终止</a></li>-->
+                <!--<li><a href="#aborted" data-toggle="tab">已中止</a></li>-->
+                <!--<li><a href="#closed" data-toggle="tab">已关闭</a></li>-->
+                <!--</ul>-->
+                <ul id="company" class="nav nav-pills">
+                    <li ng-class="{'active':$index==currentTabIndex}" ng-repeat="x in tabStatus" ng-click="changeTab($index)"><a>{{x.text}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <ng-table
+                columns="columns"
+                sort="sort"
+                order="order"
+                pageable="pageable"
+                rows="rows"
+                notpageable="notpageable">
+        </ng-table>
+
+    </div>
+</div>
+
+<!--合同名称模板-->
+<script type="text/ng-template" id="contractName.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.contractId,'view')">{{row.contractName}}</a>
+        </div>
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="operationB1.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.contractId,'collect')"> 收款 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.contractId,'edit1')"> 编辑 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.contractId,'terminate')"> 终止 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.contractId,'abort')"> 中止 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.contractId,'close')"> 关闭 &nbsp;</a>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="operationB2.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'edit')"> 编辑 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'project')"> 立项 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'submit')"> 提交 &nbsp;</a>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="operationB3.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'excute')"> 执行 &nbsp;</a>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="operationB4.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'collect')"> 收款 &nbsp;</a>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="operationB5.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'collect')"> 收款 &nbsp;</a>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="operation.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'sign')"> 签约 &nbsp;</a>
+        </div>
+    </div>
+</script>
+
+
+<!--中止 按钮 弹出框-->
+<script type="text/ng-template" id="abort.html">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="btn_cancel()"><span
+                aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">操作提示</h3>
+    </div>
+    <div class="modal-body">
+        <form name="form" class="form-horizontal" novalidate>
+            <div class="form-body">
+                <div class="row">
+                    <div class="col-md-6"
+                         ng-class="{ 'has-error' :(form.title.$touched || form.$submitted ) && form.title.$invalid}">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 label-offset-padding">中止原因<span
+                                    class="text-danger">*</span> :</label>
+                            <div class="col-md-8">
+                                <input type="text" name="title" class="form-control" placeholder="合同签署时间"
+                                       required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                <div class="help-block" ng-show="form.$submitted || form.title.$touched"
+                                     ng-messages="form.title.$error">
+                                    <p ng-message="required">合同开始时间不能为空</p>
+                                    <p ng-message="maxlength">合同开始时间长度不能超过50字符 </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"
+                         ng-class="{ 'has-error' :(form.title.$touched || form.$submitted ) && form.title.$invalid}">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 label-offset-padding">其他说明<span
+                                    class="text-danger">*</span> :</label>
+                            <div class="col-md-8">
+                                <input type="text" name="title" class="form-control" placeholder="收款次数"
+                                       required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                <div class="help-block" ng-show="form.$submitted || form.title.$touched"
+                                     ng-messages="form.title.$error">
+                                    <p ng-message="required">合同结束时间不能为空</p>
+                                    <p ng-message="maxlength">合同结束时间不能超过50字符 </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"
+                         ng-class="{ 'has-error' :(form.title.$touched || form.$submitted ) && form.title.$invalid}">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 label-offset-padding">上传附件<span
+                                    class="text-danger">*</span> :</label>
+                            <div class="col-md-8">
+                                <input type="text" name="title" class="form-control" placeholder="收款次数"
+                                       required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                <div class="help-block" ng-show="form.$submitted || form.title.$touched"
+                                     ng-messages="form.title.$error">
+                                    <p ng-message="required">合同结束时间不能为空</p>
+                                    <p ng-message="maxlength">合同结束时间不能超过50字符 </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn blue" data-dismiss="modal" ng-click="btn_ok()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>确定 </span>
+        </button>
+        <button type="button" class="btn" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-close" aria-hidden="true"></i>&nbsp;<span>取消 </span>
+        </button>
+    </div>
+</script>
+
+<!--终止 按钮 弹出框-->
+<script type="text/ng-template" id="terminate.html">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="btn_cancel()"><span
+                aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">操作提示</h3>
+    </div>
+    <div class="modal-body">
+        <form name="form" class="form-horizontal" novalidate>
+            <div class="form-body">
+                <div class="row">
+                    <div class="col-md-6"
+                         ng-class="{ 'has-error' :(form.title.$touched || form.$submitted ) && form.title.$invalid}">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 label-offset-padding">终止原因<span
+                                    class="text-danger">*</span> :</label>
+                            <div class="col-md-8">
+                                <input type="text" name="title" class="form-control" placeholder="合同签署时间"
+                                       required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                <div class="help-block" ng-show="form.$submitted || form.title.$touched"
+                                     ng-messages="form.title.$error">
+                                    <p ng-message="required">合同开始时间不能为空</p>
+                                    <p ng-message="maxlength">合同开始时间长度不能超过50字符 </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"
+                         ng-class="{ 'has-error' :(form.title.$touched || form.$submitted ) && form.title.$invalid}">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 label-offset-padding">其他说明<span
+                                    class="text-danger">*</span> :</label>
+                            <div class="col-md-8">
+                                <input type="text" name="title" class="form-control" placeholder="收款次数"
+                                       required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                <div class="help-block" ng-show="form.$submitted || form.title.$touched"
+                                     ng-messages="form.title.$error">
+                                    <p ng-message="required">合同结束时间不能为空</p>
+                                    <p ng-message="maxlength">合同结束时间不能超过50字符 </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"
+                         ng-class="{ 'has-error' :(form.title.$touched || form.$submitted ) && form.title.$invalid}">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 label-offset-padding">上传附件<span
+                                    class="text-danger">*</span> :</label>
+                            <div class="col-md-8">
+                                <input type="text" name="title" class="form-control" placeholder="收款次数"
+                                       required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                <div class="help-block" ng-show="form.$submitted || form.title.$touched"
+                                     ng-messages="form.title.$error">
+                                    <p ng-message="required">合同结束时间不能为空</p>
+                                    <p ng-message="maxlength">合同结束时间不能超过50字符 </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn blue" data-dismiss="modal" ng-click="btn_ok()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>确定 </span>
+        </button>
+        <button type="button" class="btn" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-close" aria-hidden="true"></i>&nbsp;<span>取消 </span>
+        </button>
+    </div>
+</script>
+
+<!--关闭 按钮 弹出框-->
+<script type="text/ng-template" id="close.html">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="btn_cancel()"><span
+                aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">操作提示</h3>
+    </div>
+    <div class="modal-body">
+        <form name="form" class="form-horizontal" novalidate>
+            <div class="form-body">
+                <div class="row">
+                    <div class="col-md-6"
+                         ng-class="{ 'has-error' :(form.title.$touched || form.$submitted ) && form.title.$invalid}">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 label-offset-padding">关闭原因<span
+                                    class="text-danger">*</span> :</label>
+                            <div class="col-md-8">
+                                <input type="text" name="title" class="form-control" placeholder="合同签署时间"
+                                       required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                <div class="help-block" ng-show="form.$submitted || form.title.$touched"
+                                     ng-messages="form.title.$error">
+                                    <p ng-message="required">合同开始时间不能为空</p>
+                                    <p ng-message="maxlength">合同开始时间长度不能超过50字符 </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"
+                         ng-class="{ 'has-error' :(form.title.$touched || form.$submitted ) && form.title.$invalid}">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 label-offset-padding">其他说明<span
+                                    class="text-danger">*</span> :</label>
+                            <div class="col-md-8">
+                                <input type="text" name="title" class="form-control" placeholder="收款次数"
+                                       required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                <div class="help-block" ng-show="form.$submitted || form.title.$touched"
+                                     ng-messages="form.title.$error">
+                                    <p ng-message="required">合同结束时间不能为空</p>
+                                    <p ng-message="maxlength">合同结束时间不能超过50字符 </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"
+                         ng-class="{ 'has-error' :(form.title.$touched || form.$submitted ) && form.title.$invalid}">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 label-offset-padding">上传附件<span
+                                    class="text-danger">*</span> :</label>
+                            <div class="col-md-8">
+                                <input type="text" name="title" class="form-control" placeholder="收款次数"
+                                       required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                <div class="help-block" ng-show="form.$submitted || form.title.$touched"
+                                     ng-messages="form.title.$error">
+                                    <p ng-message="required">合同结束时间不能为空</p>
+                                    <p ng-message="maxlength">合同结束时间不能超过50字符 </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn blue" data-dismiss="modal" ng-click="btn_ok()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>确定 </span>
+        </button>
+        <button type="button" class="btn" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-close" aria-hidden="true"></i>&nbsp;<span>取消 </span>
+        </button>
+    </div>
+</script>

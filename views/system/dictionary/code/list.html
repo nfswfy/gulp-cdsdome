@@ -1,0 +1,53 @@
+<script type="text/ng-template" id="operation.html">
+    <div class="text-center">
+        <a href="javascript:void(0)" class="btn btn-xs green" data-ng-if="!row.editable" data-ng-click="onActionClick(row,'view')">查看 </a>
+        <a href="javascript:void(0)" class="btn btn-xs green" data-ng-if="!row.discarded && row.editable" data-ng-click="onActionClick(row.id,'edit')">编辑 </a>
+        <a href="javascript:void(0)" class="btn btn-xs green" data-ng-if="!row.discarded" data-ng-click="onActionClick(row.id,'moveUp')">上移 </a>
+        <a href="javascript:void(0)" class="btn btn-xs green" data-ng-if="!row.discarded" data-ng-click="onActionClick(row.id,'moveDown')">下移 </a>
+        <a href="javascript:void(0)" class="btn btn-xs green" data-ng-if="!row.discarded" data-ng-click="onActionClick(row,'discard')">废弃 </a>
+    </div>
+</script>
+<!-- BEGIN Portlet PORTLET-->
+<div class="panel panel-default light" style="padding-top:0">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-left">
+                    <button type="button" class="btn blue"  ng-click="back()">
+                        <i class="fa fa-mail-reply"></i>&nbsp;<span>返回 </span>
+                    </button>
+                    <button type="button" class="btn blue" ng-click="create()">
+                        <span>新增 </span>
+                    </button>
+                </div>
+                <div class="pull-right">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-inline" placeholder="请输入代码值" ng-model="condition.key"/>
+
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control form-control-inline" style="width: 150px;" ng-model="condition.discarded" select2 data-placeholder="请选择状态">
+
+                                <option value="false">使用中</option>
+                                <option value="true">已废弃</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn blue" ng-click="search()">
+                            &nbsp;<span>查询 </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <ng-table
+                columns="columns"
+                sort="sort"
+                order="order"
+                pageable="pageable"
+                rows="rows">
+        </ng-table>
+    </div>
+</div>
+<!-- END Portlet PORTLET-->

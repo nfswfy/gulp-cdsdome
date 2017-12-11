@@ -1,0 +1,31 @@
+[
+  {
+    "text": "root",
+    "children": [
+      {
+        "text": "New node",
+        "children": true,
+        "id": "New node",
+        "icon": "fa fa-cog"
+      },
+      {
+        "text": "New node 2",
+        "children": true,
+        "id": "New node 2",
+        "icon": "fa fa-cog"
+      },
+      {
+        "text": "che bahal",
+        "children": true,
+        "id": "che bahal",
+        "icon": "fa fa-cog"
+      }
+    ],
+    "id": "\/",
+    "icon": "fa fa-cog",
+    "state": {
+      "opened": true,
+      "disabled": true
+    }
+  }
+]

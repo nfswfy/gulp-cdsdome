@@ -1,0 +1,101 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "title": "Dash",
+      "href": "#/dash.html",
+      "className": "fa fa-home",
+      "subMenus": []
+    },
+    {
+      "title": "敏感词管理",
+      "href": "#/antispamWord/list.html",
+      "className": "fa fa-home"
+    },
+    {
+      "title": "我的企业",
+      "href": "#/company/list.html",
+      "className": "fa fa-home"
+    },
+    {
+      "title": "我的需求-客户",
+      "href": "#/demandCustomer/list.html",
+      "className": "fa fa-home"
+    },{
+      "title": "我的需求-商务经理",
+      "href": "#/demandManager/list.html",
+      "className": "fa fa-home"
+    },
+    {
+      "title": "我的合同",
+      "href": "#/myContract/list.html",
+      "className": "fa fa-home"
+    },
+    {
+      "title": "我的消息",
+      "href": "#/notice/list.html",
+      "className": "fa fa-home"
+    },
+    {
+      "title": "我的项目",
+      "href": "#/project/list.html",
+      "className": "fa fa-home"
+    },
+    {
+      "title": "账户安全",
+      "href": "#/security/list.html",
+      "className": "fa fa-home"
+    },
+    {
+      "title": "我的客户",
+      "href": "#/customer/list.html",
+      "className": "fa fa-home"
+    },{
+      "title": "我的账户",
+      "href": "#/account/list.html",
+      "className": "fa fa-home"
+    },
+    {
+      "title": "我的工作包",
+      "href": "#/wbs/list.html",
+      "className": "fa fa-home"
+    },{
+      "title": "我的团队",
+      "href": "#/myTeam/list.html",
+      "className": "fa fa-home"
+    },{
+      "title": "个人资料",
+      "href": "#/information/list.html",
+      "className": "fa fa-home"
+    },
+    {
+      "title": "系统管理",
+      "href": "javascript:void(0);",
+      "className": "fa fa-cog",
+      "subMenus": [
+        {
+          "title": "菜单管理",
+          "href": "#/system/menu/list.html",
+          "className": "",
+          "subMenus": []
+        },
+        {
+          "title": "码表管理",
+          "href": "#/system/dictionary/category/list.html",
+          "className": "",
+          "subMenus": []
+        },
+        {
+          "title": "角色管理",
+          "href": "#/system/role/list.html",
+          "className": "",
+          "subMenus": []
+        }
+      ]
+    },{
+      "title": "demo",
+      "href": "#/demo/demo.html",
+      "className": "fa fa-home"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+<script type="text/ng-template" id="operationApplyJoin.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'agree')"> 同意 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'reject')"> 拒绝 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'delete')"> 删除 &nbsp;</a>
+        </div>
+    </div>
+</script>
+<div class="panel panel-default">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left" style="font-size: 160%;color:#808080;"></span></span></span></a>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <ng-table
+                columns="columns"
+                sort="sort"
+                order="order"
+                pageable="pageable"
+                rows="rows">
+        </ng-table>
+    </div>
+</div>
+
+<script type="text/ng-template" id="reject.html">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="btn_cancel()" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">拒绝原因</h3>
+    </div>
+    <form name="form" class="form-horizontal" id="reject" novalidate>
+        <div class="form-body">
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group"
+                         ng-class="{ 'has-error' :(form.rejectDescription.$touched || form.$submitted ) && form.rejectDescription.$invalid}">
+                        <label class="control-label col-md-4">拒绝原因<span
+                                class="text-danger">*</span></label>
+                        <div class="col-md-8">
+                            <input name="rejectDescription" class="form-control" placeholder="拒绝原因"
+                                   required autocomplete="off" maxlength="300" ng-maxlength="300"
+                                   ng-model="rejectDescription"/>
+                            <div class="help-block" ng-show="form.$submitted || form.rejectDescription.$touched"
+                                 ng-messages="form.rejectDescription.$error">
+                                <p ng-message="required">拒绝原因不能为空</p>
+                                <p ng-message="maxlength">拒绝原因不能大于300个字符</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="modal-footer">
+        <button type="submit" class="btn blue" ng-click="btn_ok(form)">
+            <i class="fa fa-check"></i>&nbsp;<span>提交 </span>
+        </button>
+        <button type="button" class="btn blue" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>关闭 </span>
+        </button>
+    </div>
+</script>

@@ -1,0 +1,115 @@
+<div class="panel">
+    <div class="panel-heading" style="margin-top:-5px">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                   <!-- {{$state.current.data.pageTitle}}-->
+                    账户安全
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-body">
+
+        <div class="portlet light  bordered" style="height: 120px;">
+            <!--<div class="portlet-body form panel-height" >-->
+                <div class="container" style="padding-top: 1%">
+                <div class="row">
+
+                        <div class="col-md-2  ">
+                            <img src="../../assets/admin/layout/img/facebook.png"/>
+                        </div>
+
+                        <div class="col-md-4  ">
+                            <p class="tab-list-title">testUser</p>
+
+                            <div class="row" style="padding-left: 4px">
+                            <p class=" col-md-3 " style="padding-top: 2px">安全等级 </p>
+                                <div class="col-md-6  ">
+                                    <div class="progress " style="width: 100%">
+                                        <div class="progress-bar progress-bar-success" role="progressbar"
+                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                             style="width: 97%;">
+                                            <!--<span >90% 完成（成功）</span>-->
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-2  ">
+                                    <div>高</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!--<div class="col-md-2  "style="padding-top: 2.3%  ">
+                            <div class="progress " style="width: 100%">
+                            <div class="progress-bar progress-bar-success" role="progressbar"
+                                 aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                                 style="width: 97%;">
+                                &lt;!&ndash;<span >90% 完成（成功）</span>&ndash;&gt;
+
+                            </div>
+
+                        </div>
+                        </div>-->
+
+                </div>
+            </div>
+
+                <div class="container" >
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-5 text-muted">上次登录：2017.-04-25 北京</div>
+                    </div>
+
+                </div>
+
+            <!--</div>-->
+            </div>
+
+        <div class="portlet light  bordered" style="height: 60px; margin-top: 15px">
+            <div class="container">
+                <div class="row" style="padding-top: 1.3%">
+                    <div class="col-md-2 text-muted" >等级：{强}</div>
+                    <div class="col-md-2">登入密码</div>
+                    <div class="col-md-6" >安全性高的密码可以使账号更安全，建议您定期更换密码以保证安全。</div>
+
+                    <button type="button" class="btn btn-default " style="margin-top: -0.7%" ng-click="password()"><span>修改</span></button>
+
+                </div>
+            </div>
+        </div>
+        <div class="portlet light  bordered"style="height: 60px;margin-top: 15px">
+        <div class="container">
+            <div class="row" style="padding-top: 1.3%">
+                <div class="col-md-2"><img src="../../assets/admin/layout/img/u126.png"/></div>
+                <div class="col-md-2">手机绑定</div>
+                <div class="col-md-6">您已成功绑定手机{188****6678}</div>
+                <button type="button" class="btn btn-default" style="margin-top: -0.7%" ng-click="phone()"><span >修改</span></button>
+
+            </div>
+        </div>
+    </div>
+        <div class="portlet light  bordered"style="height: 60px;margin-top: 15px">
+        <div class="container">
+            <div class="row" style="padding-top: 1.3%">
+                <div class="col-md-2 text-muted">
+                    {未绑定}
+                </div>
+                <div class="col-md-2 ">邮箱绑定</div>
+                <div class="col-md-6">您还没有绑定邮箱，为了您的账户安全，请及时绑定邮箱。</div>
+
+                <button type="button" class="btn btn-default " style="margin-top: -0.7%" ng-click="email(form)"><span >绑定</span></button>
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+</div>

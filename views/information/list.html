@@ -1,0 +1,912 @@
+<div class="panel">
+    <div class="panel-heading" style="margin-top:-5px">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    {{$state.current.data.pageTitle}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" style="margin-left:25px">
+            <ul id="information" class="nav nav-pills nav-border-list">
+                <li class="active"><a href="#base-info" data-toggle="tab">基本信息</a></li>
+                <li><a href="#certification" data-toggle="tab">实名认证</a></li>
+                <li><a href="#qualification" data-toggle="tab">资质认证</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="tab-content editTab-content">
+
+            <!--基本信息-->
+            <div class="tab-pane fade in active" id="base-info">
+                <div class="portlet light  bordered" ng-show="showButton">
+                    <div class="portlet-body form" style="display: block;">
+                        <!--<div class="portlet-body form panel-height">-->
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <!--<div class="side">-->
+
+                                <button class="btn button-orange custom-right" data-toggle="modal"
+                                        ng-click="create()">&nbsp;<span>编辑</span></button>
+                                <!--</div>-->
+                                <form name="form" class="form-horizontal" novalidate>
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3 label-title">用户名
+                                                            :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.customerEmail}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3 label-title">姓名
+                                                            :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.customerName}}</label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3 label-title">性别
+                                                            :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.customerGender}}</label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3 label-title">生日
+                                                            :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.customerBirthday}}</label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3 label-title">语言
+                                                            :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.languageCode}}</label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3 label-title">国/省/市
+                                                            :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.nationCode}}</label>
+                                                        <label class="col-md-9 form-control-label">{{model.provinceCode}}</label>
+                                                        <label class="col-md-9 form-control-label">{{model.cityCode}}</label>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3 label-title">个人主页
+                                                            :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.homepageUrl}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3 label-title">个人简介
+                                                            :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.personalProfile}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="side"></div>
+                                <div class="image-user"></div>
+                                <div class="certificate label-title">
+                                    会员类型：个人用户
+                                    <span><a href="">实名认证</a></span>
+
+                                </div>
+                                <div class="cetiDes label-title">
+                                    *注：通过实名认证、资质认证后方可承接任务
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="!showButton">
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <button class="btn button-orange custom-right" data-toggle="modal"
+                                            ng-click="create()">&nbsp;<span>编辑1</span></button>
+                                    <form name="form" class="form-horizontal" novalidate>
+                                        <div class="form-body">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 label-title">用户名
+                                                                :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.customerEmail}}</label>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 label-title">姓名
+                                                                :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.customerName}}</label>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 label-title">性别
+                                                                :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.customerGender}}</label>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 label-title">生日
+                                                                :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.customerBirthday}}</label>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 label-title">语言
+                                                                :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.languageCode}}</label>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 label-title">国/省/市
+                                                                :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.sortNum}}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 label-title">个人主页
+                                                                :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.homepageUrl}}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 label-title">个人简介
+                                                                :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.personalProfile}}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="side"></div>
+                                    <div class="image-user"></div>
+                                    <div class="certificate">
+                                        <span><a href="">未实名认证</a></span>
+
+                                    </div>
+                                    <div class="cetiDes">
+                                        *注：通过实名认证、资质认证后方可承接任务
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--实名认证-->
+            <div class="tab-pane fade " id="certification">
+                <div class="portlet light  bordered" ng-show="showButton">
+                    <div class="portlet-body form" style="display: block;">
+                        <!--<div class="portlet-body form panel-height">-->
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <div class="noneData-btn-group">
+
+                                    <span class="noneData-btn-group">您还没有通过实名认证，立即<a href="">认证</a></span>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="side"></div>
+                                <div class="image-user"></div>
+                                <div class="certificate label-title">
+                                    会员类型：
+                                    <span><a href="">未实名认证</a></span>
+
+                                </div>
+                                <div class="cetiDes label-title">
+                                    *注：通过实名认证、资质认证后方可承接任务
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="!showButton">
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <div class="row">
+                                <div class="col-sm-9">
+
+                                    <button class="btn button-orange custom-right" data-toggle="modal"
+                                            ng-click="create()">&nbsp;<span>编辑</span></button>
+                                    <form name="form" class="form-horizontal" novalidate>
+                                        <div class="form-body">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 label-title">姓名
+                                                                :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.customerName}}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 label-title">证件类型
+                                                                :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.certificateTypeCode}}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 label-title">证件号码
+                                                                :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.identificationNumber}}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 label-title">身份证照片
+                                                                :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.frontalPhoto}}</label>
+                                                            <label class="col-md-9 form-control-label">{{model.backPhoto}}</label>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="side"></div>
+                                    <div class="image-user"></div>
+                                    <div class="certificate">
+                                        <span><a href="">未实名认证</a></span>
+
+                                    </div>
+                                    <div class="cetiDes">
+                                        *注：通过实名认证、资质认证后方可承接任务
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--资质认证-->
+            <div class="tab-pane fade " id="qualification">
+                <div class="portlet light  bordered" ng-if="showButton">
+                    <div class="portlet-body form" style="display: block;">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <div class="noneData-btn-group">
+                                    <span>您还没有通过资质认证，立即<a href="">认证</a></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="side"></div>
+                                <div class="image-user"></div>
+                                <div class="certificate label-title">
+                                    会员类型：个人用户
+                                    <span><a href="">未资质认证</a></span>
+
+                                </div>
+                                <div class="cetiDes label-title">
+                                    *注：通过实名认证、资质认证后方可承接任务
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="!showButton">
+                    <div class="panel-heading" style="margin-left: -20px;">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <div class="one-border">
+                                    个人信息
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <!--<div class="portlet-body form panel-height">-->
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <!--<div ng-if="showButton" class="noneData-btn-group">-->
+                                    <!--<span>您还没有通过资质认证，立即<a href="">认证</a></span>-->
+                                    <!--</div>-->
+                                    <div>
+
+                                        <button class="btn button-orange custom-right" data-toggle="modal"
+                                                ng-click="create()">&nbsp;<span>编辑</span></button>
+                                        <form name="form" class="form-horizontal" novalidate>
+                                            <div class="form-body">
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">姓名 :</label>
+                                                                <label class="col-md-9 form-control-label">{{model.customerName}}</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-9">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">学历 :</label>
+                                                                <label class="col-md-9 form-control-label">{{model.educationCode}}</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">职称 :</label>
+                                                                <label class="col-md-9 form-control-label">{{model.positionalTitles}}</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">研究方向 :</label>
+                                                                <label class="col-md-9 form-control-label">{{model.researchDirection}}</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">设计师类别 :</label>
+                                                                <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">业务领域 :</label>
+                                                                <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">设计类别 :</label>
+                                                                <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="side" style="height: 300px"></div>
+                                    <div class="image-user"></div>
+                                    <div class="certificate label-title">
+                                        会员类型：资质认证用户成功
+                                        <span><a href=""></a></span>
+
+                                    </div>
+                                    <div class="certificate label-title">
+                                        初级专家
+                                        <button class="btn button-orange upLevel" style="vertical-align: center;"
+                                                ng-click="up()">&nbsp;<span>升级</span></button>
+                                    </div>
+                                    <div class="cetiDes label-title">
+                                        *注：通过实名认证、资质认证后方可承接任务。。。。。
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-heading" style="margin-left: -20px;margin-top: 10px;">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <div class="one-border">
+                                    教育经历
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <div class="edit ">
+                                <a href="">编辑</a>
+                            </div>
+                            <!--<div class="portlet-body form panel-height">-->
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <form name="form" class="form-horizontal" novalidate>
+                                        <div class="form-body">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">学校 :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row ">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">时间 :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">专业 :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3">备注 :</label>
+                                                            <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-heading" style="margin-left: -20px;margin-top: 10px;">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <div class="one-border">
+                                    工作经验
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <div class="edit ">
+                                <a href="">编辑</a>
+                            </div>
+                            <!--<div class="portlet-body form panel-height">-->
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <form name="form" class="form-horizontal" novalidate>
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">时间 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">项目名称 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">描述 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-heading" style="margin-left: -20px;margin-top: 10px;">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <div class="one-border">
+                                    项目经验
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <div class="edit ">
+                                <a href="">编辑</a>
+                            </div>
+                            <!--<div class="portlet-body form panel-height">-->
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <form name="form" class="form-horizontal" novalidate>
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">学校 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">时间 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">专业 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">备注 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-heading" style="margin-left: -20px;margin-top: 10px;">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <div class="one-border">
+                                    专业或论文
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <div class="edit ">
+                                <a href="">编辑</a>
+                            </div>
+                            <!--<div class="portlet-body form panel-height">-->
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <form name="form" class="form-horizontal" novalidate>
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">名称 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">分类 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">描述 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">内容图片 :</label>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-heading" style="margin-left: -20px;margin-top: 10px;">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <div class="one-border">
+                                    获得奖项
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <div class="edit ">
+                                <a href="">编辑</a>
+                            </div>
+                            <!--<div class="portlet-body form panel-height">-->
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <form name="form" class="form-horizontal" novalidate>
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">名称 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">描述 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">内容图片 :</label>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="panel-heading" style="margin-left: -20px;margin-top: 10px;">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <div class="one-border">
+                                    作品展示
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <div class="edit ">
+                                <a href="">编辑</a>
+                            </div>
+                            <!--<div class="portlet-body form panel-height">-->
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <form name="form" class="form-horizontal" novalidate>
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">名称 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">描述 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">内容图片 :</label>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-heading" style="margin-left: -20px;margin-top: 10px;">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <div class="one-border">
+                                    专业证书
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <div class="edit ">
+                                <a href="">编辑</a>
+                            </div>
+                            <!--<div class="portlet-body form panel-height">-->
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <form name="form" class="form-horizontal" novalidate>
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">证书名称 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">证书描述 :</label>
+                                                        <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">证书图片 :</label>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

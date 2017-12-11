@@ -1,0 +1,110 @@
+<div class="panel light offset-padding">
+    <div class="panel">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left"
+                                                                        style="font-size: 160%;color:#808080;"></span></span></span>
+                </a>
+                <button ng-show="currentTab=='mail'" type="submit" class="btn button-orange" ng-click="replyOne()">&nbsp;<span>回复</span></button>
+            </div>
+        </div>
+        <div class="panel-heading">
+            <div class="portlet-title">
+                <div class="caption">
+                    <div ng-show="currentTab=='email'" class="one-border">
+                        邮件详情
+                    </div>
+                    <div ng-show="currentTab=='mail'" class="one-border">
+                        站内信详情
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <div class="portlet light  bordered">
+                    <div class="portlet-body form" style="display: block;">
+                        <!-- BEGIN FORM-->
+                        <form name="form" class="form-horizontal" novalidate>
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">标题 :</label>
+                                            <label class="form-control-label col-md-9" ng-bind="model.title"></label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div ng-show="currentTab=='email'">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">收信人 :</label>
+                                            <label class="form-control-label col-md-9"
+                                                   ng-bind="model.receiver"></label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div ng-show="currentTab=='mail'">
+                                        <div ng-show="checkTab=='receive'">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">发信人 :</label>
+                                                    <label class="form-control-label col-md-9"
+                                                   ng-bind="model.sender"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div ng-show="checkTab=='send'">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">收信人 :</label>
+                                                    <label class="form-control-label col-md-9"
+                                                           ng-bind="model.receiver"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div ng-show="checkTab=='receive'">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">接收时间 :</label>
+                                                <label class="form-control-label col-md-9"
+                                                   ng-bind="model.readTime"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-show="checkTab=='send'">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">发送时间 :</label>
+                                                <label class="form-control-label col-md-9"
+                                                   ng-bind="model.sendTime"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">内容简述 :</label>
+                                            <label class="form-control-label col-md-9"
+                                                   ng-bind="model.text"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END FORM-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

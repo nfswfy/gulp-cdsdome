@@ -1,0 +1,101 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a  class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left" style="font-size: 160%;color:#808080;"></span></span></span></a>
+
+        </div>
+    </div>
+    <div class="panel-body margin-edit">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <!--<div class="half-page eidt-pull-left">-->
+
+                            <div class="row">
+                                <div class="col-md-12  col-md-offset-1"
+                                     ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 label-offset-padding">邮箱号码:</label>
+                                        <div class="col-md-3">
+                                            <input type="text" name="name" class="form-control" placeholder="请输入">
+                                            <!--<input type="text" name="name" class="form-control" placeholder="请输入"
+                                                   required autocomplete="off" maxlength="36" ng-model="model.name" ng-maxlength="36" ng-minlength="3"/>
+                                            <div class="help-block" ng-show="form.$submitted || form.name.$touched"
+                                                 ng-messages="form.name.$error">
+                                                <p ng-message="required">新密码不能为空</p>-->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 col-md-offset-1"
+                                     ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                    <div class="form-group">
+                                        <label class=" col-md-3 control-label label-offset-padding">验证码:</label>
+                                        <div class="col-md-2">
+                                            <input type="text" name="name" class="form-control" placeholder="请输入">
+                                            <!--<input type="text" name="name" class="form-control" placeholder="请输入"
+                                                   required autocomplete="off" maxlength="36" ng-model="model.name" ng-maxlength="36" ng-minlength="3"/>-->
+                                            <!--<div class="help-block" ng-show="form.$submitted || form.name.$touched"
+                                                 ng-messages="form.name.$error">
+                                                <p ng-message="required">新密码不能为空</p>
+
+                                            </div>-->
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button type="button" class="btn btn-default button-offset-margin" ng-click="create()">
+                                                <span>获取验证码</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-12  col-md-offset-4"
+                                     ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                    <div class="form-group">
+                                        <!--<label class="control-label col-md-3 label-offset-padding">原手机号码<span
+                                                class="text-danger"></span>:</label>-->
+                                        <div class="col-md-4 tab-list-type"  >
+                                            <!--<input type="text" name="name" class="form-control" placeholder="请输入"
+                                                   required autocomplete="off" maxlength="36" ng-model="model.name" ng-maxlength="36a" ng-minlength="3"/>
+                                            <div class="help-block" ng-show="form.$submitted || form.name.$touched"
+                                                 ng-messages="form.name.$error">
+                                                <p ng-message="required">原密码不能为空</p>  这里原来是个输入框-->
+                                            验证码5分钟内有效，60秒后再次获取
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-12  col-md-offset-4"
+                                     ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                    <div class="form-group">
+
+                                        <div class="col-md-4" >
+                                            <button type="submit" class="btn btn-default" ng-click="ok(form)">&nbsp;<span>确认 </span></button>
+                                            <button type="button" class="btn btn-default" ng-click="cancel(form)">&nbsp;<span>取消 </span></button>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div style="clear:both">
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+<!-- BEGIN Portlet PORTLET-->
+<script type="text/ng-template" id="operation.html">
+    <div class="text-center">
+        <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'competitivePackage')">竞包 </a>
+    </div>
+</script>
+
+<script type="text/ng-template" id="viewName.html">
+    <a href="javascript:void(0)" data-ng-click="onActionClick(row.id,'view')">{{row.name}}</a>
+</script>
+<!-- BEGIN Portlet PORTLET-->
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <select class="form-control" name="projectStatus" data-placeholder="全部发包形式"
+                                    ng-model="condition.projectStatus" select2>
+                                <option ng-repeat="item in wbsTypes"
+                                        ng-value="item.key"
+                                        ng-bind="item.text">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="projectStatus" data-placeholder="全部状态"
+                                    ng-model="condition.projectStatus" select2>
+                                <option ng-repeat="item in status"
+                                        ng-value="item.key"
+                                        ng-bind="item.text">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-inline" autocomplete="off"
+                                   ng-model="condition.name"
+                                   placeholder="请输入名称"/>
+                        </div>
+                        <button type="button" class="btn button-orange button-offset-margin" ng-click="search()">
+                            &nbsp;<span>查询 </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <ng-table
+                columns="columns"
+                sort="sort"
+                order="order"
+                pageable="pageable"
+                rows="rows">
+        </ng-table>
+    </div>
+</div>
+<!-- END Portlet PORTLET-->
+
+<script type="text/ng-template" id="competitivePackage.html">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="btn_cancel()"><span
+                aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">竞包</h3>
+    </div>
+    <div class="modal-body">
+        <div class="portlet light">
+            <div class="portlet-body form" style="display: block;">
+                <!-- BEGIN FORM-->
+                <form name="form" class="form-horizontal" novalidate>
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">报价:</label>
+
+                                <div class="col-md-5">
+                                    <input type="text" name="title" class="form-control"
+                                           required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">附件:</label>
+
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn button-orange" ng-click="upload()">
+                                        &nbsp;<span>点击上传</span></button>
+                                </div>
+                                <label class="control-label col-md-5" style="margin-top: 7px; margin-left: -13px;">限 doc/excel 文件，且不超过 500KB</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn blue" data-dismiss="modal" ng-click="btn_ok()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>确定 </span>
+        </button>
+        <button type="button" class="btn" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-close" aria-hidden="true"></i>&nbsp;<span>取消 </span>
+        </button>
+    </div>
+</script>

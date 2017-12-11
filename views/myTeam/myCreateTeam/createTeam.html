@@ -1,0 +1,365 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left"
+                                                                    style="font-size: 160%;color:#808080;"></span></span></span>
+            </a>
+            <button type="submit" class="btn button-orange" ng-click="submit(form)">&nbsp;<span>保存 </span></button>
+            <button type="button" class="btn button-orange" ng-click="reset(form)">&nbsp;<span>重置 </span></button>
+        </div>
+    </div>
+    <div class="panel-body margin-edit">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-----------------------------form开始--------------------------------->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <!----------------------------左边------------------------------->
+                            <div class="half-page eidt-pull-left">
+                                <div class="row">
+                                    <div class="col-md-12"
+                                         ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">团队名称<span
+                                                    class="text-danger">*</span> :</label>
+                                            <div class="col-md-8">
+                                                <input type="text" name="name" class="form-control" placeholder="团队名称"
+                                                       required autocomplete="off" maxlength="36" ng-model="model.name"
+                                                       ng-maxlength="36" ng-minlength="3"/>
+                                                <div class="help-block" ng-show="form.$submitted || form.name.$touched"
+                                                     ng-messages="form.name.$error">
+                                                    <p ng-message="required">团队名称不能为空</p>
+                                                    <p ng-message="maxlength">团队名称不能超过36个字符</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12"
+                                         ng-class="{ 'has-error' :(form.description.$dirty || form.$submitted ) && form.description.$invalid}">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">团队规模 :</label>
+                                            <div class="col-md-8">
+                                                <select class="form-control form-control-inline" style="width: 150px;"
+                                                        ng-model="condition.approveStep" name="approveStep" select2
+                                                        data-placeholder="请选择">
+                                                    <option value="<100" selected="selected">1人-100人</option>
+                                                    <option value="<300">10人以下</option>
+                                                    <option value="<600">20人以下</option>
+                                                    <option value="<900">20人以上</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12"
+                                         ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">团队主页 :</label>
+                                            <div class="col-md-8">
+                                                <input type="text" name="name" class="form-control" placeholder="团队主页"
+                                                       required autocomplete="off" maxlength="36" ng-model="model.name"
+                                                       ng-maxlength="36" ng-minlength="3"/>
+                                                <div class="help-block" ng-show="form.$submitted || form.name.$touched"
+                                                     ng-messages="form.name.$error">
+                                                    <p ng-message="required">团队主页不能为空</p>
+                                                    <p ng-message="maxlength">团队主页不能超过36个字符</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12"
+                                         ng-class="{ 'has-error' :(form.description.$dirty || form.$submitted ) && form.description.$invalid}">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">团队简介 :</label>
+                                            <div class="col-md-8">
+                                            <textarea name="description" class="form-control" rows="3"
+                                                      ng-model="model.description" maxlength="255"
+                                                      ng-maxlength="255"></textarea>
+                                                <div class="help-block"
+                                                     ng-show="form.$submitted || form.description.$touched"
+                                                     ng-messages="form.description.$error">
+                                                    <p ng-message="maxlength">团队简介不能超过255个字符</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12"
+                                         ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">团队地址 :</label>
+                                            <div class="col-md-8">
+                                                <input type="text" name="name" class="form-control" placeholder="团队主页"
+                                                       required autocomplete="off" maxlength="36" ng-model="model.name"
+                                                       ng-maxlength="36" ng-minlength="3"/>
+                                                <div class="help-block" ng-show="form.$submitted || form.name.$touched"
+                                                     ng-messages="form.name.$error">
+                                                    <p ng-message="required">团队地址不能为空</p>
+                                                    <p ng-message="maxlength">团队地址不能超过36个字符</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12"
+                                         ng-class="{ 'has-error' :(form.description.$dirty || form.$submitted ) && form.description.$invalid}">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">备注 :</label>
+                                            <div class="col-md-8">
+                                            <textarea name="description" class="form-control" rows="3"
+                                                      ng-model="model.description" maxlength="255"
+                                                      ng-maxlength="255"></textarea>
+                                                <div class="help-block"
+                                                     ng-show="form.$submitted || form.description.$touched"
+                                                     ng-messages="form.description.$error">
+                                                    <p ng-message="maxlength">备注不能超过255个字符</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!------------------------------右边------------------------------>
+                            <div class="half-page eidt-pull-right">
+                                <div class="row">
+                                    <div class="col-md-12"
+                                         ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">团队LOGO :</label>
+                                            <div class="col-md-8">
+                                                <div class="logo-box">
+                                                    <span>点击上传</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12"
+                                         ng-class="{ 'has-error' :(form.description.$dirty || form.$submitted ) && form.description.$invalid}">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">国家 :</label>
+                                            <div class="col-md-8">
+                                                <div class="input-group col-md-5 pull-left">
+                                                    <select name="approveStep" class="form-control form-control-inline"
+                                                            style="width: 150px;" ng-model="condition.approveStep"
+                                                            name="approveStep" select2 data-placeholder="请选择">
+                                                        <option value="Chinese" selected="selected">中国</option>
+                                                        <option value="USA">美国</option>
+                                                        <option value="Africa">非洲</option>
+                                                    </select>
+                                                </div>
+
+                                                <label class="col-md-2 label-offset-padding">省 :</label>
+                                                <div class="input-group col-md-5 pull-right">
+                                                    <select class="form-control form-control-inline"
+                                                            style="width: 150px;" ng-model="condition.approveStep"
+                                                            name="approveStep" select2 data-placeholder="请选择">
+                                                        <option value="WAIT_PLATFORM_NODE_AUDITOR"
+                                                                selected="selected"></option>
+                                                        <option value="APPROVED"></option>
+                                                        <option value="REJECTED"></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12"
+                                         ng-class="{ 'has-error' :(form.description.$dirty || form.$submitted ) && form.description.$invalid}">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">城市 :</label>
+                                            <div class="col-md-8">
+                                                <select class="form-control form-control-inline" style="width: 150px;"
+                                                        ng-model="condition.approveStep" name="approveStep" select2
+                                                        data-placeholder="请选择">
+                                                    <option value="WAIT_PLATFORM_NODE_AUDITOR" selected="selected">
+                                                        等待节点接入审核员审批
+                                                    </option>
+                                                    <option value="APPROVED">审批通过</option>
+                                                    <option value="REJECTED">审批拒绝</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12"
+                                         ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">移动电话 :</label>
+                                            <div class="col-md-8">
+                                                <input type="text" name="name" class="form-control" placeholder="移动电话"
+                                                       required autocomplete="off" maxlength="36" ng-model="model.name"
+                                                       ng-maxlength="36" ng-minlength="3"/>
+                                                <div class="help-block" ng-show="form.$submitted || form.name.$touched"
+                                                     ng-messages="form.name.$error">
+                                                    <p ng-message="required">移动电话不能为空</p>
+                                                    <p ng-message="maxlength">移动电话不能超过36个字符</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12"
+                                         ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">行业领域 :</label>
+                                            <div class="col-md-8">
+                                                <ul id="editTab" class="nav nav-pills">
+                                                    <li class="active"><a class="edit-tab-a" href="#energy"
+                                                                          data-toggle="tab">能源</a></li>
+                                                    <li><a class="edit-tab-a" href="#industry" data-toggle="tab">工业</a>
+                                                    </li>
+                                                    <li><a class="edit-tab-a" href="#materials" data-toggle="tab">材料</a>
+                                                    </li>
+                                                    <li><a class="edit-tab-a" href="#inter" data-toggle="tab">信息技术</a>
+                                                    </li>
+                                                    <li><a class="edit-tab-a" href="#medical" data-toggle="tab">医疗保健</a>
+                                                    </li>
+                                                    <li><a class="edit-tab-a" href="#consumer" data-toggle="tab">消费品</a>
+                                                    </li>
+                                                </ul>
+                                                <div id="myTabContent" class="tab-content editTab-content">
+                                                    <div class="tab-pane fade in active" id="energy">
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value="1"/><span>新能源装备</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value="2"/><span>海工装备</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value="3"/><span>新能源装备</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>海工装备</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>新能源装备</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="industry">
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value="4"/><span>工业</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value="5"/><span>工业</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value="6"/><span>工业</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value="7"/><span>工业</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value="8"/><span>工业</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="materials">
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>材料</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>材料</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>材料</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="inter">
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>信息技术</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>信息技术</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>信息技术</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>信息技术</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>信息技术</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>信息技术</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="medical">
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>医疗保健</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>医疗保健</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>医疗保健</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>医疗保健</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>医疗保健</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>医疗保健</span>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="tab-pane fade" id="consumer">
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>消费品</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>海工装备</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>新能源装备</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>新能源装备</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>海工装备</span>
+                                                        </div>
+                                                        <div class="edit-checkbox-content"><input type="checkbox"
+                                                                                                  ng-value=""/><span>新能源装备</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear:both"></div>
+                    </form>
+                    <!-------------------------form结束----------------------------->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

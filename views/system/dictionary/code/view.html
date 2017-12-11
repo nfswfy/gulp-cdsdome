@@ -1,0 +1,95 @@
+<div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="#" class="btn blue" ng-click="back()">
+                    <i class="fa fa-mail-reply"></i>&nbsp;<span>返回 </span>
+                </a>
+            </div>
+        </div>
+
+    <div class="row">
+        <div class="panel panel-default light">
+            <div class="panel-heading">
+                <div class="portlet-title">
+                    <div class="caption ">
+                        <i class="fa fa-calendar "></i>
+                        <span class="caption-subject  bold uppercase">代码基本信息</span>
+                        <span class="caption-helper"></span>
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:void(0);" class="collapse" data-original-title="" title="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">代码值</label>
+                                        <label class="form-control-label col-md-9" ng-bind="model.key"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">代码名称</label>
+                                        <label class="form-control-label col-md-9" ng-bind="model.text"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">父代码</label>
+                                        <label class="form-control-label col-md-9"  >{{parentId | parentFilter}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">代码类型</label>
+                                        <label class="form-control-label col-md-9" ng-bind="model.categoryKey"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">关联信息</label>
+                                        <label class="form-control-label col-md-9" ng-bind="model.value"></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">可编辑</label>
+                                        <div class="col-md-9">
+                                            <div class="checkbox-list">
+                                                <label class="checkbox-inline" ng-if="model.editable">
+                                                    是
+                                                </label>
+                                                <label class="checkbox-inline" ng-if="!model.editable">
+                                                    否
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">描述</label>
+                                        <label class="form-control-label col-md-9" ng-bind="model.description"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

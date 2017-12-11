@@ -1,0 +1,34 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "name": "北京团队",
+      "introduction": "工业、轻功装备、农林",
+      "teamImageUrl":"../../assets/admin/pages/img/teamlogo.png"
+    },
+    {
+      "id": 2,
+      "name": "上海团队",
+      "introduction": "工业、轻功装备、农林",
+      "teamImageUrl":"../../assets/admin/pages/img/teamlogo.png"
+    },
+    {
+      "id": 3,
+      "name": "重庆团队",
+      "introduction": "工业、轻功装备、农林",
+      "teamImageUrl":"../../assets/admin/pages/img/teamlogo.png"
+    }
+  ],
+  "pageable": {
+    "totalElements": 5,
+    "numberOfElements": 1,
+    "totalPages": 1,
+    "first": true,
+    "last": false,
+    "size": 10,
+    "number": 0,
+    "fromNumber": 1,
+    "toNumber": 5
+  }
+}

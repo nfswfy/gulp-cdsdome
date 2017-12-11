@@ -1,0 +1,163 @@
+<div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="#" class="btn blue" ng-click="back()">&nbsp;<span>返回 </span></a>
+                <button type="submit" class="btn blue" ng-click="submit(form)">&nbsp;<span>提交 </span></button>
+                <button type="button" class="btn blue" ng-click="reset(form)">&nbsp;<span>重置 </span></button>
+            </div>
+        </div>
+
+    <div class="row">
+        <div class="panel panel-default light">
+            <div class="panel-heading">
+                <div class="portlet-title">
+                    <div class="caption ">
+                        <i class="fa fa-calendar "></i>
+                        <span class="caption-subject  bold uppercase">代码基本信息</span>
+                        <span class="caption-helper"></span>
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:void(0);" class="collapse" data-original-title="" title="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.key.$touched || form.$submitted ) && form.key.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">代码值<span
+                                                class="text-danger">*</span></label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="key" class="form-control" placeholder="代码值"
+                                                   autocomplete="off" required maxlength="36" ng-model="model.key"
+                                                   ng-maxlength="36" ng-pattern="/^[a-zA-Z0-9][a-zA-Z0-9_]{0,36}$/"
+                                                   ng-readonly="id" ng-disabled="id"/>
+
+                                            <div class="help-block" ng-show="form.$submitted || form.key.$touched"
+                                                 ng-messages="form.key.$error">
+                                                <p ng-message="required">代码值不能为空</p>
+                                                <p ng-message="maxlength">代码值不能超过36个字符</p>
+                                                <p ng-message="pattern">代码值格式不正确，代码值由 3-36位的字母下划线和数字组成，且只能已字母或数字开头。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.text.$touched || form.$submitted ) && form.text.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">代码名称<span
+                                                class="text-danger">*</span></label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="text" class="form-control" placeholder="代码名称"
+                                                   autocomplete="off" required maxlength="50" ng-model="model.text" ng-maxlength="50"/>
+
+                                            <div class="help-block" ng-show="form.$submitted || form.text.$touched"
+                                                 ng-messages="form.text.$error">
+                                                <p ng-message="required">代码名称不能为空</p>
+                                                <p ng-message="maxlength">代码名称不能超过50个字符</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">父代码</label>
+                                        <div class="col-md-9">
+                                            <select id="parentId" name="parentId" class="form-control" ng-model="model.parentId" select2>
+                                                <option value="">请选择父代码</option>
+                                                <option ng-repeat="parentCode in parentCodes"
+                                                        value="{{parentCode.id}}">
+                                                    {{parentCode.text}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">代码类型</label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="categoryKey" class="form-control"
+                                                   placeholder="代码类型"
+                                                   required ng-model="model.categoryKey"
+                                                   readonly disabled/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.valueInfo.$touched || form.$submitted ) && form.valueInfo.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">关联信息</label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="valueInfo" class="form-control" placeholder="关联信息"
+                                                   autocomplete="off" maxlength="50" ng-model="model.value" ng-maxlength="50"/>
+
+                                            <div class="help-block" ng-show="form.$submitted || form.valueInfo.$touched"
+                                                 ng-messages="form.valueInfo.$error">
+                                                <p ng-message="maxlength">关联信息不能超过50个字符</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" ng-show="!id">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3" title="创建后此项不可修改">可编辑</label>
+                                        <div class="col-md-9">
+                                            <div class="checkbox-list">
+                                                <label class="checkbox-inline">
+                                                    <input id="editable" name="editable" class="form-control" title="创建后此项不可修改" type="checkbox" checked ng-model="model.editable"/>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" ng-show="id">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">可编辑</label>
+                                        <div class="col-md-9">
+                                            <div class="checkbox-list">
+                                                <label class="checkbox-inline" ng-if="model.editable">
+                                                    是
+                                                </label>
+                                                <label class="checkbox-inline" ng-if="!model.editable">
+                                                    否
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.description.$touched || form.$submitted ) && form.description.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">描述</label>
+                                        <div class="col-md-9">
+                                            <textarea id="description" class="form-control" name="description"
+                                                      placeholder="描述" autocomplete="off" ng-model="model.description" ng-maxlength="255">
+                                            </textarea>
+                                            <div class="help-block" ng-show="form.$submitted || form.description.$touched"
+                                                 ng-messages="form.description.$error">
+                                                <p ng-message="maxlength">描述不能超过255个字符</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

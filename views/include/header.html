@@ -1,0 +1,115 @@
+<!-- BEGIN HEADER INNER -->
+<div class="page-header-inner">
+    <!-- BEGIN LOGO -->
+    <div class="page-logo">
+        <a href="#/">
+            <img src="../assets/admin/layout/img/logo.png" class="pull-left" style="height:40px;margin-top:16px;margin-left:8px;">
+        </a>
+
+    </div>
+    <ul class="header-title">
+        <a href="">专家库</a>
+        <a href="">任务大厅</a>
+        <a href="">工作流程</a>
+        <a href="">需求发布</a>
+    </ul>
+    <!-- END LOGO -->
+    <!-- BEGIN HEADER SEARCH BOX -->
+    <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
+    <form class="search-form hide" action="#" method="GET">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search..." name="query">
+			<span class="input-group-btn">
+			<a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
+			</span>
+        </div>
+    </form>
+    <!-- END HEADER SEARCH BOX -->
+    <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+    <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
+       data-target=".navbar-collapse">
+    </a>
+    <!-- END RESPONSIVE MENU TOGGLER -->
+    <!-- BEGIN TOP NAVIGATION MENU -->
+    <div class="top-menu">
+        <ul class="nav navbar-nav pull-right">
+            <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar" ng-if="!organizationId">
+                <!--<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">-->
+                    <!--<i class="icon-bell" style="color: white"></i>-->
+                    <!--<span class="badge badge-danger" ng-if="length!=0">-->
+					<!--{{length}}</span>-->
+                <!--</a>-->
+                <!--<ul class="dropdown-menu">-->
+                    <!--&lt;!&ndash;<li class="external">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<h3><span class="bold"></span>待处理项</h3>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--<li>-->
+                        <!--<div class="slimScrollDiv"  style="position: relative;  overflow:hidden; width: auto; height: 250px;"><ul class="dropdown-menu-list scroller" style="height: 250px;overflow:auto; width: auto;" data-handle-color="#637283" data-initialized="1">-->
+                            <!--<li ng-repeat="menu in menus">-->
+                                <!--<a href="javascript:void(0)" ng-click=pending(menu)>-->
+                                    <!--<span class="time">{{menu.timeInterval | timeFilter}}</span>-->
+                                    <!--<span class="details">-->
+									    <!--<span ng-if="menu.todoType == 'ENROLLEE_REVIEW'" class="label label-sm label-icon label-warning">-->
+									        <!--<i class="fa fa-users"></i>-->
+									    <!--</span>-->
+                                        <!--<span ng-if="menu.todoType == 'VEHICLE_CONDIITON_ALERT'" class="label label-sm label-icon label-success">-->
+                                            <!--<i class="fa fa-car"></i>-->
+									    <!--</span>-->
+
+                                        <!--<span ng-if="menu.todoType == 'FFS_JOB_CANCEL'" class="label label-sm label-icon label-info">-->
+                                            <!--<i class="fa fa-wrench"></i>-->
+									    <!--</span>-->
+                                        <!--<span ng-if="menu.todoType == 'ORDER_DELETED'" class="label label-sm label-icon label-info">-->
+                                            <!--<i class="fa fa-wrench"></i>-->
+									    <!--</span>-->
+                                        <!--<span ng-if="menu.todoType == 'ORDER_COMPLETED'" class="label label-sm label-icon label-info">-->
+                                            <!--<i class="fa fa-wrench"></i>-->
+									    <!--</span>-->
+                                         <!--<span ng-if="menu.todoType == 'ORDER_OVERDUE'" class="label label-sm label-icon label-info">-->
+                                            <!--<i class="fa fa-wrench"></i>-->
+									    <!--</span>-->
+									<!--{{menu.todoType | todoTypeFilter}} </span>-->
+                                <!--</a>-->
+                            <!--</li>-->
+                            <!--<div ng-if="length==0" style="text-align: center; margin-top: 100px;color: #888888">当前无待处理项,是否<a href="javascript:;" ng-click="list()">刷新</a></div>-->
+
+                        <!--</ul><div class="slimScrollBar" style="background: rgb(99, 114, 131); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 121.359px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(234, 234, 234); opacity: 0.2; z-index: 90; right: 1px;"></div></div>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!-- BEGIN USER LOGIN DROPDOWN -->
+            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+            <li class="dropdown dropdown-user">
+                <a href="#" class="dropdown-toggle" dropdown-menu-hover data-toggle="dropdown" data-close-others="true">
+				<span style="color:black;" class="username username-hide-on-mobile" ng-bind="nickname">
+
+                </span>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-default">
+                    <li>
+                        <a href="#" ng-click="logout()">
+                            <i class="icon-logout"></i>
+                            退出
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" ng-click="informationChange()">
+                            <i class="icon-user"></i>
+                            个人信息
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" ng-click="passwordChange()">
+                            <i class="icon-key"></i>
+                            密码设置
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!-- END USER LOGIN DROPDOWN -->
+        </ul>
+    </div>
+    <!-- END TOP NAVIGATION MENU -->
+</div>
+<!-- END HEADER INNER -->

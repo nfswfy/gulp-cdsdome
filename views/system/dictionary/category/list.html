@@ -1,0 +1,43 @@
+<!-- BEGIN Portlet PORTLET-->
+<script type="text/ng-template" id="operation.html">
+    <div class="text-center">
+        <!--<a href="javascript:void(0)" class="btn btn-xs green" data-ng-click="onActionClick(row.id,'view')">查看 </a>-->
+        <a href="javascript:void(0)" class="btn btn-xs green" data-ng-if="!row.discarded" data-ng-click="onActionClick(row,'viewCodeType')">查看代码 </a>
+        <a href="javascript:void(0)" class="btn btn-xs green" data-ng-if="!row.discarded" data-ng-click="onActionClick(row.id,'edit')">编辑 </a>
+        <a href="javascript:void(0)" class="btn btn-xs green" data-ng-if="!row.discarded" data-ng-click="onActionClick(row,'discard')">废弃 </a>
+    </div>
+</script>
+<!-- BEGIN Portlet PORTLET-->
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-left">
+                    <button type="button" class="btn button-orange button-offset-margin" ng-click="create111()">
+                        <span>新增 </span>
+                    </button>
+                </div>
+                <div class="pull-right">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-inline" autocomplete="off" ng-model="condition.key"
+                            placeholder="请输入码表类型"/>
+                        </div>
+                        <button type="button" class="btn button-orange button-offset-margin" ng-click="search()">
+                            &nbsp;<span>查询 </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    <ng-table
+            columns="columns"
+            sort="sort"
+            order="order"
+            pageable="pageable"
+            rows="rows">
+    </ng-table>
+    </div>
+</div>
+<!-- END Portlet PORTLET-->

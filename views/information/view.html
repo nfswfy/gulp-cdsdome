@@ -1,0 +1,320 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left"
+                                                                    style="font-size: 160%;color:#808080;"></span></span></span>
+            </a>
+            <button type="submit" class="btn button-orange" ng-click="submit(form)">&nbsp;<span>保存 </span></button>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form name="form" class="form-horizontal" novalidate>
+        <div class="form-body">
+            <div class="row">
+                <div class="col-md-12"
+                     ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                    <div class="form-group " style="margin-top: 10px">
+                        <label class="control-label col-md-3 label-offset-padding ">设计师级别</label>
+                        <div class="col-md-3">
+                            <div class="col-md-8">
+                                <select class="form-control form-control-inline"
+                                        style="width: 150px;"
+                                        ng-model="" name=""
+                                        data-placeholder="请选择认证级别">
+                                    <option value="chinese" selected="selected">中文</option>
+                                    <option value="english">英语</option>
+                                    <option value="japanese">日语</option>
+                                    <option value="korea">韩语</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <label class=" label-offset-padding"
+                               style="width:5%; float:left;">工作年限</label>
+
+                        <div class="col-md-3">
+                            <input type="text" name="name" class="form-control"
+                                   placeholder="请输入工作年限 "
+                                   required autocomplete="off" maxlength="36"
+                            />
+                            <div class="help-block"
+                                 ng-show="form.$submitted || form.name.$touched"
+                                 ng-messages="form.name.$error">
+                                <p ng-message="required">不能为空</p>
+                                <p ng-message="maxlength">不能超过36个字符</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-heading" style="margin-left: -20px;margin-top: 10px;">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <div class="one-border">
+                            工作经历
+                        </div>
+                    </div>
+                    <button type="submit" class="btn plus-btn pull-right" style="margin-right:-15px;" ng-click="submit(form)"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <div class="delete ">
+                        <a href="" class="text-danger">删除</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 label-offset-padding">时间 :</label>
+                                <div class="col-md-5">
+                                    <div date-time-append="" class="input-group col-md-5 pull-left">
+                                        <input name="startTime"
+                                               class="form-control ng-pristine ng-untouched ng-valid ng-scope ng-valid-required"
+                                               required="" autocomplete="off" placeholder="请选择"
+                                               ng-model="model.startTime" date-time=""
+                                               max-view="year"
+                                               min-view="minutes" format="YYYY-MM-DD HH:mm"
+                                               auto-close="true">
+                                        <span class="input-group-btn">
+                                                                        <button class="btn default"
+                                                                                style="border-radius: 0 5px 5px 0 !important;padding-top:9px;"
+                                                                                type="button">
+                                                                            <i class="fa fa-calendar"></i>
+                                                                        </button>
+                                                                    </span>
+                                    </div>
+                                    <div class="col-md-2" style="padding-left:6%;padding-top: 7px;">
+                                        <span>至</span></div>
+                                    <div date-time-append="" class="input-group col-md-5 pull-right">
+                                        <input name="endTime"
+                                               class="form-control ng-pristine ng-untouched ng-scope ng-invalid ng-invalid-validator ng-valid-required"
+                                               required="" autocomplete="off" placeholder="请选择"
+                                               ng-model="model.endTime"
+                                               date-time="" max-view="year" min-view="minutes"
+                                               format="YYYY-MM-DD HH:mm" auto-close="true"
+                                               ng-disabled="!model.startTime"
+                                               ui-validate="'model.endTime > model.startTime'"
+                                               ui-validate-async="'model.endTime'">
+                                        <span class="input-group-btn">
+                                                                        <button class="btn default"
+                                                                                style="border-radius: 0 5px 5px 0 !important;padding-top:9px;"
+                                                                                type="button">
+                                                                            <i class="fa fa-calendar"></i>
+                                                                        </button>
+                                                                    </span>
+                                    </div>
+                                    <div class="help-block ng-active ng-hide" style="padding-top: 34px"
+                                         ng-show="form.$submitted || form.endTime.$touched"
+                                         ng-messages="form.endTime.$error">
+                                        <!-- ngMessage: required -->
+                                        <!-- ngMessage: validator -->
+                                        <p ng-message="validator" class="ng-scope">时间有效日期结束时间大于活动开始时间</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"
+                             ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 label-offset-padding">公司名称
+                                    :</label>
+                                <div class="col-md-5">
+                                    <input type="text" name="name" class="form-control"
+                                           placeholder="请输入"
+                                           required autocomplete="off" maxlength="36"
+                                    />
+                                    <div class="help-block"
+                                         ng-show="form.$submitted || form.name.$touched"
+                                         ng-messages="form.name.$error">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"
+                             ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 label-offset-padding">职位
+                                    :</label>
+                                <div class="col-md-5">
+                                    <input type="text" name="position" class="form-control"
+                                           placeholder="请输入" ng-model="model.position"
+                                           required autocomplete="off" maxlength="36"
+                                    />
+                                    <div class="help-block"
+                                         ng-show="form.$submitted || form.position.$touched"
+                                         ng-messages="form.position.$error">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"
+                             ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 label-offset-padding">描述
+                                    :</label>
+                                <div class="col-md-5">
+                                    <input type="text" name="description" class="form-control"
+                                           placeholder="请输入" ng-model="model.description"
+                                           required autocomplete="off" maxlength="36"
+                                    />
+                                    <div class="help-block"
+                                         ng-show="form.$submitted || form.description.$touched"
+                                         ng-messages="form.description.$error">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--项目经验-->
+            <div class="panel-heading" style="margin-left: -20px;margin-top: 10px;">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <div class="one-border">
+                            项目经验
+                        </div>
+                    </div>
+                    <button type="submit" class="btn plus-btn pull-right" style="margin-right:-15px;" ng-click="submit(form)"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <div class="delete ">
+                        <a href="" class="text-danger">删除</a>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 label-offset-padding">时间 :</label>
+                                <div class="col-md-5">
+                                    <div date-time-append="" class="input-group col-md-5 pull-left">
+                                        <input name="startTime"
+                                               class="form-control ng-pristine ng-untouched ng-valid ng-scope ng-valid-required"
+                                               required="" autocomplete="off" placeholder="请选择"
+                                               ng-model="model.startTime" date-time=""
+                                               max-view="year"
+                                               min-view="minutes" format="YYYY-MM-DD HH:mm"
+                                               auto-close="true">
+                                        <span class="input-group-btn">
+                                                                <button class="btn default"
+                                                                        style="border-radius: 0 5px 5px 0 !important;padding-top:9px;"
+                                                                        type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
+                                    </div>
+                                    <div class="col-md-2" style="padding-left:6%;padding-top: 7px;">
+                                        <span>至</span></div>
+                                    <div date-time-append="" class="input-group col-md-5 pull-right">
+                                        <input name="endTime"
+                                               class="form-control ng-pristine ng-untouched ng-scope ng-invalid ng-invalid-validator ng-valid-required"
+                                               required="" autocomplete="off" placeholder="请选择"
+                                               ng-model="model.endTime"
+                                               date-time="" max-view="year" min-view="minutes"
+                                               format="YYYY-MM-DD HH:mm" auto-close="true"
+                                               ng-disabled="!model.startTime"
+                                               ui-validate="'model.endTime > model.startTime'"
+                                               ui-validate-async="'model.endTime'">
+                                        <span class="input-group-btn">
+                                                                <button class="btn default"
+                                                                        style="border-radius: 0 5px 5px 0 !important;padding-top:9px;"
+                                                                        type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
+                                    </div>
+                                    <div class="help-block ng-active ng-hide" style="padding-top: 34px"
+                                         ng-show="form.$submitted || form.endTime.$touched"
+                                         ng-messages="form.endTime.$error">
+                                        <!-- ngMessage: required -->
+                                        <!-- ngMessage: validator -->
+                                        <p ng-message="validator" class="ng-scope">时间有效日期结束时间大于活动开始时间</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"
+                             ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 label-offset-padding">项目名称
+                                    :</label>
+                                <div class="col-md-5">
+                                    <input type="text" name="name" class="form-control"
+                                           placeholder="请输入"
+                                           required autocomplete="off" maxlength="36"
+                                    />
+                                    <div class="help-block"
+                                         ng-show="form.$submitted || form.name.$touched"
+                                         ng-messages="form.name.$error">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12"
+                             ng-class="{ 'has-error' :(form.description.$touched || form.$submitted ) && form.description.$invalid}">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 label-offset-padding">项目描述
+                                    :</label>
+                                <div class="col-md-5">
+                                    <input type="text" name="description" class="form-control"
+                                           placeholder="请输入" ng-model="model.description"
+                                           required autocomplete="off" maxlength="36"
+                                    />
+                                    <div class="help-block"
+                                         ng-show="form.$submitted || form.description.$touched"
+                                         ng-messages="form.description.$error">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"
+                             ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 label-offset-padding">附件内容 :</label>
+                                <div class="col-md-8">
+                                    <div class="less-box">
+                                        <span>点击上传</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" control-label  label-offset-padding>
+                <div class="col-md-3">
+                    <span class="text-danger">*</span><span class="text-danger">*</span>
+                    <label class="control-label  label-offset-padding ">温馨提示：</label>
+                </div>
+                <div class="col-md-6 label-offset-padding ">
+                    <p>1.中级设计师，工作经验3一下；</p>
+                    <p>2.中级设计师，工作经验3-6年，主导项目不少于12个，平台验证成功的项目数不少于5个；</p>
+                    <p>3.高级设计师，工作经验6-9年，主导项目不少于20个，平台验证成功的项目数不少于10个；</p>
+                    <p>4.高级设计师，工作经验9年以上，主导项目不少于30个，平台验证成功的项目数不少于12个</p>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>

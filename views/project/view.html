@@ -1,0 +1,554 @@
+<script type="text/ng-template" id="operation.html">
+    <div class="text-center">
+        <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'view')">查看</a>
+    </div>
+</script>
+
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left" style="font-size: 160%;color:#808080;"></span></span></span></a>
+        </div>
+    </div>
+
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                   基本信息
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">项目名称:</label>
+                                        <label class="col-md-9 form-control-label">{{model.projectName}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">签约日期:</label>
+                                        <label class="col-md-9 form-control-label">{{model.contractSigningTime}}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">项目开始:</label>
+                                        <label class="col-md-9 form-control-label">{{model.projectActualStartTime}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">项目结束:</label>
+                                        <label class="col-md-9 form-control-label">
+                                            {{model.projectActualEndTime}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">项目总额:</label>
+                                        <label class="col-md-9 form-control-label">{{model.budgetCostSummary}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">商务总监:</label>
+                                        <label class="col-md-9 form-control-label">
+                                            {{model.businessDirector}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">项目总监:</label>
+                                        <label class="col-md-9 form-control-label">{{model.projectDirector}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">总工:</label>
+                                        <label class="col-md-9 form-control-label">
+                                            {{model.chiefEngineerName}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">项目经理:</label>
+                                        <label class="col-md-9 form-control-label">{{model.projectManager}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">已支付:</label>
+                                        <label class="col-md-9 form-control-label">
+                                            {{model.payment}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">未支付:</label>
+                                        <label class="col-md-9 form-control-label">{{model.unpayment}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">项目状态:</label>
+                                        <label class="col-md-9 form-control-label">
+                                            {{model.projectStatus}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">项目创建时间:</label>
+                                        <label class="col-md-9 form-control-label">{{model.createTime}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">创建人:</label>
+                                        <label class="col-md-9 form-control-label">
+                                            {{model.creator}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">项目关闭时间:</label>
+                                        <label class="col-md-9 form-control-label">{{model.projectCloseTime}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">关闭人:</label>
+                                        <label class="col-md-9 form-control-label">
+                                            {{model.projectClosePerson}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    团队信息
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">项目经理:</label>
+                                        <label class="col-md-9 form-control-label">{{model.projectManager}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">项目总监:</label>
+                                        <label class="col-md-9 form-control-label">{{model.projectDirector}}</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">商务经理:</label>
+                                        <label class="col-md-9 form-control-label">{{model.businessManager}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">商务总监:</label>
+                                        <label class="col-md-9 form-control-label">
+                                            {{model.businessDirector}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">总工:</label>
+                                        <label class="col-md-9 form-control-label">{{model.chiefEngineerName}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">平台内部资源:</label>
+                                        <label class="col-md-9 form-control-label">
+                                            4
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">平台外部资源:</label>
+                                        <label class="col-md-9 form-control-label">{{model.externalResources}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    项目费用
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <!--<div class="portlet light  bordered">-->
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <!--<form name="form" class="form-horizontal" novalidate>-->
+                        <!--<div class="form-body">-->
+                            <ng-table
+                                    columns="columns"
+                                    sort="sort"
+                                    order="order"
+                                    pageable="pageable"
+                                    notpageable="notpageable"
+                                    rows="projectRows">
+                            </ng-table>
+                        <!--</div>-->
+                    <!--</form>-->
+                </div>
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    工作包费用
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <!--<div class="portlet light  bordered">-->
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <!--<form name="form" class="form-horizontal" novalidate>-->
+                        <!--<div class="form-body">-->
+                            <ng-table
+                                    columns="toolBagColumns"
+                                    sort="sort"
+                                    order="order"
+                                    pageable="pageable"
+                                    notpageable="notpageable"
+                                    rows="toolBagRows">
+                            </ng-table>
+                        <!--</div>-->
+                    <!--</form>-->
+                </div>
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    费用总计
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <!--<div class="portlet light  bordered">-->
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <!--<form name="form" class="form-horizontal" novalidate>-->
+                        <!--<div class="form-body">-->
+                            <ng-table
+                                    columns="costColumns"
+                                    sort="sort"
+                                    order="order"
+                                    pageable="pageable"
+                                    notpageable="notpageable"
+                                    rows="costRows">
+                            </ng-table>
+                        <!--</div>-->
+                    <!--</form>-->
+                </div>
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    变更
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <!--<div class="portlet light  bordered">-->
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <!--<form name="form" class="form-horizontal" novalidate>-->
+                        <!--<div class="form-body">-->
+                            <ng-table
+                                    columns="changeColumns"
+                                    sort="sort"
+                                    order="order"
+                                    pageable="pageable"
+                                    notpageable="notpageable"
+                                    rows="changeRows">
+                            </ng-table>
+                        <!--</div>-->
+                    <!--</form>-->
+                </div>
+            <!--</div>-->
+        </div>
+    </div>
+    </div>
+
+
+<script type="text/ng-template" id="changeModel.html">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="btn_cancel()"><span
+                aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">变更</h3>
+    </div>
+    <div class="modal-body">
+        <div class="panel-heading">
+            <div class="portlet-title">
+                <div class="caption">
+                    <div class="one-border">
+                        变更信息
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <div class="portlet light  bordered">
+                    <div class="portlet-body form" style="display: block;">
+                        <!-- BEGIN FORM-->
+                        <form name="form" class="form-horizontal" novalidate>
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">变更类型 :</label>
+                                            <label class="col-md-6 form-control-label">{{model.changeType}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">变更理由 :</label>
+                                            <label class="col-md-10 form-control-label">{{model.changeReason}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">申请人:</label>
+                                            <label class="col-md-8 form-control-label">{{model.changeProposer}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">申请时间:</label>
+                                            <label class="col-md-8 form-control-label">
+                                                {{model.changeProposedTime}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">附件:</label>
+                                            <label class="col-md-10 form-control-label">{{model.changeProposedAnnex}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                        <!-- END FORM-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-heading">
+            <div class="portlet-title">
+                <div class="caption">
+                    <div class="one-border">
+                        分析信息
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <div class="portlet light  bordered">
+                    <div class="portlet-body form" style="display: block;">
+                        <!-- BEGIN FORM-->
+                        <form name="form" class="form-horizontal" novalidate>
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">分析结果 :</label>
+                                            <label class="col-md-6 form-control-label">{{model.changeAnalysisResult}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">分析影响单 :</label>
+                                            <label class="col-md-10 form-control-label">{{model.analysisImpactSingle}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2>发起评审 :</label>
+                                     <label class="col-md-10 form-control-label">{{model.projectActualStartTime}}</label>>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END FORM-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-heading">
+            <div class="portlet-title">
+                <div class="caption">
+                    <div class="one-border">
+                        变更结果
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <div class="portlet light  bordered">
+                    <div class="portlet-body form" style="display: block;">
+                        <!-- BEGIN FORM-->
+                        <form name="form" class="form-horizontal" novalidate>
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">变更影响 :</label>
+                                            <label class="col-md-10 form-control-label">{{model.projectName}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">分析说明:</label>
+                                            <label class="col-md-10 form-control-label">{{model.projectActualStartTime}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">附件:</label>
+                                            <label class="col-md-10 form-control-label">{{model.totalProject}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <ng-table
+                                            columns="columns"
+                                            sort="sort"
+                                            order="order"
+                                            pageable="pageable"
+                                            notpageable="notpageable"
+                                            rows="rows">
+                                    </ng-table>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END FORM-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn blue" data-dismiss="modal" ng-click="btn_ok()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>确定 </span>
+        </button>
+        <button type="button" class="btn" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-close" aria-hidden="true"></i>&nbsp;<span>取消 </span>
+        </button>
+    </div>
+</script>

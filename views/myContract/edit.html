@@ -1,0 +1,505 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left"
+                                                                    style="font-size: 160%;color:#808080;"></span></span></span>
+            </a>
+            <button type="submit" class="btn button-orange" ng-click="save(form)">&nbsp;<span>保存 </span></button>
+            <button type="submit" class="btn button-orange" ng-click="submit(form)">&nbsp;<span>提交 </span></button>
+            <button type="button" class="btn button-orange" ng-click="reset(form)">&nbsp;<span>重置 </span></button>
+        </div>
+    </div>
+    <!--合同基本信息-->
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    合同基本信息
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.validOrderName.$touched || form.$submitted ) && form.validOrderName.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding">需求名称<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="validOrderName" class="form-control"
+                                                   placeholder="需求名称"
+                                                   required maxlength="50" ng-maxlength="50"
+                                                   ng-model="model.validOrderName"/>
+                                            <div class="help-block"
+                                                 ng-show="form.$submitted || form.validOrderName.$touched"
+                                                 ng-messages="form.validOrderName.$error">
+                                                <p ng-message="required">需求名称不能为空</p>
+                                                <p ng-message="maxlength">需求名称长度不能超过50字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.customerName.$touched || form.$submitted ) && form.customerName.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding">客户名称<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="customerName" class="form-control"
+                                                   placeholder="客户名称"
+                                                   required maxlength="50" ng-maxlength="50"
+                                                   ng-model="model.customerName"/>
+                                            <div class="help-block"
+                                                 ng-show="form.$submitted || form.customerName.$touched"
+                                                 ng-messages="form.customerName.$error">
+                                                <p ng-message="required">客户名称不能为空</p>
+                                                <p ng-message="maxlength">客户名称长度不能超过50字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.contractName.$touched || form.$submitted ) && form.contractName.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding">合同名称<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="contractName" class="form-control"
+                                                   placeholder="合同名称"
+                                                   required maxlength="50" ng-maxlength="50"
+                                                   ng-model="model.contractName"/>
+                                            <div class="help-block"
+                                                 ng-show="form.$submitted || form.contractName.$touched"
+                                                 ng-messages="form.contractName.$error">
+                                                <p ng-message="required">合同名称不能为空</p>
+                                                <p ng-message="maxlength">合同名称长度不能超过50字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.contractAccount.$touched || form.$submitted ) && form.contractAccount.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding">合同总金额<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="contractAccount" class="form-control"
+                                                   placeholder="合同总金额"
+                                                   required maxlength="50" ng-maxlength="50"
+                                                   ng-model="model.contractAccount"/>
+                                            <div class="help-block"
+                                                 ng-show="form.$submitted || form.contractAccount.$touched"
+                                                 ng-messages="form.contractAccount.$error">
+                                                <p ng-message="required">合同总金额不能为空</p>
+                                                <p ng-message="maxlength">合同总金额长度不能超过50字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.contractStartTime.$touched || form.$submitted ) && form.contractStartTime.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding">合同开始时间<span
+                                                class="text-danger">*</span></label>
+                                        <div class="col-md-8">
+                                            <div date-time-append class="input-group">
+                                                <input name="contractStartTime"
+                                                       class="form-control"
+                                                       placeholder="合同开始时间"
+                                                       ng-model="model.contractStartTime"
+                                                       format="YYYY-MM-DD HH:mm:ss"
+                                                       date-time max-view="year" min-view="minutes" view="month"
+                                                       required
+                                                       auto-close="true"/>
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                 </span>
+                                            </div>
+                                            <div class="help-block"
+                                                 ng-show="(form.contractStartTime.$touched || form.$submitted ) && form.contractStartTime.$invalid"
+                                                 ng-messages="form.contractStartTime.$error">
+                                                <p ng-message="required">合同开始时间不能为空</p>
+                                                <p ng-message="parse">合同开始时间格式不正确</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.contractEndTime.$touched || form.$submitted ) && form.contractEndTime.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding">合同结束时间<span
+                                                class="text-danger">*</span></label>
+                                        <div class="col-md-8">
+                                            <div date-time-append class="input-group">
+                                                <input name="contractEndTime"
+                                                       class="form-control"
+                                                       placeholder="合同结束时间"
+                                                       ng-model="model.contractEndTime"
+                                                       format="YYYY-MM-DD HH:mm:ss"
+                                                       date-time max-view="year" min-view="minutes" view="month"
+                                                       required
+                                                       auto-close="true"/>
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                 </span>
+                                            </div>
+                                            <div class="help-block"
+                                                 ng-show="(form.contractEndTime.$touched || form.$submitted ) && form.contractEndTime.$invalid"
+                                                 ng-messages="form.contractEndTime.$error">
+                                                <p ng-message="required">合同结束时间不能为空</p>
+                                                <p ng-message="parse">合同结束时间格式不正确</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.contractSigningTime.$touched || form.$submitted ) && form.contractSigningTime.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding">合同签署时间<span
+                                                class="text-danger">*</span></label>
+                                        <div class="col-md-8">
+                                            <div date-time-append class="input-group">
+                                                <input name="contractSigningTime"
+                                                       class="form-control"
+                                                       placeholder="合同签署时间"
+                                                       ng-model="model.contractSigningTime"
+                                                       format="YYYY-MM-DD HH:mm:ss"
+                                                       date-time max-view="year" min-view="minutes" view="month"
+                                                       required
+                                                       auto-close="true"/>
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                 </span>
+                                            </div>
+                                            <div class="help-block"
+                                                 ng-show="form.$submitted || form.contractSigningTime.$touched"
+                                                 ng-messages="form.contractSigningTime.$error">
+                                                <p ng-message="required">合同签署时间不能为空</p>
+                                                <p ng-message="maxlength">合同签署时间长度不能超过50字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--ning-->
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.collectionTimes.$touched || form.$submitted ) && form.collectionTimes.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding">收款次数<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="collectionTimes" class="form-control"
+                                                   placeholder="收款次数"
+                                                   required maxlength="50" ng-maxlength="50"
+                                                   ng-model="model.collectionTimes"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--ningyuxue 要做文件上传-->
+                           <!-- <div class="row">
+                                <div class="col-md-12"
+                                     ng-class="{ 'has-error' :(form.accessoryIdContractOne.$touched || form.$submitted ) && form.accessoryIdContractOne.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 label-offset-padding">合同正文<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-10">
+                                            <input ng-show="false" type="text" name="accessoryIdContractOne" required
+                                                   ng-model="model.accessoryIdContractOne"/>
+                                            <div flow-init="{target: '/w/applications/upload'}" flow-name="thumbnail"
+                                                 flow-files-submitted="$flow.upload()"
+                                                 flow-file-added="fileAdd($file, $event, $flow)"
+                                                 flow-file-success="fileSuccess($file, $message, $flow)"
+                                                 flow-file-error="fileError($file, $message, $flow)">
+                                                <button ng-show="showContractOne" type="button" flow-btn
+                                                        class="btn upload-btn" flow-single-file>
+                                                    上传合同正文
+                                                </button>
+                                                <flow-js-upload-progress
+                                                        files-obj="$flow.files"></flow-js-upload-progress>
+                                            </div>
+                                            <div class="help-block"
+                                                 ng-show="form.$submitted || form.accessoryIdContractOne.$touched"
+                                                 ng-messages="form.accessoryIdContractOne.$error">
+                                                <p ng-message="required">合同开始时间不能为空</p>
+                                                <p ng-message="maxlength">合同开始时间长度不能超过50字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+
+                            <!--<div class="row">
+                                <div class="col-md-12"
+                                     ng-class="{ 'has-error' :(form.accessoryIdContractAttach.$touched || form.$submitted ) && form.accessoryIdContractAttach.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2 label-offset-padding">合同附件<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-10">
+                                            <input ng-show="false" type="text" name="accessoryIdContractAttach" required
+                                                   ng-model="model.accessoryIdContractAttach"/>
+                                            <div flow-init="{target: '/w/applications/upload'}" flow-name="thumbnail"
+                                                 flow-files-submitted="$flow.upload()"
+                                                 flow-file-added="fileAdd($file, $event, $flow)"
+                                                 flow-file-success="fileSuccess($file, $message, $flow)"
+                                                 flow-file-error="fileError($file, $message, $flow)">
+                                                <button ng-show="showContractAttach" type="button" flow-btn
+                                                        class="btn upload-btn" flow-single-file>
+                                                    上传合同附件
+                                                </button>
+                                                <flow-js-upload-progress
+                                                        files-obj="$flow.files"></flow-js-upload-progress>
+                                            </div>
+                                            <div class="help-block"
+                                                 ng-show="form.$submitted || form.accessoryIdContractAttach.$touched"
+                                                 ng-messages="form.accessoryIdContractAttach.$error">
+                                                <p ng-message="required">合同开始时间不能为空</p>
+                                                <p ng-message="maxlength">合同开始时间长度不能超过50字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--客户账户信息-->
+
+    <!--<div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    客户账户信息
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    &lt;!&ndash; BEGIN FORM&ndash;&gt;
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.enterpriseCustomerId.$touched || form.$submitted ) && form.enterpriseCustomerId.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding">企业名称<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="enterpriseCustomerId" class="form-control"
+                                                   placeholder="企业名称"
+                                                   required maxlength="50" ng-maxlength="50"
+                                                   ng-model="model.enterpriseCustomerId"/>
+                                            <div class="help-block"
+                                                 ng-show="form.$submitted || form.enterpriseCustomerId.$touched"
+                                                 ng-messages="form.enterpriseCustomerId.$error">
+                                                <p ng-message="required">企业名称不能为空</p>
+                                                <p ng-message="maxlength">企业名称长度不能超过50字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                &lt;!&ndash;ningyuxue 没找着税号&ndash;&gt;
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.title.$touched || form.$submitted ) && form.title.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding">税号<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="title" class="form-control" placeholder="税号"
+                                                   required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                            <div class="help-block" ng-show="form.$submitted || form.title.$touched"
+                                                 ng-messages="form.title.$error">
+                                                <p ng-message="required">税号不能为空</p>
+                                                <p ng-message="maxlength">税号长度不能超过50字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.customerBankId.$touched || form.$submitted ) && form.customerBankId.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding">开户银行<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="customerBankId" class="form-control"
+                                                   placeholder="开户银行"
+                                                   required maxlength="50" ng-maxlength="50"
+                                                   ng-model="model.customerBankId"/>
+                                            <div class="help-block"
+                                                 ng-show="form.$submitted || form.customerBankId.$touched"
+                                                 ng-messages="form.customerBankId.$error">
+                                                <p ng-message="required">开户银行不能为空</p>
+                                                <p ng-message="maxlength">开户银行长度不能超过50字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.customerAccountId.$touched || form.$submitted ) && form.customerAccountId.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding">开户账号<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="customerAccountId" class="form-control"
+                                                   placeholder="开户账号"
+                                                   required maxlength="50" ng-maxlength="50"
+                                                   ng-model="model.customerAccountId"/>
+                                            <div class="help-block"
+                                                 ng-show="form.$submitted || form.customerAccountId.$touched"
+                                                 ng-messages="form.customerAccountId.$error">
+                                                <p ng-message="required">开户账号不能为空</p>
+                                                <p ng-message="maxlength">开户账号长度不能超过50字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.address.$touched || form.$submitted ) && form.address.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding">地址<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="address" class="form-control" placeholder="地址"
+                                                   required maxlength="50" ng-maxlength="50" ng-model="model.address"/>
+                                            <div class="help-block" ng-show="form.$submitted || form.address.$touched"
+                                                 ng-messages="form.address.$error">
+                                                <p ng-message="required">地址不能为空</p>
+                                                <p ng-message="maxlength">地址长度不能超过50字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"
+                                     ng-class="{ 'has-error' :(form.phone.$touched || form.$submitted ) && form.phone.$invalid}">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 label-offset-padding">电话<span
+                                                class="text-danger">*</span> :</label>
+                                        <div class="col-md-8">
+                                            <input type="text" name="phone" class="form-control" placeholder="电话"
+                                                   required maxlength="50" ng-maxlength="50" ng-model="model.phone"/>
+                                            <div class="help-block" ng-show="form.$submitted || form.phone.$touched"
+                                                 ng-messages="form.phone.$error">
+                                                <p ng-message="required">电话不能为空</p>
+                                                <p ng-message="maxlength">电话长度不能超过50字符 </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    &lt;!&ndash; END FORM&ndash;&gt;
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+
+    <!--收款阶段-->
+    <!--<div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    收款阶段
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light">
+                <div class="portlet-body form" style="display: block;">
+                    <div class="row">
+                        <ng-table-input
+                                columns="columnsStageInput"
+                                sort="sort"
+                                order="order"
+                                pageable="pageable"
+                                rows="rowsStageCollect"
+                                notpageable="notpageable">
+                        </ng-table-input>
+                    </div>
+                    {{inputRows}}
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>
+<!--<script type="text/ng-template" id="menuTree.html">-->
+<!--<div class="modal-header">-->
+<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="btn_cancel()"><span-->
+<!--aria-hidden="true">&times;</span></button>-->
+<!--<h3 class="modal-title">请选择父菜单</h3>-->
+<!--</div>-->
+<!--<div class="modal-body">-->
+<!--<div style="max-height: 390px;overflow-y: auto;" js-tree="treeConfig" ng-model="treeData"-->
+<!--should-apply="applyModelChanges()" tree="treeInstance"-->
+<!--tree-events="ready:menuTreeLoadedReady;select_node:selectMenuNode;">-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="modal-footer">-->
+<!--<button type="button" class="btn blue" data-dismiss="modal" ng-click="btn_ok()" aria-hidden="true">-->
+<!--<i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>确定 </span>-->
+<!--</button>-->
+<!--<button type="button" class="btn" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">-->
+<!--<i class="fa fa-close" aria-hidden="true"></i>&nbsp;<span>取消 </span>-->
+<!--</button>-->
+<!--</div>-->
+<!--</script>-->
+
+<script type="text/ng-template" id="notice.html">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="btn_cancel()"><span
+                aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">操作提示</h3>
+    </div>
+    <div class="modal-body">
+        <h4 ng-bind="confirmContent"></h4>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn blue" data-dismiss="modal" ng-click="btn_ok()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>确定 </span>
+        </button>
+        <button type="button" class="btn" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-close" aria-hidden="true"></i>&nbsp;<span>取消 </span>
+        </button>
+    </div>
+</script>

@@ -1,0 +1,25 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "name": "机器人核心部件",
+      "wbsType": "悬赏",
+      "bidTime": "2017-10-31 10:00",
+      "bidAmount": "6,000,000",
+      "projectStatus": "流标",
+      "arrivalStatus": "已到账"
+    }
+  ],
+  "pageable": {
+    "totalElements": 3,
+    "numberOfElements": 10,
+    "totalPages": 2,
+    "first": true,
+    "last": false,
+    "size": 10,
+    "number": 3,
+    "fromNumber": 1,
+    "toNumber": 10
+  }
+}

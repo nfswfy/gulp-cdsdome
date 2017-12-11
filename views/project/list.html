@@ -1,0 +1,176 @@
+<!-- BEGIN Portlet PORTLET-->
+<script type="text/ng-template" id="operation.html">
+    <div class="text-center">
+        <!--<a href="javascript:void(0)" class="btn btn-xs green" data-ng-if="!row.discarded" data-ng-click="onActionClick(row,'viewCodeType')">评价 </a>-->
+        <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'evaluate')">评价 </a>
+        <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'change')">变更 </a>
+        <!--<a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row,'enterSpace')">进入项目空间</a>-->
+        <!--<a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row,'viewDemand')">查看需求</a>-->
+        <!--<a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row,'viewContract')">查看合同</a>-->
+    </div>
+</script>
+<script type="text/ng-template" id="viewProject.html">
+    <a href="javascript:void(0)" data-ng-click="onActionClick(row.id,'view')">{{row.project_name}}</a>
+</script>
+<!-- BEGIN Portlet PORTLET-->
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <!--<div> class="pull-left">-->
+                    <!--<button type="button" class="btn button-orange button-offset-margin" ng-click="projectApproval()">-->
+                        <!--&nbsp;<span>立项 </span>-->
+                    <!--</button>-->
+                <!--</div>-->
+                <div class="pull-right">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <select class="form-control" name="projectStatus" data-placeholder="项目状态"
+                                    ng-model="condition.projectStatus" select2>
+                                <option ng-repeat="item in projectTypes"
+                                        ng-value="item.key"
+                                        ng-bind="item.text">
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-inline" autocomplete="off"
+                                   ng-model="condition.projectName"
+                                   placeholder="请输入售前项目"/>
+                        </div>
+                        <button type="button" class="btn button-orange button-offset-margin" ng-click="search()">
+                            &nbsp;<span>查询 </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <ng-table
+                columns="columns"
+                sort="sort"
+                order="order"
+                pageable="pageable"
+                rows="rows">
+        </ng-table>
+    </div>
+</div>
+<!-- END Portlet PORTLET-->
+
+<script type="text/ng-template" id="evaluate.html">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="btn_cancel()"><span
+                aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">评价</h3>
+    </div>
+    <div class="modal-body">
+        <div class="portlet light">
+            <div class="portlet-body form" style="display: block;">
+                <!-- BEGIN FORM-->
+                <form name="form" class="form-horizontal" novalidate>
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">项目内容:</label>
+
+                                <div class="col-md-5">
+                                    <input type="text" name="title" class="form-control"
+                                           required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">评价日期:</label>
+
+                                <div class="col-md-5">
+                                    <div date-time-append="" class="input-group">
+                                        <input name="executionStartTime"
+                                               class="form-control ng-pristine ng-untouched ng-valid ng-scope ng-valid-required"
+                                               required="" autocomplete="off"
+                                               ng-model="model.executionStartTime" date-time="" max-view="year"
+                                               min-view="minutes" format="YYYY-MM-DD HH:mm" auto-close="true">
+                                                        <span class="input-group-btn">
+                                                            <button class="btn default"
+                                                                    style="border-radius: 0 5px 5px 0 !important;padding-top:9px;"
+                                                                    type="button">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </button>
+                                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">完成情况:</label>
+
+                                <div class="col-md-5">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">完成质量:</label>
+
+                                <div class="col-md-5">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">技术能力:</label>
+
+                                <div class="col-md-5">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">服务态度:</label>
+
+                                <div class="col-md-5">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">说明:</label>
+
+                                <div class="col-md-8">
+                      <textarea
+                              name="description"
+                              class="form-control"
+                              rows="3"
+                              placeholder="请输入"
+                              autocomplete="off" maxlength="255" ng-maxlength="255"
+                              ng-model="model.description">
+                                            </textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn blue" data-dismiss="modal" ng-click="btn_ok()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>确定 </span>
+        </button>
+        <button type="button" class="btn" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-close" aria-hidden="true"></i>&nbsp;<span>取消 </span>
+        </button>
+    </div>
+</script>

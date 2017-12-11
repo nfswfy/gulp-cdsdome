@@ -1,0 +1,316 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left" style="font-size: 160%;color:#808080;"></span></span></span></a>
+            <button type="submit" class="btn button-orange" ng-if="type=='FOUND'" ng-click="edit(form)">&nbsp;<span>编辑 </span></button>
+            <button type="button" class="btn button-orange" ng-if="type=='JOIN'" ng-click="leave(form)">&nbsp;<span>退出企业 </span></button>
+            <button type="button" class="btn button-orange" ng-if="type=='FOUND'" ng-click="logout(form)">&nbsp;<span>注销企业 </span></button>
+        </div>
+    </div>
+
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    企业基本信息
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body company-content">
+                            <div class=" pull-left " style="width:13%;">
+                                <img src="" style="width:78px;height:78px;margin-bottom:15px"/>
+                            </div>
+                            <div class=" pull-left " style="width:79%;">
+                                <div class="row"><label class="col-md-8" style="margin-left:16px;font-size:15px;">{{model.name}}</label></div>
+                                <div class="row" >
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">企业联系人 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.legalPersonName}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">联系电话 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.tel}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">企业主页 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.homepageUrl}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">企业地址 :</label>
+                                            <label class="col-md-9 form-control-label">
+                                                {{model.address}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">企业简介 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.enterpriseProfiles}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="type=='FOUND'" class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    企业认证信息
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="type=='FOUND'" class="panel-body">
+        <div>
+            <div class="portlet light bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="half-page eidt-pull-left">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">企业性质 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.enterpriseNatureCode}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">企业规模 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.companySizeCode}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">注册资本 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.registeredCapital}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">组织机构代码证号 :</label>
+                                            <label class="col-md-9 form-control-label">
+                                                {{model.certificatesNumber}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">代码证有效日期 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.startEffectiveTime | timestampToDate}}至{{model.endEffectiveTime | timestampToDate}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">企业业务范围 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.businessScope}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">企业注册地址  :</label>
+                                            <label class="col-md-9 form-control-label">{{model.registeredAddress}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">业务领域 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.industryField}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">设计类别 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.designType}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">设计师规模 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.designerSizeCode}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">企业研究方向 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.researchDirection}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <!--<label class="control-label col-md-3">代码证有效日期 :</label>-->
+                                            <!--<label class="col-md-9 form-control-label">{{model.sortNum}}</label>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="half-page eidt-pull-right">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">企业营业执照 :</label>
+                                            <div class="col-md-8">
+                                                <div class="license-box">
+                                                    <span>营业执照</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">企业组织机构代码证 :</label>
+                                            <div class="col-md-8">
+                                                <div class="license-box">
+                                                    <span>企业机构代码证</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">银行开户许可证 :</label>
+                                            <div class="col-md-8">
+                                                <div class="license-box">
+                                                    <span>银行开户许可证</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">企业法人 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.legalPersonName}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">证件信息 :</label>
+                                            <label class="col-md-9 form-control-label">{{model.legalPersonCertificatesNumber}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">法人证件信息 :</label>
+                                            <div class="col-md-8">
+                                                <div class="license-box pull-left">
+                                                    <span>正面</span>
+                                                </div>
+                                                <div class="license-box pull-left" style="margin-left: 10px">
+                                                    <span>背面</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 label-offset-padding">银行开户许可证 :</label>
+                                            <div class="col-md-8">
+                                                <div class="license-box">
+                                                    <span>企业专业证书</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div style="clear:both"></div>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="type!='APPLY'" class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    企业成员
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="type!='APPLY'" class="panel-body">
+        <div>
+
+            <ng-table
+                    columns="columns"
+                    sort="sort"
+                    order="order"
+                    pageable="pageable"
+                    rows="rows">
+            </ng-table>
+    </div></div>
+
+</div>
+
+<script type="text/ng-template" id="operation.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'delete')"> 删除 &nbsp;</a>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,482 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left"
+                                                                    style="font-size: 160%;color:#808080;"></span></span></span>
+            </a>
+        </div>
+    </div>
+
+
+    <!--合同基本信息-->
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    合同基本信息
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">需求名称 :</label>
+                                        <label class="col-md-8 form-control-label">{{model.contractValidOrderName}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">客户名称 :</label>
+                                        <label class="col-md-8 form-control-label">{{model.customerName}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">合同名称 :</label>
+                                        <label class="col-md-8 form-control-label">{{model.contractName}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">合同总金额 :</label>
+                                        <label class="col-md-8 form-control-label">{{model.contractAccount | FenZhuanWanFilter}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">合同开始日期 :</label>
+                                        <label class="col-md-8 form-control-label">{{model.contractStartTime}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">合同结束日期 :</label>
+                                        <label class="col-md-8 form-control-label">{{model.contractEndTime}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">合同签署日期 :</label>
+                                        <label class="col-md-8 form-control-label">{{model.contractSigningTime}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">阶段收款次数 :</label>
+                                        <!--<label class="col-md-8 form-control-label">{{model.collectionTimesName}}</label>-->
+                                        <label class="col-md-8 form-control-label">{{model.collectionTimes}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">创建时间 :</label>
+                                        <label class="col-md-8 form-control-label">{{model.createTime}}</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">创建人 :</label>
+                                        <label class="col-md-8 form-control-label">{{model.contractCreatorName}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--ningyuxue 要做文件上传-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">合同正文 :</label>
+                                        <a href="javascript:void(0)" ng-click="downloadContractOne()">下载</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">合同附件 :</label>
+                                        <a href="javascript:void(0)" ng-click="downloadContractAttach()">下载</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--客户账户信息-->
+    <div ng-show="showCustomerInfo">
+        <div class="panel-heading">
+            <div class="portlet-title">
+                <div class="caption">
+                    <div class="one-border">
+                        客户账户信息
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <div class="portlet light  bordered">
+                    <div class="portlet-body form" style="display: block;">
+                        <!-- BEGIN FORM-->
+                        <form name="form" class="form-horizontal" novalidate>
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">企业名称 :</label>
+                                            <!--ningyuxue 根据企业客户id获取企业名称-->
+                                            <label class="col-md-8 form-control-label">{{model.enterpriseCustomerId}}</label>
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-md-6">-->
+                                        <!--<div class="form-group">-->
+                                            <!--&lt;!&ndash;ningyuxue 没找着税号&ndash;&gt;-->
+                                            <!--<label class="control-label col-md-4">税号 :</label>-->
+                                            <!--<label class="col-md-8 form-control-label">{{model.parentTitle}}</label>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">开户银行 :</label>
+                                            <label class="col-md-8 form-control-label">{{model.customerBankId}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">开户账号 :</label>
+                                            <label class="col-md-8 form-control-label">{{model.customerAccountId}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">地址 :</label>
+                                            <label class="col-md-8 form-control-label">{{model.address}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">电话 :</label>
+                                            <label class="col-md-8 form-control-label">{{model.phone}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END FORM-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div ng-show="showCollectStage">
+        <!--收款阶段-->
+        <div class="panel-heading">
+            <div class="portlet-title">
+                <div class="caption">
+                    <div ng-hide="currentUserRole=='customer'" class="one-border">
+                        收款阶段
+                    </div>
+                    <div ng-show="currentUserRole=='customer'" class="one-border">
+                        付款阶段
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <div class="portlet light">
+                    <div class="portlet-body form" style="display: block;">
+                        <div class="row">
+                            <ng-table
+                                    columns="columnsStage"
+                                    sort="sort"
+                                    order="order"
+                                    pageable="pageable"
+                                    rows="rowsStage"
+                                    notpageable="notpageable">
+                            </ng-table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="showCollectStageWithOperation">
+        <!--收款阶段带‘收款’操作-->
+        <div class="panel-heading">
+            <div class="portlet-title">
+                <div class="caption">
+                    <div class="one-border">
+                        收款阶段
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <div class="portlet light">
+                    <div class="portlet-body form" style="display: block;">
+                        <div class="row">
+                            <ng-table
+                                    columns="columnsStageWithOperation"
+                                    sort="sort"
+                                    order="order"
+                                    pageable="pageable"
+                                    rows="rowsStageWithOperation"
+                                    notpageable="notpageable">
+                            </ng-table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="showCollectRecord">
+        <!--收款记录-->
+        <div class="panel-heading">
+            <div class="portlet-title">
+                <div class="caption">
+                    <div ng-hide="currentUserRole=='customer'" class="one-border">
+                        收款记录
+                    </div>
+                    <div ng-show="currentUserRole=='customer'" class="one-border">
+                        付款记录
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <div class="portlet light">
+                    <div class="portlet-body form" style="display: block;">
+                        <div class="row">
+                            <ng-table
+                                    columns="columnsRecord"
+                                    sort="sort"
+                                    order="order"
+                                    pageable="pageable"
+                                    rows="rowsRecord"
+                                    notpageable="notpageable">
+                            </ng-table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="showTerminatedReason">
+        <!--终止原因-->
+        <div class="panel-heading">
+            <div class="portlet-title">
+                <div class="caption">
+                    <div class="one-border">
+                        终止原因
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <div class="portlet light  bordered">
+                    <div class="portlet-body form" style="display: block;">
+                        <!-- BEGIN FORM-->
+                        <form name="form" class="form-horizontal" novalidate>
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">终止原因 :</label>
+                                            <label class="col-md-8 form-control-label">{{model.contractTerminationReason}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">终止时间 :</label>
+                                            <label class="col-md-8 form-control-label">{{model.contractTerminationTime}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">其他说明 :</label>
+                                            <label class="col-md-10 form-control-label">{{model.contractTerminationRemarks}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">上传附件 :</label>
+                                            <!--ningyuxue 文件下载-->
+                                            <label class="col-md-10 form-control-label">{{model.contractTerminationAccessoryId}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END FORM-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="showAbortedReason">
+        <!--中止原因-->
+        <div class="panel-heading">
+            <div class="portlet-title">
+                <div class="caption">
+                    <div class="one-border">
+                        中止原因
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <div class="portlet light  bordered">
+                    <div class="portlet-body form" style="display: block;">
+                        <!-- BEGIN FORM-->
+                        <form name="form" class="form-horizontal" novalidate>
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">中止原因 :</label>
+                                            <label class="col-md-8 form-control-label">{{model.contractSuspendReason}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">中止时间 :</label>
+                                            <label class="col-md-8 form-control-label">{{model.contractSuspendTime}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">其他说明 :</label>
+                                            <label class="col-md-10 form-control-label">{{model.contractSuspendRemarks}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">上传附件 :</label>
+                                            <!--ningyuxue 下载文件-->
+                                            <label class="col-md-10 form-control-label">{{model.contractSuspendAccessoryId}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END FORM-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="showClosedReason">
+        <!--关闭原因-->
+        <div class="panel-heading">
+            <div class="portlet-title">
+                <div class="caption">
+                    <div class="one-border">
+                        关闭原因
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <div class="portlet light  bordered">
+                    <div class="portlet-body form" style="display: block;">
+                        <!-- BEGIN FORM-->
+                        <form name="form" class="form-horizontal" novalidate>
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">关闭原因 :</label>
+                                            <label class="col-md-8 form-control-label">{{model.contractCloseReason}}</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">关闭时间 :</label>
+                                            <label class="col-md-8 form-control-label">{{model.contractCloseTime}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">其他说明 :</label>
+                                            <label class="col-md-10 form-control-label">{{model.contractCloseRemarks}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">上传附件 :</label>
+                                            <!--ningyuxue 文件下载-->
+                                            <label class="col-md-10 form-control-label">{{model.contractCloseAccessoryId}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- END FORM-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/ng-template" id="operation.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" data-ng-click="onActionClick(row.id,'collect')">
+                收款 </a>
+        </div>
+    </div>
+</script>

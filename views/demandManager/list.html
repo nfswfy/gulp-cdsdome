@@ -1,0 +1,310 @@
+<script type="text/ng-template" id="operation.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'intimidate')"> 打单 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'offer')"> 报价 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'communicate')"> 沟通记录
+                &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'win')"> 赢单 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'defeat')"> 战败 &nbsp;</a>
+            <a ng-if="row.role =='projectManager'||'chiefEngineer'" href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'win')"> 进入商务空间 &nbsp;</a>
+            <a ng-if="row.role =='projectManager'||'chiefEngineer'" href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'defeat')"> 报价 &nbsp;</a>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="orderBrief.html">
+    <a href="javascript:void(0)" data-ng-click="onActionClick(row.id,'viewOrderBrief')"></a>
+</script>
+<script type="text/ng-template" id="customer.html">
+    <a href="javascript:void(0)" data-ng-click="onActionClick(row.id,'viewCustomer')"></a>
+</script>
+<div class="panel panel-default">
+    <div class="row">
+        <div class="col-md-12" style="margin-left:25px">
+            <ul id="manager" class="nav nav-pills">
+                <li class="active"><a href="#intimidate" data-toggle="tab">打单中</a></li>
+                <li><a href="#win" data-toggle="tab">赢单</a></li>
+                <li><a href="#defeat" data-toggle="tab">战败</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="tabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="intimidate">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="dropdown  btn-group pull-left ">
+                                <button type="button" class="btn button-orange button-offset-margin"
+                                        ng-click="create()">
+                                    <span>导入 </span>
+                                </button>
+                            </div>
+                            <div class="pull-right">
+                                <form class="form-inline" role="form">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-inline " autocomplete="off"
+                                               ng-model="condition.query"
+                                               placeholder="请输入售前项目"/>
+                                    </div>
+                                    <button type="button" class="btn button-orange button-offset-margin"
+                                            ng-click="search()">
+                                        &nbsp;<span>查询 </span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-table
+                            columns="columns"
+                            sort="sort"
+                            order="order"
+                            pageable="pageable"
+                            rows="rows"
+                            notpageable="notpageable">
+                    </ng-table>
+                </div>
+            </div>
+        </div><!--打单中-->
+        <div class="tab-pane fade" id="win">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-right">
+                                <form class="form-inline" role="form">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-inline " autocomplete="off"
+                                               ng-model="condition.query"
+                                               placeholder="请输入售前项目"/>
+                                    </div>
+                                    <button type="button" class="btn button-orange button-offset-margin"
+                                            ng-click="search()">
+                                        &nbsp;<span>查询 </span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-table
+                            columns="columns"
+                            sort="sort"
+                            order="order"
+                            pageable="pageable"
+                            rows="rows"
+                            notpageable="notpageable">
+                    </ng-table>
+                </div>
+            </div>
+        </div><!--赢单-->
+        <div class="tab-pane fade" id="defeat">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-right">
+                                <form class="form-inline" role="form">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-inline " autocomplete="off"
+                                               ng-model="condition.query"
+                                               placeholder="请输入售前项目"/>
+                                    </div>
+                                    <button type="button" class="btn button-orange button-offset-margin"
+                                            ng-click="search()">
+                                        &nbsp;<span>查询 </span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-table
+                            columns="columns"
+                            sort="sort"
+                            order="order"
+                            pageable="pageable"
+                            rows="rows"
+                            notpageable="notpageable">
+                    </ng-table>
+                </div>
+            </div>
+        </div><!--战败-->
+    </div>
+</div>
+<script type="text/ng-template" id="defeat.html">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="btn_ok()" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">需求战败</h3>
+    </div>
+    <form name="form" class="form-horizontal" id="operations" novalidate>
+        <div class="form-body">
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group"
+                         ng-class="{ 'has-error' :(form.$submitted )}">
+                        <label class="control-label col-md-4">战败原因<span
+                                class="text-danger">*</span></label>
+                        <div class="col-md-8">
+                            <select class="form-control form-control-inline" style="width: 150px;"
+                                    ng-model="condition.defeatReason" name="defeatReason" select2
+                                    data-placeholder="请选择">
+                                <option value="1" selected="selected">原因1</option>
+                                <option value="2">原因2</option>
+                                <option value="3">原因3</option>
+                                <option value="4">原因4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group"
+                         ng-class="{ 'has-error' :(form.defeatDescription.$touched || form.$submitted ) && form.defeatDescription.$invalid}">
+                        <label class="control-label col-md-4">战败说明<span
+                                class="text-danger">*</span></label>
+                        <div class="col-md-8">
+                    		<textarea name="defeatDescription" class="form-control" placeholder="战败说明"
+                                      required autocomplete="off" maxlength="300" ng-maxlength="300"
+                                      ng-model="model.defeatDescription"/>
+                            <div class="help-block" ng-show="form.$submitted || form.defeatDescription.$touched"
+                                 ng-messages="form.defeatDescription.$error">
+                                <p ng-message="required">战败说明不能为空</p>
+                                <p ng-message="maxlength">战败说明不能大于300个字符</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="modal-footer">
+        <button type="submit" class="btn blue" ng-click="btn_ok(form)">
+            <i class="fa fa-check"></i>&nbsp;<span>确定 </span>
+        </button>
+        <button type="button" class="btn blue" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>取消 </span>
+        </button>
+    </div>
+</script>
+<script type="text/ng-template" id="person.html">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="btn_ok()" data-dismiss="modal" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <h5 class="modal-title">客户联系方式</h5>
+    </div>
+    <form name="form" class="form-horizontal" id="operation" novalidate>
+        <div class="form-body">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="col-md-12 col-md-offset-3 label-title">联系人 :</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="col-md-12 col-md-offset-3" ng-bind="model.name"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="col-md-12 col-md-offset-3 label-title">电话 :</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="col-md-12 col-md-offset-3" ng-bind="model.phone"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="col-md-12 col-md-offset-3 label-title">公司名称 :</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="col-md-12 col-md-offset-3" ng-bind="model.companyName"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="col-md-12 col-md-offset-3 label-title">地址 :</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="col-md-12 col-md-offset-3" ng-bind="model.address"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-orange" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>确定 </span>
+        </button>
+    </div>
+</script>
+<style>
+    .cancelType {
+        border: #999999 solid 1px;
+        border-radius: 3px !important;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding: 6px;
+        text-align: center;
+
+    }
+
+    .cancelType:hover {
+        border: #e44c2a solid 1px;
+        color: #e44c2a;
+        border-radius: 3px !important;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding: 6px;
+        text-align: center;
+
+    }
+
+    .clickType {
+        border: #e44c2a solid 1px;
+        color: #e44c2a;
+        border-radius: 3px !important;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding: 6px;
+        background: transparent url("../../assets/admin/pages/img/icon-selected.png") no-repeat right bottom;
+        text-align: center;
+    }
+
+    .orderHead {
+        background: transparent url("../../assets/admin/pages/img/order-publish-success-bg.png") no-repeat;
+        height: 120px;
+    }
+
+</style>
+
+<!-- END Portlet PORTLET-->

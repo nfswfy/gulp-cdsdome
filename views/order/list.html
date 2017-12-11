@@ -1,0 +1,265 @@
+<script type="text/ng-template" id="operation.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'view')"> 查看 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'edit')"> 编辑 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'delete')"> 删除 &nbsp;</a>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="perfect.html">
+    <div class="modal-header orderHead"></div>
+    <div class="modal-body">
+
+        <div class="portlet-body form" style="display: block;">
+            <!-- BEGIN FORM-->
+            <form name="form" class="form-horizontal" novalidate>
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-md-12"
+                             ng-class="{ 'has-error' :(form.title.$touched || form.$submitted ) && form.title.$invalid}">
+                            <div class="form-group">
+                                <label class="control-label col-md-2 label-offset-padding">需求简述</label>
+                                <div class="col-md-10">
+                                    <input type="text" name="title" class="form-control" placeholder="需求简述"
+                                           required maxlength="50" ng-maxlength="50"
+                                           ng-model="model.title"/>
+                                    <div class="help-block" ng-show="form.$submitted || form.title.$touched"
+                                         ng-messages="form.title.$error">
+                                        <p ng-message="required">需求简述不能为空</p>
+                                        <p ng-message="maxlength">需求简述长度不能超过50字符 </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12"
+                             ng-class="{ 'has-error' :(form.href.$touched || form.$submitted ) && form.href.$invalid}">
+                            <div class="form-group">
+                                <label class="control-label col-md-2 label-offset-padding">需求详情</label>
+                                <div class="col-md-10">
+                                    <input type="text" name="href" class="form-control" placeholder="需求详情"
+                                           maxlength="300" ng-maxlength="300" ng-model="model.href"/>
+                                    <div class="help-block" ng-show="form.$submitted || form.href.$touched"
+                                         ng-messages="form.href.$error">
+                                        <p ng-message="maxlength">需求详情不能超过300字符</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12"
+                             ng-class="{ 'has-error' :(form.href.$touched || form.$submitted ) && form.href.$invalid}">
+                            <div class="form-group">
+                                <label class="control-label col-md-2 label-offset-padding">选择行业</label>
+                                <div class="col-md-10">
+                                    <div class="col-md-6"
+                                         ng-class="{ 'has-error' :(form.unitLevelEnum.$touched || form.$submitted ) && form.unitLevelEnum.$invalid}">
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <select name="unitLevelEnum" class="form-control" placeholder="级别"
+                                                        required ng-model="model.unitLevelEnum" ng-change="changeIndustry()" select2>
+                                                    <option ng-repeat="industry in industrys"
+                                                            value="{{industry.key}}">
+                                                        {{industry.text}}
+                                                    </option>
+                                                </select>
+                                                <div class="help-block"
+                                                     ng-show="form.$submitted || form.unitLevelEnum.$touched"
+                                                     ng-messages="form.unitLevelEnum.$error">
+                                                    <p ng-message="required">级别不能为空</p>
+                                                    <p ng-message="maxlength">级别不能超过18字符 </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12"
+                             ng-class="{ 'has-error' :(form.href.$touched || form.$submitted ) && form.href.$invalid}">
+                            <div class="form-group">
+                                <label class="control-label col-md-2 label-offset-padding">需求类型</label>
+                                <div class="col-md-10">
+                                    <span class="cancelType" ng-repeat="x in orderTypes"
+                                          ng-click="selectType($index)"
+                                          ng-class="{true: 'clickType', false: 'cancelType'}[orderTypes[$index].cssType]">
+                                                {{x.text}}
+                                            </span>
+                                    <div class="help-block" ng-show="form.$submitted || form.href.$touched"
+                                         ng-messages="form.href.$error">
+                                        <p ng-message="maxlength">需求详情不能超过300字符</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12"
+                             ng-class="{ 'has-error' :(form.href.$touched || form.$submitted ) && form.href.$invalid}">
+                            <div class="form-group">
+                                <label class="control-label col-md-2 label-offset-padding">合作方式</label>
+                                <div class="col-md-10">
+                                    <span class="cancelType" ng-repeat="x in cooperationMethods"
+                                          ng-click="selectMethod($index)"
+                                          ng-class="{true: 'clickType', false: 'cancelType'}[cooperationMethods[$index].cssType]">
+                                                {{x.text}}
+                                            </span>
+                                    <div class="help-block" ng-show="form.$submitted || form.href.$touched"
+                                         ng-messages="form.href.$error">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12"
+                             ng-class="{ 'has-error' :(form.href.$touched || form.$submitted ) && form.href.$invalid}">
+                            <div class="form-group">
+                                <label class="control-label col-md-2 label-offset-padding">预计金额</label>
+                                <div class="col-md-10">
+                                    <input type="text" name="href" class="form-control" placeholder="需求详情"
+                                           maxlength="300" ng-maxlength="300" ng-model="model.href"/>
+                                    <div class="help-block" ng-show="form.$submitted || form.href.$touched"
+                                         ng-messages="form.href.$error">
+                                        <p ng-message="maxlength">需求详情不能超过300字符</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12"
+                             ng-class="{ 'has-error' :(form.href.$touched || form.$submitted ) && form.href.$invalid}">
+                            <div class="form-group">
+                                <label class="control-label col-md-2 label-offset-padding">项目周期</label>
+                                <div class="col-md-10">
+                                    <input type="text" name="href" class="form-control" placeholder="项目周期"
+                                           maxlength="300" ng-maxlength="300" ng-model="model.href"/>
+                                    <div class="help-block" ng-show="form.$submitted || form.href.$touched"
+                                         ng-messages="form.href.$error">
+                                        <p ng-message="maxlength">需求详情不能超过300字符</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12"
+                             ng-class="{ 'has-error' :(form.sortNum.$touched || form.$submitted ) && form.sortNum.$invalid}">
+                            <div class="form-group">
+                                <label class="control-label col-md-2 label-offset-padding">附件</label>
+                                <div class="col-md-10">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12" style="text-align: center">
+                            <button type="button" class="btn" ng-click="reset(form)">&nbsp;<span>提交 </span></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- END FORM-->
+        </div>
+    </div>
+</script>
+
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="dropdown  btn-group pull-left ">
+                    <button type="button" class="btn blue" ng-show="backButtonShow" ng-click="back(backParentMenuId)">
+                        <i class="fa fa-mail-reply"></i>&nbsp;<span>返回上一级 </span>
+                    </button>
+                    <button type="button" class="btn button-orange button-offset-margin" ng-click="create()">
+                        <span>新增 </span>
+                    </button>
+                    <button type="button" class="btn button-orange button-offset-margin" ng-click="perfect()">
+                        <span>完善需求 </span>
+                    </button>
+                </div>
+                <div class="pull-right">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control form-control-inline " autocomplete="off"
+                                   ng-model="condition.query"
+                                   placeholder="请输入菜单"/>
+                        </div>
+                        <button type="button" class="btn button-orange button-offset-margin" ng-click="search()">
+                            &nbsp;<span>查询 </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <ng-table
+                columns="columns"
+                sort="sort"
+                order="order"
+                pageable="pageable"
+                rows="rows"
+                notpageable="notpageable">
+        </ng-table>
+    </div>
+</div>
+
+<style>
+    .cancelType {
+        border: #999999 solid 1px;
+        border-radius: 3px !important;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding: 6px;
+        text-align: center;
+
+    }
+
+    .cancelType:hover {
+        border: #e44c2a solid 1px;
+        color: #e44c2a;
+        border-radius: 3px !important;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding: 6px;
+        text-align: center;
+
+    }
+
+    .clickType {
+        border: #e44c2a solid 1px;
+        color: #e44c2a;
+        border-radius: 3px !important;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding: 6px;
+        background: transparent url("../../assets/admin/pages/img/icon-selected.png") no-repeat right bottom;
+        text-align: center;
+    }
+
+    .orderHead{
+        background: transparent url("../../assets/admin/pages/img/order-publish-success-bg.png") no-repeat;
+        height: 120px;
+    }
+
+</style>
+
+<!-- END Portlet PORTLET-->

@@ -1,0 +1,135 @@
+<script type="text/ng-template" id="operation.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'view')"> 查看 &nbsp;</a>
+        </div>
+    </div>
+</script>
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12" style="margin-left:25px">
+            <ul id="customer" class="nav nav-pills">
+                <li class="active"><a href="#person" data-toggle="tab">个人客户</a></li>
+                <li><a href="#company" data-toggle="tab">企业客户</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="tabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="person">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="dropdown  btn-group pull-left ">
+                                <button type="button" class="btn button-orange button-offset-margin"
+                                        ng-click="create()">
+                                    <span>导入 </span>
+                                </button>
+                            </div>
+                            <div class="pull-right">
+                                <form class="form-inline" role="form">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-inline " autocomplete="off"
+                                               ng-model="condition.query"
+                                               placeholder="请输入"/>
+                                    </div>
+                                    <button type="button" class="btn button-orange button-offset-margin"
+                                            ng-click="search()">
+                                        &nbsp;<span>查询 </span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-table
+                            columns="columns"
+                            sort="sort"
+                            order="order"
+                            pageable="pageable"
+                            rows="rows"
+                            notpageable="notpageable">
+                    </ng-table>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="company">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="dropdown  btn-group pull-left ">
+                                <button type="button" class="btn button-orange button-offset-margin"
+                                        ng-click="create()">
+                                    <span>导入 </span>
+                                </button>
+                            </div>
+                            <div class="pull-right">
+                                <form class="form-inline" role="form">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-inline " autocomplete="off"
+                                               ng-model="condition.query"
+                                               placeholder="请输入"/>
+                                    </div>
+                                    <button type="button" class="btn button-orange button-offset-margin"
+                                            ng-click="search()">
+                                        &nbsp;<span>查询 </span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-table
+                            columns="columns"
+                            sort="sort"
+                            order="order"
+                            pageable="pageable"
+                            rows="rows"
+                            notpageable="notpageable">
+                    </ng-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .cancelType {
+        border: #999999 solid 1px;
+        border-radius: 3px !important;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding: 6px;
+        text-align: center;
+
+    }
+
+    .cancelType:hover {
+        border: #e44c2a solid 1px;
+        color: #e44c2a;
+        border-radius: 3px !important;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding: 6px;
+        text-align: center;
+
+    }
+
+    .clickType {
+        border: #e44c2a solid 1px;
+        color: #e44c2a;
+        border-radius: 3px !important;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding: 6px;
+        background: transparent url("../../assets/admin/pages/img/icon-selected.png") no-repeat right bottom;
+        text-align: center;
+    }
+
+    .orderHead {
+        background: transparent url("../../assets/admin/pages/img/order-publish-success-bg.png") no-repeat;
+        height: 120px;
+    }
+
+</style>
+
+<!-- END Portlet PORTLET-->

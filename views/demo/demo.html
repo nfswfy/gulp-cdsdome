@@ -1,0 +1,206 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <!--<a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left" style="font-size: 160%;color:#808080;"></span></span></span></a>-->
+        </div>
+    </div>
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    {{$state.current.data.pageTitle}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <button class="btn button-orange" data-toggle="modal" href="#demo1">&nbsp;<span>demo1 </span></button>
+                            <button class="btn button-orange" data-toggle="modal" href="#demo2">&nbsp;<span>demo2 </span></button>
+                            <button class="btn button-orange" data-toggle="modal" href="#demo3">&nbsp;<span>demo3 </span></button>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="demo1" tabindex="-1" role="demo1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-image: url(../../assets/admin/layout/img/banner.png)">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title" style="text-align: center;color:#f86d00 ; font-weight: bold">填写基本信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <div class="portlet">
+                        <div class="portlet-body form">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="control-label label-offset-padding">需求简述</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <textarea type="text" rows="5" name="name" class="form-control" placeholder="请简要输入您的需求"
+                                                  required autocomplete="off" ng-model="model.require" ></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="control-label label-offset-padding">联系方式</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <input type="text" style="border-radius: 0px !important;border: 1px solid #e5e5e5;" name="name" class="form-control-static col-md-6" placeholder="手机号/邮箱"
+                                               autocomplete="off" ng-model="model.name"/>
+                                        <div class="col-md-1"></div>
+                                        <input type="text" style="border-radius: 0px !important;border: 1px solid #e5e5e5;" name="name" class="form-control-static col-md-3 " placeholder="请输入验证码"
+                                               autocomplete="off" ng-model="model.name"/>
+                                        <button type="button" style="border-radius: 0px !important;background-color: #f86d00 " class="btn blue form-control-static col-md-2">立即获取</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group form-md-checkboxes">
+                                        <div class="md-checkbox-inline">
+                                            <div class="md-checkbox has-special" >
+                                                <input type="checkbox" id="checkbox1"  class="md-check" ng-model="checkbox1">
+                                                <label for="checkbox1">
+                                                    <span class="inc"></span>
+                                                    <span class="check"></span>
+                                                    <span class="box"></span>
+                                                    	个人</label>
+                                            </div>
+                                            <div class="md-checkbox has-special" >
+                                                <input type="checkbox" id="checkbox2"  class="md-check" ng-model="checkbox2">
+                                                <label for="checkbox2">
+                                                    <span class="inc"></span>
+                                                    <span class="check"></span>
+                                                    <span class="box"></span>
+                                                    	企业</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <input type="text" style="border-radius: 0px !important;border: 1px solid #e5e5e5;" name="name" class="form-control-static col-md-6" placeholder="地址"
+                                               autocomplete="off" ng-model="model.name"/>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn blue" data-dismiss="modal" style="background-color: #f86d00">立即发布</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="demo2" tabindex="-1" role="demo2" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header" >
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title" style="color:#f86d00 ; font-weight: bold">资源选择</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <div class="portlet">
+                        <div class="portlet-body form">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <select class="form-control">
+                                                <option value="1" selected>全部承担类型</option>
+                                                <option value="2">Option 2</option>
+                                                <option value="3">Option 3</option>
+                                                <option value="4">Option 4</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select class="form-control">
+                                                <option value="1" selected>全部行业领域</option>
+                                                <option value="2">Option 2</option>
+                                                <option value="3">Option 3</option>
+                                                <option value="4">Option 4</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select class="form-control">
+                                                <option value="1" selected>全部专业类型</option>
+                                                <option value="2">Option 2</option>
+                                                <option value="3">Option 3</option>
+                                                <option value="4">Option 4</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" name="name" class="form-control" placeholder="请输入"
+                                                   ng-model="model.name" />
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="button" style="border-radius: 0px !important;background-color: #f86d00 " class="btn blue form-control-static ">查询</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <ng-table
+                                            columns="columns"
+                                            sort="sort"
+                                            order="order"
+                                            pageable="pageable"
+                                            rows="rows"
+                                            notpageable="notpageable">
+                                    </ng-table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="text-align: center">
+                <button type="button" class="btn default" data-dismiss="modal" >取消</button>
+                <button type="button" class="btn blue" data-dismiss="modal" style="background-color: #f86d00">确定</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="demo3" tabindex="-1" role="demo3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title" style="text-align: center;color:#f86d00 ; font-weight: bold">确认</h4>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center">
+                    是否确认？
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default" data-dismiss="modal" >取消</button>
+                <button type="button" class="btn blue" data-dismiss="modal" style="background-color: #f86d00">确认</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

@@ -1,0 +1,344 @@
+/* here you can put your own css to customize and override the theme */
+
+/***
+Rounded Portlets
+***/
+/*
+.portlet {
+	border-radius: 4px !important;
+}
+
+.portlet .portlet-title {
+	border-radius: 4px 4px 0px 0px !important;
+}
+
+.portlet .portlet-body,
+.portlet .portlet-body .form-actions  {
+	border-radius: 0px 0px 4px 4px !important;
+}
+*/
+
+/*
+Change Quick Sidebar Width
+*/
+
+/*
+.page-quick-sidebar-wrapper {
+  right: -370px;
+  width: 370px;
+}
+
+.page-quick-sidebar-open.page-quick-sidebar-push-content .page-sidebar-wrapper {
+  margin-left: -370px;
+}
+
+.page-quick-sidebar-open.page-quick-sidebar-push-content .page-footer {
+  margin-right: 370px;
+  margin-left: -370px;
+}
+
+.page-sidebar-reversed.page-quick-sidebar-open.page-quick-sidebar-push-content .page-sidebar-wrapper {
+  margin-right: 370px;
+}
+
+.page-quick-sidebar-open.page-quick-sidebar-push-content.page-quick-sidebar-full-height .page-header {
+  margin-left: -370px;
+}
+
+.page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-list {
+  width: 370px !important;
+}
+
+.page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-item {
+  width: 370px !important;
+  margin-left: 370px;
+}
+
+.page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-content-item-shown .page-quick-sidebar-list {
+  margin-left: -370px;
+}
+*/
+
+
+
+.light{ margin-top:15px;}
+.panel {margin-bottom: 0px;}
+.page-content-wrapper .page-content {
+    padding: 30px 20px 10px 20px;
+}
+.page-content-wrapper {
+    width: 100%;
+}
+.page-content-wrapper .page-content {
+    padding: 30px 15px 10px 15px;
+}
+
+/**TOP NAV STAR**/
+.page-header.navbar .hor-menu .navbar-nav > li > a {
+    padding: 6px 12px;
+}
+
+.navbar-nav {
+    margin-top: 14px;
+}
+.page-header.navbar .top-menu {
+    height: 30px;
+}
+.page-header.navbar .top-menu .navbar-nav {
+    margin-right: 0px;
+	margin-top:0px;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown {
+    height: 30px;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-user .dropdown-toggle {
+       padding: 6px 6px 6px 8px;
+}
+
+.page-header .top-menu .dropdown-quick-sidebar-toggler > .dropdown-toggle {
+    padding: 8px 32px 5px 5px !important;
+}
+.page-quick-sidebar-open .page-quick-sidebar-wrapper {
+    margin-right: 15px;
+}
+
+
+.panel-heading > .portlet-title > .caption {
+    float: left;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 10px 0;
+}
+.panel-heading > .portlet-title > .tools {
+    float: right;
+    display: inline-block;
+    padding: 12px 0 8px 0;
+}
+
+.panel-heading > .portlet-title {
+    padding: 0;
+    min-height: 20px;
+}
+.panel-heading > .portlet-title {
+    padding: 0;
+    margin-bottom: 10px;
+    min-height: 20px;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    -ms-border-radius: 4px 4px 0 0;
+    -o-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+
+.panel-heading {
+    padding: 5px 15px;
+}
+
+.btn-circle {
+    border-radius: 30px !important;
+}
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #BFBFBF;
+}
+.btn-default {
+    border-width: 1px;
+    padding: 3px 9px;
+}
+.panel-heading > .portlet-title > .tools {
+    float: right;
+    display: inline-block;
+    padding: 2px 0 8px 0;
+}
+.nav-tabs > li.active {
+    border-bottom: 1px solid #878E96;
+}
+
+.feeds li .col1 > .cont > .cont-col2 > .desc {
+  color: #496482;
+}
+
+
+.form-group {
+   margin-bottom: 0px;
+}
+.collapse.in {
+    display: block;
+   /* height: 50px; */
+}
+
+
+body{  font-family: "Microsoft YaHei" ! important;}
+.page-header.navbar .hor-menu .navbar-nav {
+    position: static;
+    margin-right: 15px;
+}
+
+.page-footer {
+    padding: 18px 20px 28px 20px;}
+.page-footer .page-footer-inner {
+    color: #616161;
+}
+
+.page-quick-sidebar-wrapper {
+    z-index: 9999;
+}
+.page-quick-sidebar-wrapper .page-quick-sidebar .nav-justified > li.active > a {
+    background: #9099a3;
+}
+.page-quick-sidebar-wrapper .page-quick-sidebar {
+    background: #a2aab3;
+}
+.page-quick-sidebar-wrapper {
+    background: #a2aab3;
+}
+.mar{
+	margin-left:60px;}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+
+    border-left: 1px solid #e9e9e9;
+}
+
+.page-header.navbar {
+    background-color: #42B188;
+}
+
+
+.btn {
+    border-width: 0;
+    padding: 7px 14px;
+    font-size: 14px;
+    outline: none !important;
+    background-image: none !important;
+    filter: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+div, input, select, textarea, span, img, table, label, td, th, p, a, button, ul, code, pre, li {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Inherited from div.panel-body
+.panel .panel-body {
+    font-size: 13px;
+}
+Inherited from body.page-header-fixed.page-quick-sidebar-over-content
+body {
+    font-family: "Microsoft YaHei" ! important;
+}
+body {
+    color: #333333;
+    font-family: "Open Sans", sans-serif;
+    padding: 0px !important;
+    margin: 0px !important;
+    font-size: 13px;
+    direction: ltr;
+}
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+Inherited from html.no-js
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+Pseudo ::before element
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Pseudo ::after element
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.green.btn {
+    color: #FFFFFF;
+    background-color: #42B188;
+}
+
+.blue.btn {
+    color: #FFFFFF;
+    background-color: #E8A01D;
+}
+.red.btn {
+    color: #FFFFFF;
+    background-color: #E66565;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-user > .dropdown-toggle > .username {
+    color: #EAEAEA;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-user > .dropdown-toggle > i {
+    color: #EFEFEF;
+}
+.page-header.navbar .top-menu .navbar-nav > li.dropdown .dropdown-toggle > i {
+    color: #EAEAEA;
+}
+.btn-default{
+	background:none;}
+	.label.label-sm {
+    padding: 6px;
+    margin: 4px;
+	cursor:pointer;}
+	.label-success {
+    background-color: #42B188;
+}
+.label-warning {
+    background-color: #42B188;
+}
+.badge-primary {
+    background-color: #42B188;
+    background-image: none;
+}
+.table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 1px solid #ddd;
+}
+.blue.btn:hover {
+    color: #FFFFFF;
+    background-color: #CA8B19;
+}

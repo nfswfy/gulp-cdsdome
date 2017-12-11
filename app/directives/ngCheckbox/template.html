@@ -1,0 +1,17 @@
+<div style="padding-bottom: 20px;">
+    <div class="form" style="margin-top: 16px">
+        <div class="row">
+            <div class="col-md-2" style="text-align: right">
+                <span style="color: #b4b4b4;font-size: 14px">{{name}}:</span>
+            </div>
+            <div class="col-md-10">
+                <span ng-show="allbtn" class="cancelType"
+                      ng-class="{true: 'clickType', false: 'cancelType'}[cssType[englishname]]"
+                      ng-click="clickAll()">全部</span>
+                <span class="cancelType" ng-repeat="x in rows"
+                      ng-click="change($index)"
+                      ng-class="{true: 'clickType', false: 'cancelType'}[rows[$index].cssType]">{{x.text}}</span>
+            </div>
+        </div>
+    </div>
+</div>

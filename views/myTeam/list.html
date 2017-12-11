@@ -1,0 +1,125 @@
+<div class="panel">
+    <!--<div class="panel-heading" style="margin-top:-5px">-->
+        <!--<div class="portlet-title">-->
+            <!--<div class="caption">-->
+                <!--<div class="one-border">-->
+                    <!--{{$state.current.data.pageTitle}}-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--页头Tab页-->
+    <div class="row">
+        <div class="col-md-12" style="margin-left:25px;">
+            <ul class="nav nav-pills nav-border-list">
+                <li class="active"><a href="#publiced" data-toggle="tab" ng-click="myCreateTeam()">我创建的团队</a></li>
+                <li><a href="#joined" data-toggle="tab" ng-click="myJoinTeam()">我加入的团队</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--内容开始-->
+    <div class="panel-body">
+        <!--创建团队Tab-->
+        <div ng-show="currentTab=='create'">
+            <div ng-show="!rowsCreate" class="portlet light  bordered">
+                <div class="portlet-body form panel-height">
+                    <div class="noneData-btn-group">
+
+                        <div class="noneData-img">
+                            <img src="../../assets/admin/pages/img/unhappy.png">
+                        </div>
+                        <span style="margin-left: 20px">还没有创建团队，<a ng-click="gotoCreate()">去创建</a></span>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="rowsCreate" class="tab-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="pull-right">
+                            <form class="form-inline" role="form">
+                                <button type="button" class="btn button-border-orange button-offset-margin"
+                                        ng-click="createTeam()">
+                                    &nbsp;<span>创建团队 </span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <ng-list
+                        half="half"
+                        barconfig="barConfigCreate"
+                        pageable="pageable"
+                        rows="rowsCreate"
+                        notpageable="notpageable">
+                </ng-list>
+            </div>
+        </div>
+
+
+        <!--加入团队Tab-->
+        <div ng-show="currentTab=='join'">
+            <div ng-show="!rowsJoin" class="portlet light  bordered">
+                <div class="portlet-body form panel-height">
+                    <div class="noneData-btn-group">
+
+                        <div class="noneData-img">
+                            <img src="../../assets/admin/pages/img/unhappy.png">
+                        </div>
+                        <span style="margin-left: 20px">还没有加入团队，<a ng-click="gotoJoin()">去加入</a></span>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="rowsJoin" class="tab-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="pull-right">
+                            <form class="form-inline" role="form">
+                                <button type="button" class="btn button-border-orange button-offset-margin"
+                                        ng-click="applyForJoin()"><span>申请加入团队 </span>
+                                </button>
+                                <button type="button" class="btn button-border-orange button-offset-margin"
+                                        ng-click="viewMyApply()"><span>查看申请历程 </span>
+                                </button>
+                                <button type="button" class="btn button-border-orange button-offset-margin"
+                                        ng-click="viewAllInviteMe()"><span>查看邀请历程 </span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <ng-list
+                        barconfig="barConfigJoin"
+                        pageable="pageable"
+                        rows="rowsJoin"
+                        notpageable="notpageable">
+                </ng-list>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--创建团队表内按钮-->
+<script type="text/ng-template" id="myCreateTeamOperation.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="btn btn-no-padding" data-ng-click="onActionClick(row.id,'inviteJoin')">
+                邀请成员加入 </a>
+            <a href="javascript:void(0)" class="btn btn-no-padding" data-ng-click="onActionClick(row.id,'viewAllJoin')">
+                查看加入申请</a>
+            <a href="javascript:void(0)" class="btn btn-no-padding" data-ng-click="onActionClick(row.id,'viewMyInvite')">
+                查看邀请历程</a>
+        </div>
+    </div>
+</script>
+
+
+<!--加入团队表内按钮-->
+<script type="text/ng-template" id="myJoinTeamOperation.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="btn button-orange" data-ng-click="onActionClick(row.id,'quitTeam')">
+                退出团队 </a>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,122 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left"
+                                                                    style="font-size: 160%;color:#808080;"></span></span></span>
+            </a>
+            <button type="submit" class="btn button-orange" ng-click="save(condition)">&nbsp;<span>保存 </span></button>
+            <button type="submit" class="btn button-orange" ng-click="submit(condition)">&nbsp;<span>提交 </span></button>
+            <button type="button" class="btn button-orange" ng-click="reset(form)">&nbsp;<span>重置 </span></button>
+        </div>
+    </div>
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    基本信息
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">项目名称 :</label>
+                                        <label class="col-md-9 form-control-label">{{model.project_name}}</label>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">项目预计结束时间 :</label>
+                                        <label class="col-md-9 form-control-label">{{model.project_plan_end_time | timestampToDate}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    变更信息
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form1" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">变更类型:</label>
+
+                                        <div class="col-md-7" style="margin-top: -6px;margin-bottom: 6px;">
+                                            <select class="form-control" name="projectStatus" data-placeholder="项目状态"
+                                                    ng-model="condition.projectStatus" select2>
+                                                <option ng-repeat="item in changeType"
+                                                        ng-value="item.key"
+                                                        ng-bind="item.text">
+                                                </option>
+                                            </select>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-1" style="margin-left: 46px;">变更内容:</label>
+
+                                        <div class="col-md-9">
+                                            <textarea
+                                                    name="description"
+                                                    class="form-control"
+                                                    rows="5"
+                                                    placeholder="请输入"
+                                                    autocomplete="off" maxlength="255" ng-maxlength="255"
+                                                    ng-model="condition.description">
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3" style="margin-top: 7px;">附件:</label>
+                                        <div class="col-md-3">
+                                            <button type="submit" class="btn button-orange" ng-click="upload()">
+                                                &nbsp;<span>点击上传</span></button>
+                                        </div>
+                                        <label class="control-label col-md-5" style="margin-top: 7px; margin-left: -28px;">限 doc/excel 文件，且不超过 500KB</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left" style="font-size: 160%;color:#808080;"></span></span></span></a>
+        </div>
+    </div>
+
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    {{$state.current.data.pageTitle}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                <!-- BEGIN FORM-->
+                <form name="form" class="form-horizontal" novalidate>
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">菜单标题 :</label>
+                                    <label class="col-md-9 form-control-label">{{model.title}}</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">父菜单 :</label>
+                                    <label class="col-md-9 form-control-label">{{model.parentTitle}}</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">跳转地址 :</label>
+                                    <label class="col-md-9 form-control-label">{{model.href}}</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">菜单图标 :</label>
+                                    <label class="col-md-9 form-control-label">
+                                        <i class="{{model.className}}"></i>
+                                        &nbsp;
+                                        {{model.className}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">排序位置 :</label>
+                                    <label class="col-md-9 form-control-label">{{model.sortNum}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+    </div>
+</div>

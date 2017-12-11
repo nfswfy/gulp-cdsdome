@@ -1,0 +1,121 @@
+<div class="panel">
+    <div class="panel-heading" style="margin-top:-5px">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    {{$state.current.data.pageTitle}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-md-12" style="margin-left:25px;">
+            <ul id="company" class="nav nav-pills nav-border-list">
+                <li class="active"><a href="#publiced" data-toggle="tab">我创建的企业</a></li>
+                <li><a href="#joined" data-toggle="tab">我加入的企业</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div ng-if="!rows" class="portlet light  bordered">
+                <div ng-if="flag" class="portlet-body form panel-height">
+                    <div class="noneData-btn-group">
+                        <div class="noneData-img">
+                            <img src="">
+                        </div>
+                        <span>还没有创建企业，<a ng-click="create(form)">去创建</a></span>
+                    </div>
+                </div>
+                <div ng-if="flag" class="portlet-body form panel-height">
+                    <div class="noneData-btn-group">
+                        <div class="noneData-img">
+                            <img src="">
+                        </div>
+                        <span>还没有加入企业，<a ng-click="goToApply()">去申请</a></span>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="rows" id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="publiced">
+                    <div class="row">
+                        <button type="submit" class="btn none-data-btn pull-right" style="margin-right:15px;" ng-click="create(form)"><span>创建企业</span></button>
+                    </div>
+                    <div class="">
+                        <ng-list
+                                half="half"
+                                barconfig="barConfigCreate"
+                                urlparameters = "urlparameters"
+                                pageable="pageable"
+                                rows="rows"
+                                notpageable="notpageable">
+                        </ng-list>
+                        <!--<div>-->
+                        <!--<div class="tab-list-logo pull-left"><img src="../../assets/admin/layout/img/facebook.png"/></div><img src=""/>-->
+                        <!--<div class="tab-list-content pull-left">-->
+                        <!--<p class="tab-list-title">hkhk很快就可</p>-->
+                        <!--<p class="tab-list-type">企业 <span>就是框架发xxxxxxxx/</span></p>-->
+                        <!--</div>-->
+                        <!--<div class=" pull-right" style="margin-top:27px;margin-right:10px">-->
+                        <!--<button type="submit" class="btn btn-no-padding" ng-click="create(form)"><span>退出企业</span></button>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="joined">
+                    <div class="row">
+                        <button type="submit" class="btn none-data-btn pull-right" style="margin-right:15px;" ng-click="invite(form)"><span>查看邀请历程</span></button>
+                        <button type="submit" class="btn none-data-btn pull-right" style="margin-right:15px;" ng-click="apply(form)"><span>查看申请历程</span></button>
+                        <button type="submit" class="btn none-data-btn pull-right" style="margin-right:15px;" ng-click="goToApply()"><span>申请加入企业</span></button>
+
+                    </div>
+                        <div class="">
+                            <ng-list
+                                    half="half"
+                                    barconfig="barConfigCreate"
+                                    urlparameters="urlparameters"
+                                    pageable="pageable"
+                                    rows="rows"
+                                    notpageable="notpageable">
+                            </ng-list>
+                            <!--<div>-->
+                                <!--<div class="tab-list-logo pull-left"><img src="../../assets/admin/layout/img/facebook.png"/></div><img src=""/>-->
+                                <!--<div class="tab-list-content pull-left">-->
+                                    <!--<p class="tab-list-title">hkhk很快就可</p>-->
+                                    <!--<p class="tab-list-type">企业 <span>就是框架发xxxxxxxx/</span></p>-->
+                                <!--</div>-->
+                                <!--<div class=" pull-right" style="margin-top:27px;margin-right:10px">-->
+                                    <!--<button type="submit" class="btn btn-no-padding" ng-click="create(form)"><span>退出企业</span></button>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--创建团队表内按钮-->
+<script type="text/ng-template" id="myCreateTeamOperation.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="btn btn-no-padding" data-ng-click="onActionClick(row.id,'invitePeople')">
+                邀请成员加入 </a>
+            <a href="javascript:void(0)" class="btn btn-no-padding" data-ng-click="onActionClick(row.id,'applyJoin')">
+                查看加入申请</a>
+            <a href="javascript:void(0)" class="btn btn-no-padding" data-ng-click="onActionClick(row.id,'inviteHistory')">
+                查看邀请记录</a>
+        </div>
+    </div>
+</script>
+
+
+<!--加入团队表内按钮-->
+<script type="text/ng-template" id="myJoinTeamOperation.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="btn btn-no-padding" data-ng-click="onActionClick(row.id,'leave')">
+                退出企业 </a>
+        </div>
+    </div>
+</script>
+</div>

@@ -1,0 +1,178 @@
+<script type="text/ng-template" id="operation.html">
+    <div class="row">
+        <div class="text-center">
+            <!--<a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'view')"> 查看 &nbsp;</a>-->
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'reply')"> 回复1 &nbsp;</a>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="portal.html">
+    <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'view')"> {{row.title}}</a>
+</script>
+<!--<script type="text/ng-template" id="operationMail.html">-->
+<!--<div class="row">-->
+<!--<div class="text-center">-->
+<!--<a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'viewMail')"> 查看 &nbsp;</a>-->
+<!--<a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'replyMail')"> 回复 &nbsp;</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</script>-->
+<div class="panel light offset-padding">
+
+        <div class="row">
+            <div class="col-md-12" style="margin-left:25px;">
+                <ul class="nav nav-pills nav-border-list">
+                    <li class="active"><a data-toggle="tab" ng-click="clickEmail()">邮件</a></li>
+                    <li><a data-toggle="tab" ng-click="clickMail()">站内信</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel-body">
+
+
+            <div class="portlet-body form panel-height">
+                <div class="tab-content editTab-content">
+
+
+                    <div ng-show="currentTab=='email'">
+                        <!-- BEGIN Portlet PORTLET-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!--<div class="dropdown btn-group pull-left">-->
+                                <!--<button type="button" class="btn button-orange button-offset-margin"-->
+                                <!--ng-click="emailCreate()">-->
+                                <!--<span>新建邮件 </span>-->
+                                <!--</button>-->
+                                <!--</div>-->
+                                <div class="pull-right">
+                                    <form class="form-inline" role="form">
+                                        <div date-time-append="" class="input-group col-md-5">
+                                            <input name="executionStartTime"
+                                                   class="form-control ng-pristine ng-untouched ng-valid ng-scope ng-valid-required"
+                                                   required="" autocomplete="off"
+                                                   ng-model="model.executionStartTime" date-time="" max-view="year"
+                                                   min-view="minutes" format="YYYY-MM-DD HH:mm" auto-close="true">
+                                            <span class="input-group-btn">
+                                                    <button class="btn default"
+                                                            style="border-radius: 0 5px 5px 0 !important;padding-top:9px;"
+                                                            type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-inline "
+                                                   autocomplete="off" ng-model="condition.query"
+                                                   placeholder="请输入"/>
+                                        </div>
+                                        <button type="button" class="btn button-orange button-offset-margin"
+                                                ng-click="search()">
+                                            &nbsp;<span>查询 </span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <ng-table
+                                columns="columns"
+                                sort="sort"
+                                order="order"
+                                pageable="pageable"
+                                rows="rows"
+                                notpageable="notpageable">
+                        </ng-table>
+                    </div>
+
+
+                    <div ng-show="currentTab=='mail'">
+                        <!-- BEGIN Portlet PORTLET-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="dropdown btn-group pull-left">
+                                    <button type="button" class="btn button-orange button-offset-margin"
+                                            ng-click="mailCreate()">
+                                        <span>新建站内信 </span>
+                                    </button>
+                                </div>
+                                <div class="pull-right">
+                                    <form class="form-inline" role="form">
+
+                                        <div date-time-append="" class="input-group col-md-5">
+                                            <input name="executionStartTime"
+                                                   class="form-control ng-pristine ng-untouched ng-valid ng-scope ng-valid-required"
+                                                   required="" autocomplete="off"
+                                                   ng-model="model.executionStartTime" date-time="" max-view="year"
+                                                   min-view="minutes" format="YYYY-MM-DD HH:mm" auto-close="true">
+                                            <span class="input-group-btn">
+                                                    <button class="btn default"
+                                                            style="border-radius: 0 5px 5px 0 !important;padding-top:9px;"
+                                                            type="button">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-inline "
+                                                   autocomplete="off" ng-model="condition.query"
+                                                   placeholder="请输入"/>
+                                        </div>
+                                        <button type="button" class="btn button-orange button-offset-margin"
+                                                ng-click="search()">
+                                            &nbsp;<span>查询 </span>
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12" style="margin-left:25px;">
+                                        <ul class="nav nav-pills nav-border-list">
+                                            <li class="active"><a data-toggle="tab" ng-click="receiveMail()">我接收的站内信</a></li>
+                                            <li><a data-toggle="tab" ng-click="sendMail()">我发送的站内信</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div ng-show="checkTab=='receive'">
+                                    <!-- BEGIN Portlet PORTLET-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <ng-table
+                                                    columns="columns3"
+                                                    sort="sort"
+                                                    order="order"
+                                                    pageable="pageable"
+                                                    rows="rowsReceive"
+                                                    notpageable="notpageable">
+                                            </ng-table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="checkTab=='send'">
+                                    <!-- BEGIN Portlet PORTLET-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <ng-table
+                                                    columns="columns4"
+                                                    sort="sort"
+                                                    order="order"
+                                                    pageable="pageable"
+                                                    rows="rowsSend"
+                                                    notpageable="notpageable">
+                                            </ng-table>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,40 @@
+{
+  "name": "oa",
+  "version": "0.0.1",
+  "description": "oa",
+  "devDependencies": {
+    "browser-sync": "*",
+    "del": "*",
+    "gulp": "*",
+    "gulp-asset-rev": "*",
+    "gulp-concat": "*",
+    "gulp-if": "*",
+    "gulp-jshint": "*",
+    "gulp-load-plugins": "*",
+    "gulp-minify-css": "^*",
+    "gulp-minify-html": "*",
+    "gulp-sass": "*",
+    "gulp-size": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "gulp-useref": "*",
+    "map-stream": "0.0.7",
+    "run-sequence": "*"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "private": true,
+  "dependencies": {
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^4.0.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^8.1.0",
+    "gulp-rev-collector": "^1.2.3",
+    "jshint": "^2.9.5"
+  }
+  
+}

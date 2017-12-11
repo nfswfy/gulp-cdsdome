@@ -1,0 +1,345 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left"
+                                                                    style="font-size: 160%;color:#808080;"></span>
+            </a>
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-md-12" style="margin-left:25px">
+            <ul id="demandView" class="nav nav-pills">
+                <li class="active"><a href="#demand" data-toggle="tab">原始需求</a></li>
+                <li><a href="#demandSupplement" data-toggle="tab">需求完善</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="tabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="demand">
+            <div class="panel-heading">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <div class="one-border">
+                            基本信息
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <!-- BEGIN FORM-->
+                            <form name="form" class="form-horizontal" novalidate>
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">需求号 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.orderNumber}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">客户类型 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.customerType}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">联系人 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.contractName}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">电话 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.contractPhone}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">行业 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.industryName}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">领域 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.fieldName}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">需求类型 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.orderType}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">合作方式 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.directionOfCooperation}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">预计项目金额 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.estimatedRangeOfItems}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">预计开始时间 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.expectedStartTime}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">需求简述 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.orderBrief}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">需求详情 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.orderDetail}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">附件 :</label>
+                                                <label class="col-md-8 form-control-label">{{model.orderDetail}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-heading">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <div class="one-border">
+                            需求补充
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <!-- BEGIN FORM-->
+                            <form name="form" class="form-horizontal" novalidate>
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div ng-repeat="x in complementList">
+                                                    <p>{{x.complementContent}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="demandSupplement">
+            <div class="panel-heading">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <div class="one-border">
+                            基本信息
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <!-- BEGIN FORM-->
+                            <form name="form" class="form-horizontal" novalidate>
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">需求号 :</label>
+                                                <label class="col-md-8 form-control-label">{{modelImprove.orderNumber}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">来源 :</label>
+                                                <label class="col-md-8 form-control-label">{{modelImprove.orderSource}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">客户类型 :</label>
+                                                <label class="col-md-8 form-control-label">{{modelImprove.customerType}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">联系人 :</label>
+                                                <label class="col-md-8 form-control-label">{{modelImprove.contractName}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">电话 :</label>
+                                                <label class="col-md-8 form-control-label">{{modelImprove.contractPhone}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">行业 :</label>
+                                                <label class="col-md-8 form-control-label">{{modelImprove.industryName}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">领域 :</label>
+                                                <label class="col-md-8 form-control-label">{{modelImprove.fieldName}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">需求类型 :</label>
+                                                <label class="col-md-8 form-control-label">{{modelImprove.orderType}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">合作方式 :</label>
+                                                <label class="col-md-8 form-control-label">{{modelImprove.directionOfCooperation}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">预计项目金额 :</label>
+                                                <label class="col-md-8 form-control-label">{{modelImprove.estimatedRangeOfItems}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">预计开始时间 :</label>
+                                                <label class="col-md-8 form-control-label">{{modelImprove.expectedStartTime}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">需求简述 :</label>
+                                                <label class="col-md-8 form-control-label">{{modelImprove.orderBrief}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">需求详情 :</label>
+                                                <label class="col-md-8 form-control-label">{{modelImprove.orderDetail}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">附件 :</label>
+                                                <label class="col-md-8 form-control-label">{{modelImprove.orderDetail}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-heading">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <div class="one-border">
+                            需求补充
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <div class="portlet light  bordered">
+                        <div class="portlet-body form" style="display: block;">
+                            <!-- BEGIN FORM-->
+                            <form name="form" class="form-horizontal" novalidate>
+                                <div class="form-body">
+                                    <div ng-repeat="x in complementList">
+                                        <p>{{x.complementContent}}</p>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-heading">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <div class="one-border">
+                            需求细化列表
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <ng-table
+                        columns="columns"
+                        sort="sort"
+                        order="order"
+                        pageable="pageable"
+                        rows="rows"
+                        notpageable="true">
+                </ng-table>
+            </div>
+        </div>
+    </div>
+
+</div>

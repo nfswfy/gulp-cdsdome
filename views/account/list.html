@@ -1,0 +1,369 @@
+<script type="text/ng-template" id="deposit.html">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="btn_cancel()"><span
+                aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">提现</h3>
+    </div>
+    <div class="modal-body">
+        <div class="portlet light">
+            <div class="portlet-body form" style="display: block;">
+                <!-- BEGIN FORM-->
+                <form name="form" class="form-horizontal" novalidate>
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">账户余额:</label>
+
+                                <div class="col-md-5">
+                                   {{model.balance}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">提现金额*:</label>
+
+                                <div class="col-md-7">
+                                    <input type="text" name="title" class="form-control" placeholder="请输入"
+                                           required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                </div>
+                                <div class="col-md-1" style="text-align: right;margin-top: 9px;margin-left: -23px;">万</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">开户行:</label>
+
+                                <div class="col-md-6">
+                                    <input type="text" name="title" class="form-control"
+                                           required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                </div>
+                                <div class="col-md-2">
+                                    <a href="javascript:void(0)" class="btn btn-xs "  ng-click="addBankCard(row.id)"style="margin-left: -33px;">添加银行卡 </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">开户人姓名:</label>
+
+                                <div class="col-md-8">
+                                    <input type="text" name="title" class="form-control"
+                                           required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">银行卡号:</label>
+
+                                <div class="col-md-8">
+                                    <input type="text" name="title" class="form-control"
+                                           required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">电话:</label>
+
+                                <div class="col-md-8">
+                                    <input type="text" name="title" class="form-control"
+                                           required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">地址:</label>
+
+                                <div class="col-md-8">
+                                    <input type="text" name="title" class="form-control"
+                                           required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn blue" data-dismiss="modal" ng-click="btn_ok()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>确定 </span>
+        </button>
+        <button type="button" class="btn" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-close" aria-hidden="true"></i>&nbsp;<span>取消 </span>
+        </button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="addBankCard.html">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="btn_cancel()"><span
+                aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">添加银行卡</h3>
+    </div>
+    <div class="modal-body">
+        <div class="portlet light">
+            <div class="portlet-body form" style="display: block;">
+                <!-- BEGIN FORM-->
+                <form name="form" class="form-horizontal" novalidate>
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">开户人姓名:</label>
+                                <div class="col-md-5">
+                                    {{model.name}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">开户行*:</label>
+                                <div class="col-md-8">
+                                    <input type="text" name="title" class="form-control" placeholder="请输入"
+                                           required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">银行卡号*:</label>
+
+                                <div class="col-md-8">
+                                    <input type="text" name="title" class="form-control"placeholder="请输入"
+                                           required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">电话*:</label>
+
+                                <div class="col-md-8">
+                                    <input type="text" name="title" class="form-control" placeholder="请输入"
+                                           required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;margin-top: 9px;">地址:</label>
+
+                                <div class="col-md-8">
+                                    <input type="text" name="title" class="form-control" placeholder="请输入"
+                                           required maxlength="50" ng-maxlength="50" ng-model="model.title"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn blue" data-dismiss="modal" ng-click="btn_ok()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>确定 </span>
+        </button>
+        <button type="button" class="btn" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-close" aria-hidden="true"></i>&nbsp;<span>取消 </span>
+        </button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="depositConfirm.html">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="btn_cancel()"><span
+                aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">提现确认</h3>
+    </div>
+    <div class="modal-body">
+        <div class="portlet light">
+            <div class="portlet-body form" style="display: block;">
+                <!-- BEGIN FORM-->
+                <form name="form" class="form-horizontal" novalidate>
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;">账户余额:</label>
+                                <div class="col-md-5">
+                                    700.00万
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;">提现金额:</label>
+                                <div class="col-md-8">
+                                    100.00万
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;">开户行:</label>
+
+                                <div class="col-md-8">
+                                    招商银行亮马桥支行
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;">开户姓名:</label>
+
+                                <div class="col-md-8">
+                                    王某某
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;">银行卡号:</label>
+
+                                <div class="col-md-8">
+                                   11111111111
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;">电话:</label>
+
+                                <div class="col-md-8">
+                                    18867564567
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label class="control-label col-md-2"
+                                       style="text-align: right;">地址:</label>
+
+                                <div class="col-md-8">
+                                    北京市朝阳区亮马桥21号
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn blue" data-dismiss="modal" ng-click="btn_ok()" aria-hidden="true">
+            <i class="fa fa-check" aria-hidden="true"></i>&nbsp;<span>确定 </span>
+        </button>
+        <button type="button" class="btn" data-dismiss="modal" ng-click="btn_cancel()" aria-hidden="true">
+            <i class="fa fa-close" aria-hidden="true"></i>&nbsp;<span>取消 </span>
+        </button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="viewContractName.html">
+    <a href="javascript:void(0)" data-ng-click="onActionClick(row.id,'view')">{{row.contractName}}</a>
+</script>
+
+<div class="panel">
+    <div class="panel-body">
+        <div>
+            <div class="portlet light  bordered">
+                <div class="portlet-body form" style="display: block;">
+                    <!-- BEGIN FORM-->
+                    <form name="form" class="form-horizontal" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-md-3"   style="border-right: 1px solid #e1e1e1 !important;">
+                                    <div class="row">
+                                        <div class="col-md-offset-5">
+                                            <p>王某</p>
+                                        </div>
+                                    </div>
+                               <div class="row">
+                                   <div class="col-md-offset-5">
+                                       <p>
+                                           VIP10
+                                       </p>
+                                   </div>
+                               </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="col-md-offset-5">
+                                            <p>账户余额(万)</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-offset-5">
+                                            <p>
+                                                800.00
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="submit" class="btn button-orange" ng-click="deposit(row.id)">
+                                        &nbsp;<span>提现 </span></button>
+                                    <a href="javascript:void(0)" class="btn btn-xs "  ng-click="presentRecord(row.id)"style="margin-left: -5px;">提现记录 </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-heading">
+        <div class="portlet-title">
+            <div class="caption">
+                <div class="one-border">
+                    收款记录
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div>
+            <!--<div class="portlet light  bordered">-->
+            <div class="portlet-body form" style="display: block;">
+                <!-- BEGIN FORM-->
+                <!--<form name="form" class="form-horizontal" novalidate>-->
+                <!--<div class="form-body">-->
+                <ng-table
+                        columns="columns"
+                        sort="sort"
+                        order="order"
+                        pageable="pageable"
+                        rows="rows">
+                </ng-table>
+                <!--</div>-->
+                <!--</form>-->
+            </div>
+            <!--</div>-->
+        </div>
+    </div>
+
+
+
+
+
+</div>

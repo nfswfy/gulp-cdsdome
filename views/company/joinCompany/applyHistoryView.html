@@ -1,0 +1,29 @@
+<script type="text/ng-template" id="operationApply.html">
+    <div class="row">
+        <div class="text-center">
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'leave')"> 退出企业 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'cancel')"> 取消申请 &nbsp;</a>
+            <a href="javascript:void(0)" class="blue" data-ng-click="onActionClick(row.id,'delete')"> 删除 &nbsp;</a>
+        </div>
+    </div>
+</script>
+<script type="text/ng-template" id="menuTitle.html">
+    <a href="javascript:void(0)" data-ng-click="onActionClick(row.enterpriseId,'view')" ng-bind="row.enterpriseName"></a>
+</script>
+<div class="panel panel-default">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left" style="font-size: 160%;color:#808080;"></span></span></span></a>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <ng-table
+                columns="columns"
+                sort="sort"
+                order="order"
+                pageable="pageable"
+                rows="rows">
+        </ng-table>
+    </div>
+</div>

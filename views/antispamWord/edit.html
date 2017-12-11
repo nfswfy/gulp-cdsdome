@@ -1,0 +1,70 @@
+<div class="panel">
+    <div class="row">
+        <div class="col-md-12">
+            <a href="#" class="btn backBtn" ng-click="back()"><span class="fa fa-chevron-left" style="font-size: 160%;color:#808080;"></span></span></span></a>
+            <button type="button" class="btn button-orange" ng-click="submit(form)">&nbsp;<span>保存 </span></button>
+            <button type="button" class="btn button-orange" ng-click="reset(form)">&nbsp;<span>重置 </span></button>
+        </div>
+    </div>
+
+
+    <div class="panel-body margin-edit">
+
+            <div class="tab-pane fade in active" id="information">
+                <form name="form" class="form-horizontal" novalidate>
+                    <div class="portlet light bordered" style="margin-top: 20px;">
+                        <div class="portlet-body form" style="display: block;">
+
+                            <!-- BEGIN FORM-->
+                            <div class="form-body">
+                                <div class="half-page eidt-pull-left">
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.name.$touched || form.$submitted ) && form.name.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">敏感词<span
+                                                        class="text-danger">*</span> :</label>
+
+                                                <div class="col-md-8">
+                                                    <input type="text" name="word" class="form-control" placeholder="敏感词"
+                                                           autocomplete="off" maxlength="36" ng-model="model.word" ng-maxlength="36"/>
+
+                                                    <div class="help-block" ng-show="form.$submitted || form.word.$touched"
+                                                         ng-messages="form.word.$error">
+                                                        <p ng-message="">敏感词不能为空</p>
+                                                        <p ng-message="maxlength">敏感词不能超过36个字符</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-12"
+                                             ng-class="{ 'has-error' :(form.homepageUrl.$touched || form.$submitted ) && form.homepageUrl.$invalid}">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 label-offset-padding">词等级 :</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" name="wordLevel" class="form-control" placeholder="词等级"
+                                                           autocomplete="off" maxlength="36" ng-model="model.wordLevel" ng-maxlength="36" ng-minlength="3"/>
+                                                    <div class="help-block" ng-show="form.$submitted || form.homepageUrl.$touched"
+                                                         ng-messages="form.homepageUrl.$error">
+                                                        <p ng-message="maxlength">公司主页不能超过36个字符</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- END FORM-->
+                        </div>
+                        <div style="clear:both">
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>

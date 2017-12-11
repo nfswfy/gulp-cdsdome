@@ -1,0 +1,54 @@
+<script type="text/ng-template" id="operation.html" >
+    <a href="javascript:void(0)" class="btn btn-xs blue" data-ng-click="onActionClick(row.id,'admin')">角色管理</a>
+</script>
+<div class="panel-body" id="questionnaireInfo">
+    <!-- BEGIN Portlet PORTLET-->
+    <div class="panel panel-default light">
+        <div class="panel-heading">
+            <div class="portlet-title">
+                <div class="caption">
+                    <div>
+                        <i class="fa fa-calendar" style="margin-right:3px;"></i>
+                        {{$state.current.data.pageTitle}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pull-left">
+                        <button type="button" class="btn blue" ng-click="create()">
+                           <span>新增 </span>
+                        </button>
+                    </div>
+                    <div class="pull-right">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-inline"
+                                           autocomplete="off" ng-model="condition.name"
+                                           placeholder="请输入姓名"/>
+                                </div>
+                            </div>
+                            <button type="button" class="btn blue" ng-click="search()">
+                                <span>查询 </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <ng-table
+                    columns="columns"
+                    sort="sort"
+                    order="order"
+                    pageable="pageable"
+                    rows="rows"
+                    notpageable="notpageable">
+            </ng-table>
+
+        </div>
+    </div>
+    <!-- END Portlet PORTLET-->
+</div>
+</div>
